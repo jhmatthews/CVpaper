@@ -1,0 +1,50 @@
+%% file: AABIB.STY = LaTeX style for use with BibTeX style AABIB.BST
+%% last: Feb 26, 1994
+% Use with A&A LaTeX or for ApJ.
+% Adapted from RRBIB.STY which was adapted from ASTRON.STY by Sake Hogeveen.
+% Rob Rutten, Sterrekundig Instituut Utrecht, January 1991.
+% Modification by Louis Strous Feb 1995
+
+\@ifundefined{chapter}{\def\thebibliography#1{
+\section*{References}                          %AA  put back into
+%%  \@mkboth                                    %RR  taken out
+%%  {REFERENCES}{REFERENCES}}                   %RR  taken out
+  \list
+  {\relax}{\setlength{\labelsep}{0em}
+        \setlength{\parsep}{0pt}
+        \setlength{\leftmargin}{\bibhang}}
+    \def\newblock{\hskip .11em plus .33em minus .07em}
+    \sloppy\clubpenalty4000\widowpenalty4000
+    \sfcode`\.=1000\relax}}%
+{\def\thebibliography#1{
+%% \chapter*{Bibliography\@mkboth               %RR taken out
+%%  {BIBLIOGRAPHY}{BIBLIOGRAPHY}}               %RR taken out
+  \list
+  {\relax}{\setlength{\labelsep}{0em}
+        \setlength{\itemindent}{-\bibhang}
+        \setlength{\itemsep}{\parskip}          %RR instead op 0pt
+        \setlength{\parsep}{0pt}
+        \setlength{\leftmargin}{\bibhang}}
+    \def\newblock{\hskip .11em plus .33em minus .07em}
+    \sloppy\clubpenalty4000\widowpenalty4000
+    \sfcode`\.=1000\relax}}
+
+%\newlength{\bibhang}
+\setlength{\bibhang}{1.4em}        %AA 1.4em    %RR 4x instead of 1.4em
+
+\let\@internalcite\cite
+\def\cite{\@ifstar{\citeparen}{\citefull}}
+\def\citefull{\def\astroncite##1##2{##1\ ##2}\@internalcite}    % A Y
+\def\citeparen{\def\astroncite##1##2{##1\ (##2)}\@internalcite} % A (Y)
+\def\citeyear{\def\astroncite##1##2{##2}\@internalcite}         % Y
+
+\def\@citex[#1]#2{\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+  \def\@citea{}\@cite{\@for\@citeb:=#2\do
+    {\@citea\def\@citea{; }\@ifundefined       %RR??   %RR comma instead of ;
+       {b@\@citeb}{{\bf ??}\@warning              %RR extra ?
+       {Citation `\@citeb' on page \thepage \space undefined}}%
+{\csname b@\@citeb\endcsname}}}{#1}}
+
+\def\@cite#1#2{#1\if@tempswa #2\fi}       %RR parentheses and comma out
+\def\@biblabel#1{}
+
