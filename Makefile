@@ -1,3 +1,9 @@
+##################################
+#
+# Makefile for pdflatex with bibliography
+#
+##################################
+
 FILE=paper
 
 all: 
