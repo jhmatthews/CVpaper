@@ -1,9 +1,9 @@
 %%%% Various options for document class.
-\documentclass[usenatbib, a4paper]{mn2e}
-%%\documentclass[preprint2, a4paper, 11pt]{aastex}
+%\documentclass[usenatbib, a4paper]{preprint}
+%\documentclass[preprint, a4paper, 11pt]{aastex}
 %%\documentclass[twocolum]{revtex4}
 %%\documentclass{report}
-% \documentclass[useAMS,usenatbib,referee]{mn2e}
+\documentclass[useAMS,usenatbib, onecolumn]{mn2ejm}
 
 %\usepackage{psfig,morefloats,url}
 %use preprint2 for 2 columns paper.
@@ -26,7 +26,8 @@
 %% This command added as margins are wrong in mn2e, it appears. 
 %% Not needed for other classes
 
-
+%% This is the end of the preamble.  Indicate the beginning of the
+%% paper itself with \begin{document}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -57,16 +58,12 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title[Optical Lines from CV Disk Winds]
-{The Disk Wind Contribution to Optical Lines in Cataclysmic Variables}
 
-\author[Matthews et al.]{J.~H.~Matthews$^1$\thanks{jm8g08@soton.ac.uk},C.~Knigge,$^1$ K.~S.~Long,$^2$ S.~A.~Sim,$^3$ and N.~Higginbottom$^1$
-\medskip  
-\\$^1$School of Physics and Astronomy, University of Southampton, Highfield, Southampton, SO17 1BJ, United Kingdom
-\\$^2$Space Telescope Science Institute, 3700 San Martin Drive, Baltimore, MD, 21218
-\\$^3$School of Mathematics and Physics, Queens University Belfast, University Road, Belfast, BT7 1NN, Northern Ireland, UK}
-
-\date{\today}
+\title{The Disk Wind Contribution to the Optical Spectra of Cataclysmic Variables}
+\author{J. H.
+  Matthews, C. Knigge, K. S. Long, S. A. Sim \& N. Higginbottom}
+%%\altaffiltext{1}{School of Physics \& Astronomy, University of Southampton,
+  %%Southampton, SO17 1BJ, UK}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -74,27 +71,24 @@
 %          ABSTRACT
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \maketitle
-
-%% This is the end of the preamble.  Indicate the beginning of the
-%% paper itself with \begin{document}.
-
-
 
 
 \begin{abstract}
-Disk-dominated High-State Cataclysmic Variable systems (CVs) exhibit strong emission in optical recombination lines.
-Here we present results obtained by improving a Monte Carlo radiative transfer code originally used
-to model UV resonance lines in CVs, which show the potential contribution to these optical lines
-from a line driven accretion disk wind.
+High-State non-magnetic Cataclysmic Variable systems (CVs) exhibit strong emission in Hydrogen \& Helium 
+optical recombination lines. Here we present results obtained by encorporating a macro atom treatment into
+our Monte Carlo radiative transfer code originally used
+to model UV resonance lines in CVs, \py. Our benchmark CV model is capable of producing
+all of the notable optical lines (e.g. He II 4686, H${\alpha}$, He I), as well as
+enchanced emission in the Ly-$\alpha$ and He II $1640$ UV lines.
+In addition, the improved treatment of recombination means that the bound-free continuum
+emission is sufficient to mask the so-called `Balmer jump' photoabsorption edge, 
+suggesting a potential solution to a longstanding problem. 
 \end{abstract}
 
-
-\begin{keywords}
-Cataclysmic Variables - quasars: absorption lines - radiative transfer - 
-methods: numerical.
-\end{keywords}
-
+%%\maketitle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %          INTRODUCTION
@@ -103,15 +97,30 @@ methods: numerical.
 
 \section{Introduction} 
 
-Cataclysmic Variables (CVs), are systems in which a white dwarf accretes matter from a donor star
-via Roche-lobe overflow. In Disk-dominated CVs, this accretion is mediated by an accretion disk which forms 
-around the white dwarf, and it has been shown that the spectra of high state CVs
-exhibit absorption features believed to be caused by an outflow, potentially line-drive,
-rising from the accretion disk. 
+Non-magnetic Cataclysmic Variables (CVs), are systems in which a white dwarf accretes matter from a donor star
+through Roche-lobe overflow onto an accretion disk. It has been shown that the spectra of high state CVs
+exhibit absorption features believed to be caused by an outflow, potentially line-driven,
+rising from the accretion disk \citep{cordova1982}. 
+The ultraviolet spectra of CVs, in particular, exhibit P-Cygni like profiles in resonance lines such as 
+NV, OVI and, most commonly, CIV. This hints at the possibility of the wind being line driven, 
+as these resonance lines must experience a line force if they are photoionised by a disk or other photon source
+close to the centre of the system.
 
-The ultraviolet spectra of CVs, in particular, exhibity P-Cygni like profiles in resonance lines such as 
-NV, OVI and, most commonly, CIV.
 
+Multiple attempts have been made to model UV wind spectra by treating the wind
+as a biconical flow arising from the accretion disk, and conducting radiative transfer simulations to attempt
+to reproduce the resonance lines that appear in the spectra. The first generation of models
+applied knowledge gleaned from stellar wind modeling to the problem (Mauche \& Raymond
+1987; Drew 1987; Vitello \& Shlosman 1988), showing that mass loss rates of $\sim10\%$ of the accretion rate
+ were required to produce the required line strengths.
+Shlosman \& Vitello (1993; hereafter SV93) describe a radiative transfer code which first computes
+an ionization structure based on constant wind temperature, and then used the Sobolev approximation
+for line transfer.
+
+
+
+
+%% reorganise, mention SW Sex, UX UMa systems?
 
 
 
@@ -123,13 +132,30 @@ NV, OVI and, most commonly, CIV.
 
 \section{Description of the code}
 
-\py is a Monte Carlo radiative transfer code which uses the Sobolev approximation. It is originally
-introduced by Long \& Knigge (2002), and a more up-to-date description is provided by
-Higginbottom et al. (2013). 
+\py is a Monte Carlo radiative transfer code which uses the Sobolev approximation.  
+It expands on the work of SV93 and also incorporates techniques described by
+Lucy (1999a, 1999b, 2002, 2003). The code is first described by Long \& Knigge (2002),
+who synthesized the UV spectra of CVs, successfully reproducing P-Cygni resonance line profiles
+whilst solving self-consistently for the thermal balance and ionization structure in the wind
+according to the method of Mazzali \& Lucy (1993). \py has since been used with application
+to QSO wind modeling \citep{higginbottom2013}, which involved a new ionization scheme to deal with the
+more complex power-law spectrum, and encorporation os processes such as Compton scattering in order
+to correctly treat X-ray radiation transfer. In addition, \citep{simmacro2005} modeled
+Brackett and Pfund line profiles in YSOs using \py, using the macro atom scheme outlined by Lucy (2002, 2003) applied
+to a Hydrogen-only model.
+
+Here, we 
+model the UV resonance lines in much the same way as LK02, using the 
+fast two-level atom approximation which is appropriate for treating transitions with strong
+coupling to the ground state. However, our model has one crucial difference to LK02, as we use
+the macro atom scheme in tandem with this method. Hydrogen and Helium are treated
+as macro atoms in an attempt to provide a better treatment of optical recombination lines (e.g. the Balmer series, He II 4686, He I lines),
+Lyman-$\alpha$, and the recombination continuum which is suspected to play a key role in `filling-in' the Balmer
+photoionization edge (see e.g. Knigge \& Drew 1998). 
 
 
 \subsection{Macro-atoms}
-In its standard operating mode, \py uses a two-level atom approximation (see e.g Mihalas 1982\nocite{mihalas}, Ch. 11) for its treatment of lines. This approximation works well when treating so-called `resonance lines' (such as \civ, O\textsc{vi}), in which the excited electron is strongly coupled to the ground state, but breaks down for more complex situations such as recombination cascades. To properly model recombination lines, including the Lyman and Balmer series, a more complete treatment of line transfer is required.
+In its standard operating mode, \py uses a two-level atom approximation \cite[see e.g.][]{mihalas} for its treatment of lines. This approximation works well when treating so-called `resonance lines' (such as \civ, O\textsc{vi}), in which the excited electron is strongly coupled to the ground state, but breaks down for more complex situations such as recombination cascades. To properly model recombination lines, including the Lyman and Balmer series, a more complete treatment of line transfer is required.
 
 Lucy (2002, 2003\nocite{lucy2002, lucy2003}; hereafter L02, L03) showed that by quantising matter into `macro-atoms', and radiant and kinetic energy into energy packets, it is possible to asymptotically reproduce the emisssivity of a gas in statistical equilibrium without simplifying line transfer. Macro-atoms are finite volume elements with internal transition probabilities that are `activated' by packets of radiant (r-packets) or kinetic (k-packets) energy. A typical activation and deactivation sequence is shown in figure~\ref{macro}.
 A full description is far beyond the scope of this report- consult L02 and L03. 
@@ -137,7 +163,44 @@ A full description is far beyond the scope of this report- consult L02 and L03.
 The macro-atom scheme has been used with \py before, in a Hydrogen-only mode with application to YSOs \citep{simmacro2005}, but has not yet been applied to AGN or CV problems. With some improvements, the current scheme will enable \py to model H and He recombination lines, for example. The fast, simple treatment of resonance lines 
 can be retained, as the \py implementation allows for non-macro atom treatment for certain ions.
 
+\subsection{Atomic Data}
 
+Atomic data is obtained from the same sources described in LK02 and updated in H13. 
+The additional level and line information required to treat Helium as macro atom was 
+obtained from \textsc{Topbase} \citep{topbase2005}. We treat Hydrogen as a 20-level atom as in S05, where 
+each level is defined by the principal quantum number n, which is appropriate due to
+the degeneracy of each level in the Hydrogen atom. Helium II is treated in much the same way,
+with 10 levels, but He I has larger energy differentials between different l subshells
+and triplet and singlet states. Thus, we still include levels up to n=10 but explicitly 
+treat the l-subshells as distinct levels instead of assuming they are perfectly `l-mixed',
+which will have the pleasant side effect having the potential to produce triplet lines.
+
+\subsection{Ionization scheme}
+
+Although H13 developed a new ionization scheme which approximates the 
+SED in a cell with a broken power law, here we follow LK02 in using the
+ionization scheme presented by Mazzali \& Lucy (1993), who specifically
+present the formula 
+\begin{equation}
+\frac{n_{j+1} n_e}{n_j} = W [\xi + W(1-\xi)]
+\left(\frac{T_e}{T_R}\right)^{1/2}
+\left(\frac{n_{j+1}n_e}{n_j}\right)^*_{T_R}, \label{ionization}
+\end{equation}
+which, in principle, accounts for ionizations from and
+recombinations to all levels of an ion. In this equation, the last
+(``starred'') term on the right hand side refers to the Saha
+abundances, $W$ is an effective dilution factor, $\xi$ is the
+fraction of recombinations going directly to the ground state, and
+$T_R$ and $T_e$ are the radiation and electron temperature
+respectively. LK02 provide a full description of our implementation.
+
+
+The reason for using this scheme 
+is twofold; First, the SED can be approximated well by a Blackbody due to the 
+absence of an X-ray source, and therefore the blackbody treament is appropriate; 
+Second, this provides continuity from LK02 and allows us to do a like-for-like comparison,
+which is especially useful in assessing the improvement in Hydrogen line emission, and any changes
+that might occur in the ionization stages of the resonance line species such as CIV. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -146,7 +209,21 @@ can be retained, as the \py implementation allows for non-macro atom treatment f
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Testing the macro atom scheme}
+\section{Code Validation and Testing}
+\subsection{Ionization}
+
+LK02 presented comparisons of between \py and the widely used photoionization code Cloudy, showing good agreement 
+of calculated ion fractions between the code. In addition, \cite{tardis} present a code for 
+spectral synthesis of Supernova (\textsc{TARDIS}) which compares spectra from a homologous spherical model with
+the ML92 ionization scheme. We are therefore confident that our treatment for so-called `simple ions' is correct.
+
+To verify that the macro atom treatment is correct, it is important to compare level population tests 
+fro Hydrogen and Helium with that expected from literature. In addition, we check that the dual macro atom/simple ion
+implementation still shows good agreement with Cloudy.
+
+
+
+\subsection{Non-LTE Level Populations}
 
 Before proceeding with modeling of CV systems, we need to be sure that our scheme fulfils Lucy's (2002) 
 statement that it will `asymptotically reproduce the emissivity of a gas in statistical equilibrium'.
@@ -165,14 +242,21 @@ and \py, showing excellent agreement. Figure 2 shows the Case B comparison, in w
 for the Lyman lines have been explicitly zeroed.
 
 \begin{figure}
-\includegraphics[width=0.5\textwidth]{figures/caseA.png}
+\centering
+\includegraphics[width=0.5\textwidth]{figures/seaton_emissiv.png}
 \caption{Case A comparison between S59 and \py at 10000K and 20000K}
+\label{seaton}
 \end{figure}
 
-\begin{figure}
-\includegraphics[width=0.5\textwidth]{figures/caseB.png}
-\caption{Case B comparison between S59 and \py at 10000K and 20000K}
-\end{figure}
+%\begin{figure}
+%\includegraphics[width=0.5\textwidth]{figures/caseA.png}
+%\caption{Case A comparison between S59 and \py at 10000K and 20000K}
+%\end{figure}
+
+%\begin{figure}
+%\includegraphics[width=0.5\textwidth]{figures/caseB.png}
+%\caption{Case B comparison between S59 and \py at 10000K and 20000K}
+%\end{figure}
 
 This test verifies the treatment of recombination lines in Hydrogen only models, but it is also necessary to test the implementation
 of macro-atoms when other elements are treated as so-called `simple ions'. In this mode, the user can select which species to treat as
@@ -180,16 +264,110 @@ macro atoms, meaning that the other species are still treated with a two-level a
 resonance lines can be maintained without sacrificing the necessity that all energy packets are indivisible. It is important to verify that 
 this still produces the correct ionization state for the wind. We can test this by comparing against both {\textsc Cloudy} and LK02.
 
+Figure 3 shows a comparison between the macro atom mode and standard mode of the code using the SV93 model. The ionization state is remarkably similar.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%          MATOM TESTING
+%          THE MODEL
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{The CV Model}
-As in LK02, we follow the prescription of SV93 in both our fundamental biconical wind model and velocity law
+\section{The Benchmark CV Model}
+\subsection{Description of Model: Geometry and Kinematics}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{figures/fig1.eps}
+\caption{Cartoon illustrating the three broad classes of sightline discussed in the text.}
+\label{cartoon}
+\end{figure}
+
+
+
+As in LK02, we follow the prescription of SV93 in both our fundamental biconical wind model and velocity law. 
+The poloidal velocity, $v_l$, along a streamline in our model is given
+by 
+\begin{equation}
+v_l=v_0+\left[v_{\infty}(r_0)-v_0\right]\frac{\left(l/R_v\right)^{\alpha}}{\left(l/R_v\right)^{\alpha}+1},
+\label{v_law}
+\end{equation}
+where $l$ is distance measured along a poloidal streamline. This
+power-law velocity profile was adopted by SV93 in order to give a 
+continuous variation in the derivative of the velocity and a 
+realistic spread of Doppler-shifted frequencies in the outer portion
+of the wind (${l > R_v})$. We have similar requirements.
+The initial poloidal velocity of the wind, $v_0$ is (somewhat
+arbitrarily) set to $6~\rm{km~s^{-1}}$ for all streamlines, comparable
+to the sound speed in the disk photosphere. The
+wind then speeds up on a characteristic scale length $R_v$, 
+defined as the position along the poloidal streamline at which the
+wind reaches half its terminal velocity, $v_{\infty}$.
+The terminal poloidal velocity along each streamline is set to a fixed
+multiple of the escape velocity at the streamline foot point, 
+\begin{equation}
+v_{\infty}=fv_{esc},
+\label{v_infty}
+\end{equation}
+so the
+innermost streamlines reach the highest velocities.
+The power-law index $\alpha$ controls the shape of the velocity
+law: as $\alpha$ increases, the acceleration is increasingly
+concentrated around $l = R_v$ along each streamline. 
+For large $\alpha$, the initial poloidal velocity
+stays low near the disk and then increases quickly through $R_v$ to 
+values near $v_\infty$. 
+
+Table~\ref{wind_param} shows the parameters used in the wind model, and Figure~\ref{cartoon}
+shows a sketch of the geometry of our model, with the key parameters labeled.
+
+\begin{table}
+\centering
+\begin{tabular}{p{3cm}p{4cm}}
+\hline Free Parameters 	&	 Value \\ 
+\hline \hline 
+$M_{WD}$ 	 &	 $0.8 M_{\odot}$ \\ 
+$\dot{M}_{acc}$ 	 &	 $3.16\times 10^-9~M_{\odot}yr^{-1}$\\ 
+$\dot{M}_{wind}$  &	$3.16\times 10^-8~M_{\odot}yr^{-1}$\\ 
+$r_{min}$ 	&	 $4 R_{WD}$\\ 
+$r_{max}$ 	&	 $12 R_{WD}$ \\ 
+$\theta_{min}$ 	&	 $20.0^{\circ}$ \\ 
+$\theta_{max}$ 	&	 $65.0^{\circ}$ \\ 
+$\lambda$ 	&	 $0$ \\ 
+$v_{\infty}$ 	&	 $3v_{esc}$ \\ 
+$R_v$ 	        &	 $7\times10^{11}$cm \\ 
+$\alpha$ 	&	 $1.5$ \\
+\end{tabular}
+\centering
+\caption{Wind geometry parameters used in the benchmark CV model.}
+\label{wind_param}
+\end{table}
+
+\subsection{Disk Treatment}
+\py has has some flexibility when treating the accretion disk as a source of photons, in which the disk is broken down into annuli 
+such that each annulus contributes an equal amount to the bolometric luminosity. Each annulus can 
+be treated either as a blackbody with the corresponding temperature or as a Kurucz stellar atmosphere model (REF)
+with the appropriate surface gravity and temperature. Both of these methods have flaws. It is known
+from studies of CV accretion disks that they exhibit absorption cores, which can inpact the overall spectrum 
+even if a wind is present (REF), so the blackbody treatment is not complete. However, the stellar atmosphere
+models also have problems \cite{wadedisk}, and there are clear inconsistencies with using a stellar atmosphere beneath a dense
+wind region which itself goes some way to simulating the disk atmosphere. Here we use the Kurucz models,
+partly because they provide the most pessimistic prediction due to the strong absorption beyong the Balmer edge, 
+which is required to be filled in by the recombination emission in the wind (see Section~\ref{balmerjump}).
+
+\subsubsection{Boundary Layer}
+Whether we include one, why why not, referring to He II and ionization.
+
+\subsection{Synthetic Spectra}
+Present the spectra.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{figures/smplot.pdf}
+\caption{Synthetic Spectra computed for sightlines of 22.5, 25, 62.5 and 80 degrees.}
+\end{figure}
+
+\subsection{Ionization State}
+Present the ionization state with wind plots showing dominant ions.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -198,7 +376,21 @@ As in LK02, we follow the prescription of SV93 in both our fundamental biconical
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Results from Simulations}
+\section{Discussion of Results}
+
+\subsection{The Balmer Series}
+
+\subsection{UV Resonance Lines}
+\subsubsection{OVI and the Auger effect}
+
+\subsection{The Balmer Jump}
+\label{balmerjump}
+
+\subsection{Helium Lines}
+
+\subsection{The Line Force}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -208,7 +400,7 @@ As in LK02, we follow the prescription of SV93 in both our fundamental biconical
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Discussion}
+\section{Conclusions and Future Work}
 
 %% Balmer jump
 
@@ -219,6 +411,10 @@ In addition to this project, we plan to apply the macro atom scheme to QSOs in o
 in which a benchmark biconical disk wind model was presented. In particular, we hope that the macro-atom scheme will enable the
 model to produce significant Lyman-$\alpha$ emission, as is observed in QSOs.
 
+
+\subsection{Acknowledgements}
+%The work of NH, JHM and CK is supported by the Science and Technology Facilities Council (STFC), via studentships and a consolidated grant, respectively. In particular, we would like to thank Juan Hernandez Santisteban for useful conversations, and for his help extracting SDSS spectra. 
+%The authors acknowledge the use of the IRIDIS High Performance Computing Facility, and associated support services at the University of Southampton, in the completion of this work.
 
 
 
