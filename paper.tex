@@ -119,8 +119,96 @@ for line transfer.
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%          THE MODEL
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% reorganise, mention SW Sex, UX UMa systems?
+\section{A Biconical Wind CV Model}
+\subsection{Description of Model: Geometry and Kinematics}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{figures/fig1.eps}
+\caption{Cartoon illustrating the three broad classes of sightline discussed in the text.}
+\label{cartoon}
+\end{figure}
+
+Velocity law, kinematics, etc.
+
+As in LK02, we follow the prescription of SV93 in both our fundamental biconical wind model and velocity law. 
+The poloidal velocity, $v_l$, along a streamline in our model is given
+by 
+\begin{equation}
+v_l=v_0+\left[v_{\infty}(r_0)-v_0\right]\frac{\left(l/R_v\right)^{\alpha}}{\left(l/R_v\right)^{\alpha}+1},
+\label{v_law}
+\end{equation}
+where $l$ is distance measured along a poloidal streamline. This
+power-law velocity profile was adopted by SV93 in order to give a 
+continuous variation in the derivative of the velocity and a 
+realistic spread of Doppler-shifted frequencies in the outer portion
+of the wind (${l > R_v})$. We have similar requirements.
+The initial poloidal velocity of the wind, $v_0$ is (somewhat
+arbitrarily) set to $6~\rm{km~s^{-1}}$ for all streamlines, comparable
+to the sound speed in the disk photosphere. The
+wind then speeds up on a characteristic scale length $R_v$, 
+defined as the position along the poloidal streamline at which the
+wind reaches half its terminal velocity, $v_{\infty}$.
+The terminal poloidal velocity along each streamline is set to a fixed
+multiple of the escape velocity at the streamline foot point, 
+\begin{equation}
+v_{\infty}=fv_{esc},
+\label{v_infty}
+\end{equation}
+so the
+innermost streamlines reach the highest velocities.
+The power-law index $\alpha$ controls the shape of the velocity
+law: as $\alpha$ increases, the acceleration is increasingly
+concentrated around $l = R_v$ along each streamline. 
+For large $\alpha$, the initial poloidal velocity
+stays low near the disk and then increases quickly through $R_v$ to 
+values near $v_\infty$. 
+
+Table~\ref{wind_param} shows the parameters used in the wind model, and Figure~\ref{cartoon}
+shows a sketch of the geometry of our model, with the key parameters labeled.
+
+\begin{table}
+\centering
+\begin{tabular}{p{3cm}p{4cm}}
+\hline Free Parameters 	&	 Value \\ 
+\hline \hline 
+$M_{WD}$ 	 &	 $0.8 M_{\odot}$ \\ 
+$\dot{M}_{acc}$ 	 &	 $3.16\times 10^-9~M_{\odot}yr^{-1}$\\ 
+$\dot{M}_{wind}$  &	$3.16\times 10^-8~M_{\odot}yr^{-1}$\\ 
+$r_{min}$ 	&	 $4 R_{WD}$\\ 
+$r_{max}$ 	&	 $12 R_{WD}$ \\ 
+$\theta_{min}$ 	&	 $20.0^{\circ}$ \\ 
+$\theta_{max}$ 	&	 $65.0^{\circ}$ \\ 
+$\lambda$ 	&	 $0$ \\ 
+$v_{\infty}$ 	&	 $3v_{esc}$ \\ 
+$R_v$ 	        &	 $7\times10^{11}$cm \\ 
+$\alpha$ 	&	 $1.5$ \\
+\end{tabular}
+\centering
+\caption{Wind geometry parameters used in the benchmark CV model.}
+\label{wind_param}
+\end{table}
+
+\subsection{Disk Treatment}
+
+\py has has some flexibility when treating the accretion disk as a source of photons, in which the disk is broken down into annuli 
+such that each annulus contributes an equal amount to the bolometric luminosity. Each annulus can 
+be treated either as a blackbody with the corresponding temperature or as a Kurucz stellar atmosphere model (REF)
+with the appropriate surface gravity and temperature. Both of these methods have flaws. It is known
+from studies of CV accretion disks that they exhibit absorption cores, which can inpact the overall spectrum 
+even if a wind is present (REF), so the blackbody treatment is not complete. However, the stellar atmosphere
+models also have problems \cite{wadedisk}, and there are clear inconsistencies with using a stellar atmosphere beneath a dense
+wind region which itself goes some way to simulating the disk atmosphere. Here we use the Kurucz models,
+partly because they provide the most pessimistic prediction due to the strong absorption beyong the Balmer edge, 
+which is required to be filled in by the recombination emission in the wind (see Section~\ref{balmerjump}).
+
+\subsubsection{Boundary Layer}
+Whether we include one, why why not, referring to He II and ionization.
 
 
 
@@ -130,7 +218,7 @@ for line transfer.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Description of the code}
+\section{Radiative Transfer \& Code Validation}
 
 \py is a Monte Carlo radiative transfer code which uses the Sobolev approximation.  
 It expands on the work of SV93 and also incorporates techniques described by
@@ -194,7 +282,6 @@ fraction of recombinations going directly to the ground state, and
 $T_R$ and $T_e$ are the radiation and electron temperature
 respectively. LK02 provide a full description of our implementation.
 
-
 The reason for using this scheme 
 is twofold; First, the SED can be approximated well by a Blackbody due to the 
 absence of an X-ray source, and therefore the blackbody treament is appropriate; 
@@ -203,14 +290,8 @@ which is especially useful in assessing the improvement in Hydrogen line emissio
 that might occur in the ionization stages of the resonance line species such as CIV. 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%          MATOM TESTING
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Code Validation and Testing}
-\subsection{Ionization}
+\subsection{Code Validation and Testing}
+\subsubsection{Ionization}
 
 LK02 presented comparisons of between \py and the widely used photoionization code Cloudy, showing good agreement 
 of calculated ion fractions between the code. In addition, \cite{tardis} present a code for 
@@ -223,7 +304,9 @@ implementation still shows good agreement with Cloudy.
 
 
 
-\subsection{Non-LTE Level Populations}
+\subsubsection{Non-LTE Level Populations}
+
+Discussion of how we tested the macro atom scheme.
 
 Before proceeding with modeling of CV systems, we need to be sure that our scheme fulfils Lucy's (2002) 
 statement that it will `asymptotically reproduce the emissivity of a gas in statistical equilibrium'.
@@ -248,15 +331,15 @@ for the Lyman lines have been explicitly zeroed.
 \label{seaton}
 \end{figure}
 
-%\begin{figure}
-%\includegraphics[width=0.5\textwidth]{figures/caseA.png}
-%\caption{Case A comparison between S59 and \py at 10000K and 20000K}
-%\end{figure}
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{figures/caseA.png}
+\caption{Case A comparison between S59 and \py at 10000K and 20000K}
+\end{figure}
 
-%\begin{figure}
-%\includegraphics[width=0.5\textwidth]{figures/caseB.png}
-%\caption{Case B comparison between S59 and \py at 10000K and 20000K}
-%\end{figure}
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{figures/caseB.png}
+\caption{Case B comparison between S59 and \py at 10000K and 20000K}
+\end{figure}
 
 This test verifies the treatment of recombination lines in Hydrogen only models, but it is also necessary to test the implementation
 of macro-atoms when other elements are treated as so-called `simple ions'. In this mode, the user can select which species to treat as
@@ -267,96 +350,13 @@ this still produces the correct ionization state for the wind. We can test this 
 Figure 3 shows a comparison between the macro atom mode and standard mode of the code using the SV93 model. The ionization state is remarkably similar.
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%          THE MODEL
+%          RESULTS
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{The Benchmark CV Model}
-\subsection{Description of Model: Geometry and Kinematics}
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth]{figures/fig1.eps}
-\caption{Cartoon illustrating the three broad classes of sightline discussed in the text.}
-\label{cartoon}
-\end{figure}
-
-
-
-As in LK02, we follow the prescription of SV93 in both our fundamental biconical wind model and velocity law. 
-The poloidal velocity, $v_l$, along a streamline in our model is given
-by 
-\begin{equation}
-v_l=v_0+\left[v_{\infty}(r_0)-v_0\right]\frac{\left(l/R_v\right)^{\alpha}}{\left(l/R_v\right)^{\alpha}+1},
-\label{v_law}
-\end{equation}
-where $l$ is distance measured along a poloidal streamline. This
-power-law velocity profile was adopted by SV93 in order to give a 
-continuous variation in the derivative of the velocity and a 
-realistic spread of Doppler-shifted frequencies in the outer portion
-of the wind (${l > R_v})$. We have similar requirements.
-The initial poloidal velocity of the wind, $v_0$ is (somewhat
-arbitrarily) set to $6~\rm{km~s^{-1}}$ for all streamlines, comparable
-to the sound speed in the disk photosphere. The
-wind then speeds up on a characteristic scale length $R_v$, 
-defined as the position along the poloidal streamline at which the
-wind reaches half its terminal velocity, $v_{\infty}$.
-The terminal poloidal velocity along each streamline is set to a fixed
-multiple of the escape velocity at the streamline foot point, 
-\begin{equation}
-v_{\infty}=fv_{esc},
-\label{v_infty}
-\end{equation}
-so the
-innermost streamlines reach the highest velocities.
-The power-law index $\alpha$ controls the shape of the velocity
-law: as $\alpha$ increases, the acceleration is increasingly
-concentrated around $l = R_v$ along each streamline. 
-For large $\alpha$, the initial poloidal velocity
-stays low near the disk and then increases quickly through $R_v$ to 
-values near $v_\infty$. 
-
-Table~\ref{wind_param} shows the parameters used in the wind model, and Figure~\ref{cartoon}
-shows a sketch of the geometry of our model, with the key parameters labeled.
-
-\begin{table}
-\centering
-\begin{tabular}{p{3cm}p{4cm}}
-\hline Free Parameters 	&	 Value \\ 
-\hline \hline 
-$M_{WD}$ 	 &	 $0.8 M_{\odot}$ \\ 
-$\dot{M}_{acc}$ 	 &	 $3.16\times 10^-9~M_{\odot}yr^{-1}$\\ 
-$\dot{M}_{wind}$  &	$3.16\times 10^-8~M_{\odot}yr^{-1}$\\ 
-$r_{min}$ 	&	 $4 R_{WD}$\\ 
-$r_{max}$ 	&	 $12 R_{WD}$ \\ 
-$\theta_{min}$ 	&	 $20.0^{\circ}$ \\ 
-$\theta_{max}$ 	&	 $65.0^{\circ}$ \\ 
-$\lambda$ 	&	 $0$ \\ 
-$v_{\infty}$ 	&	 $3v_{esc}$ \\ 
-$R_v$ 	        &	 $7\times10^{11}$cm \\ 
-$\alpha$ 	&	 $1.5$ \\
-\end{tabular}
-\centering
-\caption{Wind geometry parameters used in the benchmark CV model.}
-\label{wind_param}
-\end{table}
-
-\subsection{Disk Treatment}
-\py has has some flexibility when treating the accretion disk as a source of photons, in which the disk is broken down into annuli 
-such that each annulus contributes an equal amount to the bolometric luminosity. Each annulus can 
-be treated either as a blackbody with the corresponding temperature or as a Kurucz stellar atmosphere model (REF)
-with the appropriate surface gravity and temperature. Both of these methods have flaws. It is known
-from studies of CV accretion disks that they exhibit absorption cores, which can inpact the overall spectrum 
-even if a wind is present (REF), so the blackbody treatment is not complete. However, the stellar atmosphere
-models also have problems \cite{wadedisk}, and there are clear inconsistencies with using a stellar atmosphere beneath a dense
-wind region which itself goes some way to simulating the disk atmosphere. Here we use the Kurucz models,
-partly because they provide the most pessimistic prediction due to the strong absorption beyong the Balmer edge, 
-which is required to be filled in by the recombination emission in the wind (see Section~\ref{balmerjump}).
-
-\subsubsection{Boundary Layer}
-Whether we include one, why why not, referring to He II and ionization.
+\section{Results}
 
 \subsection{Synthetic Spectra}
 Present the spectra.
@@ -369,10 +369,15 @@ Present the spectra.
 \subsection{Ionization State}
 Present the ionization state with wind plots showing dominant ions.
 
+\begin{figure}
+\includegraphics[width=\textwidth]{figures/ionplot1.jpg}
+\caption{Synthetic Spectra computed for sightlines of 22.5, 25, 62.5 and 80 degrees.}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%          RESULTS
+%          DISCUSSION
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -395,7 +400,7 @@ Present the ionization state with wind plots showing dominant ions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%          DISCUSSION
+%          Conclusions and Future Work
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -412,7 +417,7 @@ in which a benchmark biconical disk wind model was presented. In particular, we 
 model to produce significant Lyman-$\alpha$ emission, as is observed in QSOs.
 
 
-\subsection{Acknowledgements}
+\subsection*{Acknowledgements}
 %The work of NH, JHM and CK is supported by the Science and Technology Facilities Council (STFC), via studentships and a consolidated grant, respectively. In particular, we would like to thank Juan Hernandez Santisteban for useful conversations, and for his help extracting SDSS spectra. 
 %The authors acknowledge the use of the IRIDIS High Performance Computing Facility, and associated support services at the University of Southampton, in the completion of this work.
 
