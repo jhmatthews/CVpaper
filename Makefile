@@ -15,9 +15,6 @@ all:
 
 plan:
 	pdflatex plan
-	bibtex plan
-	pdflatex plan
-	pdflatex plan
 	open -a preview plan.pdf
 	
 clean:	
