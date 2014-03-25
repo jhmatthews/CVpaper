@@ -14,8 +14,10 @@ all:
 	open -a preview ${FILE}.pdf
 
 plan:
+	python scripts/mnras.py plan.tex plan_mnras.tex
 	pdflatex plan
-	open -a preview plan.pdf
+	pdflatex plan_mnras
+	open -a preview plan.pdf plan_mnras.pdf
 	
 clean:	
 	/bin/rm -f *.aux 
