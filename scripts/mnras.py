@@ -10,14 +10,28 @@ texfile =  open(filename, "r")
 outfile = open(outfilename, "w")
 
 
-outfile.write("\documentclass[useAMS,usenatbib]{mn2ejm}\n")
+outfile.write("\documentclass[useAMS,usenatbib]{mn2e}\n")
+
+fig_env = False
 
 for line in texfile:
 	if "begin{abstract}" in line:
 		outfile.write("\maketitle\n")
 		outfile.write(line)
 
+	elif "fullpage" in line and "begin{figure}" in line:
+		if fig_env == False:
+			outfile.write("\\begin{figure*}\n")
+			fig_env = True 
+
+	elif fig_env and "end{figure}" in line:
+		outfile.write("\end{figure*}")
+		outfile.write("\n")
+		fig_env = False 
+
 	elif "documentclass" not in line and "maketitle" not in line:
 		outfile.write(line)
+
+
 
 outfile.close()
