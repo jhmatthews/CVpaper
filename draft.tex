@@ -37,7 +37,7 @@
 %% define bibstyle and other definitions
 \bibliographystyle{aabib}
 %% renew commands
-\renewcommand{\labelitemi}{$-$}
+\renewcommand{\labelitemi}{$\bullet$}
 \def\py{\textsc{Python} }
 \def\tar{\textsc{Tardis} }
 \def\cld{\textsc{Cloudy} }
@@ -255,7 +255,7 @@ This involved using a spectral model the mean intensity in a cell
 computed from MC estimators for, instead of using a dilute blackbody
 approximation. Compton processes
 were also incorporated into the heating and cooling balance.
-In addition, \cite{simmacro2005} modeled
+In addition, \cite[][SDL05]{simmacro2005} modeled
 Brackett and Pfund line profiles in YSOs using \textsc{Python,} which included
 implementing a `macro-atom' mode in order to correctly treat the more
 complex transition matrix involved in recombination. 
@@ -267,7 +267,7 @@ complex transition matrix involved in recombination.
 Previously, \py used a two-level atom approximation \cite[see e.g.][]{mihalas}. This approximation is 
 fast, and works well as a first approximation when treating so-called `resonance lines' (such as C\textsc{iv}) 
 in which the excited electron is strongly coupled to the ground state.
-However, in a number of situations, for example, when a level is primarily populated from above then,
+However, in a number of situations, for example, when a level is primarily populated from above, then
 this becomes a poor representation. 
 To reproduce recombination lines and lines in which the lower level is not the ground state, 
 it is therefore important to use an improved line transfer technique and level population solver.
@@ -277,14 +277,14 @@ energy into indivisible energy packets (r- and k- packets respectively),
 Lucy (2002, 2003\nocite{lucy2002, lucy2003}; hereafter L02, L03) showed that it is possible 
 to asymptotically reproduce the emissivity of a gas in statistical equilibrium 
 without simplifying the treatment of line transfer. 
-It allows all possible transition paths from a given level and a full non-Local 
+His macro-atom scheme allows all possible transition paths from a given level and a full non-Local 
 Thermodynamic Equilibrium (NLTE) solution for the level populations based on MC estimators. 
 For a full description consult L02 and L03. 
 
 Macro-atoms have been used to model astrophysical plasmas in 
-Wolf-Rayet star winds \cite{sim2004}, AGN disk winds \citep{simlong2008, tatum2012}
+Wolf-Rayet star winds \citep{sim2004}, AGN disk winds \citep{simlong2008, tatum2012}
 and Supernovae \citep{kasen2006, kerzendorfsim}.
-Sim et al. (2005) used \py itself to apply this technique to
+SDL05 used \py itself to apply this technique to
 a Hydrogen-only model. We are now able to adopt a hybrid scheme. 
 Any species in which have their level populations determined by
 more complex interactions than resonance transitions
@@ -316,7 +316,7 @@ determine the ionization and excitation state of the ions in question.
 we treat H \& He as macro-atoms. 
 Macro-atom NLTE level populations and ion fractions are calculated by solving 
 the statistical equilbrium equations between each pair of levels. The rate
-between a lower level $l$ and upper level $u$ in an atom is given by
+between a lower level $l$ and upper level $u$ in an ion is given by
 
 \begin{eqnarray}
 {\cal R}_{ul} &= & \beta_{lu} A_{ul} n_l + \beta_{lu} B_{ul} n_l J_{lu}^b + C_{ul} n_u n_e\label{eq:nlte_rul}\\
@@ -385,7 +385,7 @@ Excitation is then calculated from LTE approximations.
 \subsection{Atomic Data}
 Atomic data is obtained from the same sources described in LK02 and updated in H13. 
 The additional level and line information required to treat He as macro atom was 
-obtained from \textsc{Topbase} \citep{topbase2005}. We treat H as a 20-level atom as in S05, where 
+obtained from \textsc{Topbase} \citep{topbase2005}. We treat H as a 20-level atom as in SDL05, where 
 each level is defined by the principal quantum number n, which is appropriate due to
 the degeneracy of each level in the H atom. He~\textsc{II} is treated in much the same way,
 with 10 levels, but He~\textsc{I} has larger energy differentials between different l subshells
@@ -500,6 +500,7 @@ Model A \\
 \hline Free Parameters 	&	 Value \\ 
 \hline \hline 
 $M_{WD}$ 	 &	 $0.8 M_{\odot}$ \\ 
+$R_{WD}$ 	 &	 $7\times10^{8}$cm\\ 
 $\dot{M}_{acc}$ 	 &	 $10^{-9}~M_{\odot}yr^{-1}$\\ 
 $\dot{M}_{wind}$  &	$10^{-8}~M_{\odot}yr^{-1}$\\ 
 $r_{min}$ 	&	 $4 R_{WD}$\\ 
@@ -508,7 +509,8 @@ $\theta_{min}$ 	&	 $20.0^{\circ}$ \\
 $\theta_{max}$ 	&	 $65.0^{\circ}$ \\ 
 $\gamma$ 	&	 $1$ \\ 
 $v_{\infty}$ 	&	 $3v_{esc}$ \\ 
-$R_v$ 	        &	 $7\times10^{10}$cm \\ 
+%%$R_v$ 	        &	 $7\times10^{10}$cm \\ 
+$R_v$ 	        &	 $100 R_{WD}$ \\ 
 $\alpha$ 	&	 $1.5$ \\
 \end{tabular}
 \centering
@@ -565,7 +567,7 @@ in certain cases.
 
 We hope that future simulations, coupled with a comparison to data, will 
 actually address some of these problems, particularly since
-the filtering effect of the wind may cause noteiceable effects
+the filtering effect of the wind may cause noticeable effects
 on the colour of the emergent spectrum \citep{hassall}. 
 Here we use a blackbody illuminating spectrum
 for the ionization cycles (see figure~\ref{sed}) and to compute our MC estimators.
@@ -578,21 +580,6 @@ by Kurucz (reference), and for $T>50,000$~K we use models computed with
 atmospheres using \textsc{Synspec}\footnote{http://nova.astro.umd.edu/Synspec43/synspec.html}.
 %The temperature profile of our disk,
 %with $\dot{M}_{acc} = 10^{-8}~M_{\odot}yr^{-1}$ can be seen in figure~\ref{t_profile}.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.45\textwidth]{figures/sed_figure.eps}
-\caption{
-The spectral energy distribution of the blackbody accretion
-disk used in the ionization calculation (thick black line), 
-with two boundary layer spectra also plotted.
-The positions of the Hydrogen and Helium ionization edges 
-are marked with dashed vertical lines.
-%The effective temperature of the accretion disk
-%in our model, as a function of radius.
-}
-\label{sed}
-\end{figure}
 
 
 
@@ -610,7 +597,7 @@ but a number of studies have found difficulties
 in producing the required ionization state of the wind
 with such a hot, luminous boundary layer 
 \citep[see e.g.][]{maucheraymond1987, drewverbunt1985}.
-\cite{hoare1991}
+Hoare \& Drew (1991; HD91) \nocite{hoare1991}
 use the Zanstra method to find boundary layer temperatures of
 $\sim80,000{\rm K}$
 
@@ -619,20 +606,41 @@ It is possible to include a boundary layer in our model which emits
 as a blackbody with the effective temperature
 
 \begin{equation}
-T_{bl} = \left[ \frac{L_{acc}}{8 \pi R_* H \sigma} ( 1 - \omega_*/\omega_k)^2 \right]^{1/4},
+T_{bl} = \left[ \frac{L_{acc}}{8 \pi R_{WD} H \sigma} ( 1 - \omega_*/\omega_k)^2 \right]^{1/4},
 \label{bl}
 \end{equation}
 
-where $L_{acc}$ is the accretion luminosity, $R_*$ is the WD radius, $H$ is the boundary layer height
+where $L_{acc}$ is the accretion luminosity, $R_{WD}$ is the WD radius, $H$ is the boundary layer height
 above the disk plane
 and $\omega_*$ and $\omega_k$ are the angular velocities at the WD surface and inner disk edge respectively
-\citep{fkrbook}. Note that we assume a cylindrical geometry such that the effective emitting
+\citep{fkrbook}. Note that we adopt a cylindrical geometry such that the effective emitting
 area is $4 \pi R_* H$. 
 In the benchmark model, we follow LK02 in setting the boundary layer
 luminosity to zero, and then investigate the effect
 of boundary layers with temperatures of $80,000{\rm K}$ and $200,000{\rm K}$ 
 on the ionization state of the wind and resulting
 spectrum. See section 5 for a discussion.
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{figures/sed_figure.eps}
+\caption{
+The spectral energy distribution (SED) of the blackbody accretion
+disk used in the ionization calculation (thick black line), 
+with two boundary layer spectra also plotted.
+The SED for an accretion disk
+with the parameters used by HD91 in their Zanstra method calculations is shown in grey. 
+It still assumes a Shakura-Sunyaev temperature profile, but uses
+of $\dot{M}_{acc}= 5\times10^{-9}~M_{\odot}$yr$^{-1}$, and a slightly lower mass
+white dwarf with $M_{WD}=0.7 M_{\odot}$ and $R_{WD} = 7\times10^{8}$cm.
+The positions of the Hydrogen and Helium ionization edges 
+are marked with dashed vertical lines.
+%The effective temperature of the accretion disk
+%in our model, as a function of radius.
+}
+\label{sed}
+\end{figure}
 
 %Whether we include one, why why not, referring to He II and ionization.
 
@@ -695,22 +703,32 @@ Furthermore, it confirms our suspicions that the improved
 radiative transfer would cause enhanced recombination emission,
 suggesting that, where possible, up to date treatments of
 NLTE line transfer should be used in codes such as this.
-
-
 The prominent P-Cygni profiles in e.g., C\textsc{iv} are still seen
 in the UV spectra (see figure~\ref{spec}). In addition, the wind 
 now contributes significant Lyman-$\alpha$ and
 He~\textsc{ii}~$\lambda1640{\rm \AA}$  emission. 
-We note that the ionization state of the wind 
-is such that recombination to He~\textsc{ii} is significant, even
-without a boundary layer source of higher energy photons.
+% We note that the ionization state of the wind 
+% is such that recombination to He~\textsc{ii} is significant, even
+% without a boundary layer as a source of higher energy photons.
+
+In addition to producing synthetic spectra, we are also able to 
+analyse the physical properties of the outflow.
+Figure~\ref{wind} shows various physical properties
+of the wind geometry. The ionization structure of the wind
+is very similar to the original LK02 model, as one might expect.
+He is mostly ionized throughout the wind except for a small region near
+the disk which is shielded from the photons produced by the hot inner disk.
+C\textsc{iv} is the dominant Carbon ion throughout the wind, allowing
+for an absorbing column which covers a large range of velocitieis, and is thus
+sufficient to produce the required broad, deep and blue-shifted absorption lines
+we expect to see in a large fraction of Nova-likes.
 
 \begin{figure} 
 \includegraphics[width=0.45\textwidth]{figures/fig6_opt_cont.eps}
-\caption{Synthetic optical spectra computed for sightlines of 22.5, 25, 62.5 and 80 degrees.}
+\caption{Synthetic optical spectra computed for 
+sightlines of 22.5, 25, 62.5 and 80 degrees.}
 \label{spec_continuum}
 \end{figure} 
-
 
 
 Clearly, this particular model cannot explain all
@@ -733,18 +751,7 @@ to fill in the Balmer jump in this specific model}
 
 \subsection{Ionization and Temperature Structure}
 
-In addition to producing synthetic spectra, we are also able to 
-analyse the physical properties of the outflow.
-Figure~\ref{wind} shows various physical properties
-of the wind geometry. The ionization structure of the wind
-is very similar to the original LK02 model, as one might expect.
-He is mostly ionized throughout the wind except for a small region near
-the disk which is shielded from the photons produced by the hot inner disk.
 
-C\textsc{iv} is the dominant Carbon ion throughout the wind, allowing
-for an absorbing column which covers a large range of velocitieis, and is thus
-sufficient to produce the required broad, deep and blue-shifted absorption lines
-we expect to see in a large fraction of Nova-likes.
 
 
 
@@ -784,26 +791,65 @@ depends on the emission measure, $EM$, defined as
 EM=\int^V_0 n_e n_i \,dV,
 \end{equation}
 
-where $n_i$ is the number density of the ion in question. 
-The emission reaching an observer 
-also depends on the optical depth along 
-the line of sight, which can also significantly affect line profile shapes.
+where $n_i$ is the number density of the ion in question.    
 Therefore, any quantity which controls the density profile of the wind
 will have a profound impact on both the 
 amount of emission and the shape of the escaping line profiles.
-
+The emission reaching an observer at a given frequency
+also depends on the sobolev optical depth it experiences, which depends on both
+the density and the velocity gradient projected
+along the line of sight. This can also significantly affect line profile shapes.       
 As described in section 3, we can alter the density in the wind by 
-adjusting the velocity law. We have therefore conducted a limited parameter 
-sweep, exploring the effect of changing $R_v$, $\alpha$ and $\dot{M}_W$.
+adjusting the velocity law (which also determines the velocity gradient). 
+
+We have therefore conducted a limited parameter 
+sweep, exploring the effect of changing a few key parameters.  We focus on 
+4 variables in order to explore the trends in our model. These are:
+
+\begin{itemize}
+ 	\item  The acceleration length, $R_v$, which controls the characteristic scale
+ 	over which the wind accelerates.
+ 	\item The acceleration exponent, $\alpha$, which focuses the acceleration
+ 	around $R_v$. A higher value of $\alpha$ therefore leads to a slowly accelerating 
+ 	wind with a dense base.
+ 	\item The launch radii of the wind, $r_{min}$ \& $r_{max}$.
+ 	\item The temperature of the boundary layer, $T_{bl}$.
+ \end{itemize} 
+
+We have found these to be important parameters in modifying 
+the spectral features and ionization state of the wind.
+In general, quantities which cause a denser wind base increase
+the overal emission, although optical depth effects can clearly cause 
+the relationship to become more complicated. 
 
 
-\subsection{The Balmer Lines}
+
+\subsection{Line Profiles: Shapes and Intensities}
+
+\noindent\rule{16cm}{0.4pt}
+
+{\bf
+\noindent key points here:
+
+\begin{itemize}
+	\item producing single peaked line profiles is difficult to say the least
+	\item with our high density models we can produce some single peaked line emission,
+	mostly in Halpha and beta. the other lines seem to stay double peaked.
+	\item this higher density causes (too much) collisionally excited line emission from CIV
+	\item if the wind was more equatorial then this might help, but this isn't really supported by observations.
+	\item we can definitely reproduce the behaviour predicted by Murray and Chiang
+	\item Comment on the observed Balmer decrement being fairly flat, as is observed. Point out that
+	this is necessary if H alpha is to be single peaked, as you need significant optical depths.
+\end{itemize}
+}
+
+\noindent\rule{16cm}{0.4pt}
 
 \begin{figure} %fullpage
 \mbox{
-\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_alpha.eps}}
+\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_alpha_0.eps}}
 \quad
-\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_beta.eps}}   
+\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_beta_0.eps}}   
 }
 \caption{
 % How the H$\alpha$ and H$\beta$ lines in our model change with the kinematic properties
@@ -821,33 +867,66 @@ The most promising parameters at the moment are acceleration exponent and launch
 \label{halpha}
 \end{figure} %fullpage
 
-Figure~\ref{halpha} shows how the H$\alpha$ line changes with the kinematics 
-of the wind at an inclination of $80^\circ$. For models with lower densities, the
+Figure~\ref{halpha} shows how the H$\alpha$ and H$\beta$ lines change with the kinematics 
+of the wind at an inclination of $80^\circ$. For H$\alpha$, in models with lower densities, the
 line is double peaked, but we see a transition to a single peaked line when 
 a high enough density is reach such that the line becomes optically thick.
 This reproduces the behaviour predicted by \cite{MC96}, who suggested that
 the poloidal velocity gradient in the wind can be larger than the gradient of 
-the Keplerian velocity. This gradient can therefore modify the line profile shape
-but requires the line to be optically thick.
+the Keplerian velocity. This gradient can therefore modify the line profile shape.
+It is clear from the behaviour of H$\beta$ 
+
+In order to produce single-peaked line emission at high inclinations,
+it is clear that a higher line opacity is needed at the red and blue wings relative to
+the opacity at line centre. This can be achieved in a number of ways. A more equatorial 
+wind would cause the line opacity at line centre to decrease
+relative to the the wings of the line due to the increased radial component 
+of the velocity gradient. 
+
+Our difficulty in producing single-peaked line emission from a full 
+radiative transfer calculation has been encountered before. SDL05 found that a 
+biconical disk geometry similar to that adopted here could not reproduce 
+the observed single peaked profiles in YSOs.  
+
+
 
 \subsection{The Balmer Jump}
 
-
-
 \label{balmerjump}
+
+\noindent\rule{16cm}{0.4pt}
+
+{\bf
+\noindent key points here:
+
 \begin{itemize}
-\item that we are able to fill in the Balmer jump with the recombination continuum from the wind
-if the EM is high enough
-\item How this changes with inclination
-\item Comparison to literature
-\item Discussion of disk atmosphere treatment and its effect.
+	\item there is always recombination continuum emission from the wind, but it
+	only because significant w.r.t disk when the wind accelerates more slowly.
+	\item This higher density causes (too much) collisionally excited line emission from CIV
+	\item supports findings from the line profile shapes conclusions above...suggests
+	we need to alter the geometry in some respect, or find someway to suppress
+	collisionally excited line emission from UV lines?
+	\item perhaps one should increase the volume of the emitting area rather than the density,
+	although this will also cause more thermal line emission...
+	\item Bottom lines: filling in the Balmer jump can be done, and at the very minimum recombination
+	emission from the wind can matter, especially if we believe that the lines come from the wind. 
+	But to properly fill in the edge, one requires very high, possibly unrealistic, densities.
+	\item make clear that the edge originally comes from the stellar atmosphere, and that
+	the model we have used here is perhaps a little pessimistic.
+	\item We predict that the Balmer jump becomes deeper relative to the continuum 
+	\item This is probably due to foreshortening of the disk continuum but a fairly constant
+	escaping Balmer continuum.
 \end{itemize}
+}
+
+\noindent\rule{16cm}{0.4pt}
+
 
 \begin{figure} %fullpage
 \mbox{
-\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_1640.eps}}
+\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_1640_0.eps}}
 \quad
-\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_4686.eps}}   
+\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_4686_0.eps}}   
 }
 %%\includegraphics[width=0.5\textwidth]{figures/test.eps}
 \caption{
@@ -862,20 +941,78 @@ of the wind.
 
 
 
-\subsection{Helium Lines}
-Discussion of Helium lines in the spectrum.
+\subsection{The Boundary Layer and Ionization State of the wind}
+
+\noindent\rule{16cm}{0.4pt}
+
+% important points from Hoare and Drew paper
+% Zanstra method requires optically thick in He II Lyman continuum
+% recombination lines are optically thin
+% they note that He II n=2 edge opacity would cause more stringent limits. relevant to our edges.
+% % 
+
+{\bf 
+\noindent key points here:
+
 \begin{itemize}
-\item He II 4686, He II 1640 strengths
-\item Make the prediction that if 4686 is strong we might expect strong He II 3202. 
-\item Discuss why it wouldn't have been seen yet (spectral coverage)
-\item Helium I lines
+	\item we don't necessarily need a Boundary layer to ionize Helium II
+	\item a Boundary layer of 200,000K overionizes Carbon IV
+	\item we therefore favour lower boundary layer temperatures, as supported
+	by the upper limits of Hoare and Drew 1991.
+	\item we expect a boundary layer to matter more in lower accretion
+	rate systems.
 \end{itemize}
+}
+
+\noindent\rule{16cm}{0.4pt}
+
+We find in all our models that He II line emission is significant, and that 
+in most cases He  III is the dominant Helium ion in the wind, making recombination
+to He II an important process. This occurs without the presence of a boundary 
+layer. However, as a boundary layer is theoretically predicted 
+it is still important to investigate the effects of introducing
+one on the ionization state of the wind, and in particular
+the resultant line emission from \heiiuv, \heiiuv and \civ. 
+
+We introduce boundary layers with temperatures of 80,000K and 200,000K,
+commonly proposed values in the literature. We find that 
+
+
+
+
+It is also instructive here to conduct a hypothetical 
+Zanstra method calculation, following the method of \cite{hoare1991}. 
+We adopt their definitions of the Zanstra ratios in the Helium lines (equations 5 and 6 
+in their paper),
+
+
+\begin{equation}
+G (\lambda228, 1800 \AA) = 2.4\times 10^{-3} \frac{f(\lambda1640)}{f_*(1800\AA)}
+\end{equation}
+and
+
+\begin{equation}
+G (\lambda228, 1800 \AA) = 1.3\times 10^{-3} \frac{f(\lambda4686)}{f_*(1800\AA)}.\\
+\end{equation}
+
+Here f(line) is the line flux in erg~cm$^{-2}$ s$^{-1}$. 
+
+
+
+
+% Discussion of Helium lines in the spectrum.
+% \begin{itemize}
+% \item He II 4686, He II 1640 strengths
+% \item Make the prediction that if 4686 is strong we might expect strong He II 3202. 
+% \item Discuss why it wouldn't have been seen yet (spectral coverage)
+% \item Helium I lines
+% \end{itemize}
 
 \begin{figure} %fullpage
 \mbox{
-\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_balmer.eps}}
+\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_balmer_0.eps}}
 \quad
-\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_uv.eps}}   
+\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_uv_0.eps}}   
 }
 %%\includegraphics[width=0.5\textwidth]{figures/test.eps}
 \caption{The evolution of the Balmer jump and C~\textsc{iv} line with the kinematic properties
@@ -895,15 +1032,15 @@ Lyman alpha?
 
 
 
-\subsection{Boundary Layer}
-\begin{itemize}
-\item discuss the effect of 80000K and 200000K Boundary layers
-\item Particularly referring to He II and CIV
-\item Our findings support idea that 200000K BL would over ionize the wind- 
-we favour 80,000K
-\item I'd like to do a hypothetical Zanstra calculation here- state what
-temperature our model would predict from the Zanstra method
-\end{itemize}
+% \subsection{Boundary Layer}
+% \begin{itemize}
+% \item discuss the effect of 80000K and 200000K Boundary layers
+% \item Particularly referring to He II and CIV
+% \item Our findings support idea that 200000K BL would over ionize the wind- 
+% we favour 80,000K
+% \item I'd like to do a hypothetical Zanstra calculation here- state what
+% temperature our model would predict from the Zanstra method
+% \end{itemize}
 
 %\subsubsection{The Line Force}
 %\begin{itemize}
@@ -963,12 +1100,12 @@ comparable to those in RW Tri.
 The line to continuum ratio increases during eclipse,
 as one expects if the emission is produced in a disk wind, 
 thereby mimicking the behaviour of SW Sex stars.
-The single-peaked $H\alpha$ line is produced by our models with a 
+The single-peaked \ha line is produced by our models with a 
 very similar width to the observed spectrum, although it is perhaps slightly more
 `flat-topped' in the synthesized data.
 
 One of the limitations of the model is that, apart 
-from in $H\alpha$, the lines are in general double-peaked. 
+from in H$\alpha$, the lines are in general double-peaked. 
 The lack of high-resolution data in this regard makes detailed analysis difficult,
 but it would appear that understanding how single-peaked 
 line emission forms and the kinematics and densities required to
@@ -990,7 +1127,7 @@ observed profiles.
 UV (left) and Optical synthetic spectra for model B computed at
 sightlines of 10,27.5, 45, 62.5 and 80 degrees.	
 The inset plots show zoomed-in line profiles for 
-\heiiuv and \ha. The \ha line 
+\heiiuv \ and \ha. The \ha line 
 is single peaked, but higher order lines in the Balmer series
 are double-peaked, albeit with narrower profiles.
 Strong \heiiopt emission can be seen
@@ -1065,7 +1202,9 @@ in UV resonance lines.
 Our work demonstrates that, if nothing else,
 {\sl disk winds matter}. At a minimum,
 they can act as a spectral filter
-for the disk spectrum. At a maximum, they may be responsible
+for the disk spectrum, and the properties of the plasma
+is an important tracer for the disk and boundary layer SEDs. 
+At a maximum, they may be responsible
 for the majority of spectral features of high-state CVs,
 and could dominate the appearance of both UV and optical
 spectra of these systems.
