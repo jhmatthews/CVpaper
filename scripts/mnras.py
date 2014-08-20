@@ -19,6 +19,9 @@ for line in texfile:
 		outfile.write("\maketitle\n")
 		outfile.write(line)
 
+	elif "indent" in line and "rule" in line:
+		outfile.write("\\noindent\\rule{8cm}{0.4pt}\n")
+
 	elif "fullpage" in line and "begin{figure}" in line:
 		if fig_env == False:
 			outfile.write("\\begin{figure*}\n")
