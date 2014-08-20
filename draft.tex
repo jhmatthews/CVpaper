@@ -46,6 +46,7 @@
 \def\nat{Nature}
 \def\apjl{ApJ Letters}
 \def\aapr{AAPR}
+\def\actaa{ACTAA} 
 \def\ssr{SSR}
 \def\apj{ApJ}
 \def\pasp{PASP}
@@ -98,7 +99,7 @@ a boundary layer is not essential to produce significant recombination to
 He II, and if one is present we favour temperatures of $<10^5$K to avoid
 overionizing the UV resonance line species such as CIV. We also conduct Zanstra method
 calculations and estimate that one would infer a boundary layer temperature of around 80,000K
-from our benchmark model, which does not include one. This suggests that previous calculations
+from our benchmark calculation, despite it not being present in the model itself. This suggests that previous calculations
 done using this method are strongly dependent on both the assumed geometry and disk
 spectrum.
 We also note that
@@ -735,12 +736,16 @@ model for 5 different sightlines. The first thing to note is that the
 model produces some lines which are strong enough to overcome
 the absorption cores lines from the disk. These lines are generally double peaked, 
 implying they were formed near the base of the wind where rotational velocity
-can still dominate over the slowly increasing poloidal velocity. A Balmer 
-jump is present at all inclinations. This is present
+can still dominate over the slowly increasing poloidal velocity. 
+We also see a general trend from absorption to emission in spectral lines
+with increasing inclination, as one would expect from our wind geometry.
+This is expected in CVs and can be seen clearly in figure 1. Note however
+that in our models the \heiiuv line does not exhibit this behaviour, which
+is somewhat surprising.
+
+A Balmer jump is present at all inclinations. This is present
 in the stellar atmosphere models used to model the disk,
 and is not a result of photoabsorption through the wind.
-%%%% SAY BALMER JUMP CASUED BY SAs
-
 In fact, the wind has a Balmer jump in emission, but it is not prominent enough
 to overcome the intrinsic absorption in the illuminating spectrum. 
 Figure~\ref{cont} shows the total escaping spectrum, integrated
@@ -792,9 +797,10 @@ of the underlying disk spectral energy distribution (SED).
 
 
 \begin{figure} 
-\includegraphics[width=0.5\textwidth]{figures/fig4.eps}
-\caption{Total packet-binned spectra across all viewing angles. The top panel shows the total 
-integrated escaping spectrum, while the other panels show the contributions from photons that originate
+\includegraphics[width=0.5\textwidth]{figures/fig7_escaping.eps}
+\caption{Total packet-binned spectra across all viewing angles. 
+The thick black line shows the total 
+integrated escaping spectrum, while green and red lines show the contributions from photons that originate
 in the disk and wind respectively. Recombination continuum emission blueward of the Balmer 
 edge is already prominent relative to other wind continuum processes, but is not sufficient
 to fill in the Balmer jump in this specific model}
@@ -896,26 +902,26 @@ the relationship to become more complicated.
 
 \subsection{Line Profiles: Shapes and Intensities}
 
-\noindent\rule{16cm}{0.4pt}
+% \noindent\rule{16cm}{0.4pt}
 
-{\bf
-\noindent key points here:
+% {\bf
+% \noindent key points here:
 
-\begin{itemize}
-	\item producing single peaked line profiles is difficult to say the least
-	\item with our high density models we can produce some single peaked line emission,
-	mostly in Halpha and beta. the other lines seem to stay double peaked.
-	\item this higher density causes (too much) collisionally excited line emission from CIV
-	\item if the wind was more equatorial then this might help, but this isn't really supported by observations.
-	\item we can definitely reproduce the behaviour predicted by Murray and Chiang
-	\item Comment on the observed Balmer decrement being fairly flat, as is observed. Point out that
-	this is necessary if H alpha is to be single peaked, as you need significant optical depths.
-	\item \la needs to be discussed somewhere- potentially here. Personally I would like to point out
-	that recombination being important here suggests that it might also be in QSOs
-\end{itemize}
-}
+% \begin{itemize}
+% 	\item producing single peaked line profiles is difficult to say the least
+% 	\item with our high density models we can produce some single peaked line emission,
+% 	mostly in Halpha and beta. the other lines seem to stay double peaked.
+% 	\item this higher density causes (too much) collisionally excited line emission from CIV
+% 	\item if the wind was more equatorial then this might help, but this isn't really supported by observations.
+% 	\item we can definitely reproduce the behaviour predicted by Murray and Chiang
+% 	\item Comment on the observed Balmer decrement being fairly flat, as is observed. Point out that
+% 	this is necessary if H alpha is to be single peaked, as you need significant optical depths.
+% 	\item \la needs to be discussed somewhere- potentially here. Personally I would like to point out
+% 	that recombination being important here suggests that it might also be in QSOs
+% \end{itemize}
+% }
 
-\noindent\rule{16cm}{0.4pt}
+% \noindent\rule{16cm}{0.4pt}
 
 
 Figure~\ref{halpha} shows how the H$\alpha$ and H$\beta$ lines change with the kinematics 
@@ -924,20 +930,22 @@ line is double peaked, but we see a transition to a single peaked line when
 a high enough density is reach such that the line becomes optically thick.
 This reproduces the behaviour predicted by \cite{MC96}, who suggested that
 the poloidal velocity gradient in the wind can be larger than the gradient of 
-the Keplerian velocity. This gradient can therefore modify the line profile shape.
-It is clear from the behaviour of H$\beta$ 
+the Keplerian velocity. This velocity gradient can therefore modify the line profile shape
+by suppressing emission at the red and blue wings of the line, 
+providing that the line optical depth is high enough.
 
 In order to produce single-peaked line emission at high inclinations,
 it is clear that a higher line opacity is needed at the red and blue wings relative to
 the opacity at line centre. This can be achieved in a number of ways. A more equatorial 
-wind would cause the line opacity at line centre to decrease
-relative to the the wings of the line due to the increased radial component 
-of the velocity gradient. 
-
+wind would increase the radial velocity shear, but is not supported by observations (references 
+on collimated nature of CV winds).
 Our difficulty in producing single-peaked line emission from a full 
-radiative transfer calculation has been encountered before. SDL05 found that a 
-biconical disk geometry similar to that adopted here could not reproduce 
-the observed single peaked profiles in YSOs.  
+radiative transfer calculation has been encountered before in a number of situations. 
+SDL05 found that a biconical disk geometry similar to that adopted here could not reproduce 
+the observed single peaked profiles in YSOs. We have shown
+that the mechanism proposed by \cite{MC96} does indeed produce 
+single-peaked line emission in our models, but for this to occur in the majority of
+spectral lines then very high densities are required.   
 
 \begin{figure} %fullpage
 \mbox{
@@ -946,17 +954,25 @@ the observed single peaked profiles in YSOs.
 \subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_beta_0.eps}}   
 }
 \caption{
+Line profiles for \ha\ (right) and \hb\ (left) with varying kinematic 
+properties. The benchmark model is shown in the top panel, and also in grey in each 
+subsequent plot for comparison. The parameter that has been altered from the benchmark model 
+is marked on each panel. For the left and middle right columns, models lower down
+are more slowly accelerating and have denser wind bases. The middle right column
+shows the variation with wider launch radii, and the right hand column shows 
+how a boundary layer of increasing temperature affects the spectrum.
 % How the H$\alpha$ and H$\beta$ lines in our model change with the kinematic properties
 % of the wind. The three separate panels show three different values of $\dot{M}_W$, 
 % while $\alpha$ and $R_v$ are all gradually increased from top to bottom and left to right respectively.
 % Larger values of these quantities increase the density at the base of the wind. There is a clear transition
 % from double peaked to single peaked behaviour, and at the highest densities the wind
 % essentially becomes neutral as the optically thick regions self-shield the wind from photoionizing radiation.
-\bf{Each of these figures will highlight the next gen model in bold.
-and contain a grid like the above showing a pair of spectral features in
-the left and right panels. The grey shaded line will show the benchmark model
-for easy comparison.  
-The most promising parameters at the moment are acceleration exponent and launch radii.}
+% \bf{Each of these figures will highlight the next gen model in bold.
+% and contain a grid like the above showing a pair of spectral features in
+% the left and right panels. The grey shaded line will show the benchmark model
+% for easy comparison.  
+% The most promising parameters at the moment are acceleration exponent and launch radii.}
+% }
 }
 \label{halpha}
 \end{figure} %fullpage
@@ -967,32 +983,43 @@ The most promising parameters at the moment are acceleration exponent and launch
 
 \label{balmerjump}
 
-\noindent\rule{16cm}{0.4pt}
+The left panel of figure~\ref{jump} shows the evolution
+of the Balmer jump with a number of key parameters. Higher density models
+produce sufficient recombination continuum emission to fill 
+in the Balmer jump. This offers a potential solution to a 
+longstanding problem when reconciling theoretical
+models of NL spectra with observations, as originally suggested by
+\cite{KLWB98}. The fact that this emission is very sensitive to the parameters
+that govern the density at the wind base also supports
+the idea that a transition region close to the disk plane is necessary
+to explain the emission features present \citep{kd1997}.
 
-{\bf
-\noindent key points here:
+% \noindent\rule{16cm}{0.4pt}
 
-\begin{itemize}
-	\item there is always recombination continuum emission from the wind, but it
-	only because significant w.r.t disk when the wind accelerates more slowly.
-	\item This higher density causes (too much) collisionally excited line emission from CIV
-	\item supports findings from the line profile shapes conclusions above...suggests
-	we need to alter the geometry in some respect, or find someway to suppress
-	collisionally excited line emission from UV lines?
-	\item perhaps one should increase the volume of the emitting area rather than the density,
-	although this will also cause more thermal line emission...
-	\item Bottom lines: filling in the Balmer jump can be done, and at the very minimum recombination
-	emission from the wind can matter, especially if we believe that the lines come from the wind. 
-	But to properly fill in the edge, one requires very high, possibly unrealistic, densities.
-	\item make clear that the edge originally comes from the stellar atmosphere, and that
-	the model we have used here is perhaps a little pessimistic.
-	\item We predict that the Balmer jump becomes deeper relative to the continuum 
-	\item This is probably due to foreshortening of the disk continuum but a fairly constant
-	escaping Balmer continuum.
-\end{itemize}
-}
+% {\bf
+% \noindent key points here:
 
-\noindent\rule{16cm}{0.4pt}
+% \begin{itemize}
+% 	\item there is always recombination continuum emission from the wind, but it
+% 	only because significant w.r.t disk when the wind accelerates more slowly.
+% 	\item This higher density causes (too much) collisionally excited line emission from CIV
+% 	\item supports findings from the line profile shapes conclusions above...suggests
+% 	we need to alter the geometry in some respect, or find someway to suppress
+% 	collisionally excited line emission from UV lines?
+% 	\item perhaps one should increase the volume of the emitting area rather than the density,
+% 	although this will also cause more thermal line emission...
+% 	\item Bottom lines: filling in the Balmer jump can be done, and at the very minimum recombination
+% 	emission from the wind can matter, especially if we believe that the lines come from the wind. 
+% 	But to properly fill in the edge, one requires very high, possibly unrealistic, densities.
+% 	\item make clear that the edge originally comes from the stellar atmosphere, and that
+% 	the model we have used here is perhaps a little pessimistic.
+% 	\item We predict that the Balmer jump becomes deeper relative to the continuum 
+% 	\item This is probably due to foreshortening of the disk continuum but a fairly constant
+% 	escaping Balmer continuum.
+% \end{itemize}
+% }
+
+% \noindent\rule{16cm}{0.4pt}
 
 
 \begin{figure} %fullpage
@@ -1003,20 +1030,21 @@ The most promising parameters at the moment are acceleration exponent and launch
 }
 %%\includegraphics[width=0.5\textwidth]{figures/test.eps}
 \caption{
-The evolution of the He II lines with the kinematic properties
-of the wind. 
+Line profiles for \heiiuv\ (right) and \heiiopt\  (left) with varying kinematic 
+properties, computed for an incliantion of $80^\circ$. 
+The panels are organised in the same way as figure~\ref{halpha}.
 % The panels are ordered in the same way as figure~\ref{halpha}. In general, increasing densities
 % lead to a Balmer jump in emission, although as in the case of H$\alpha$ there is a transition
 % when the wind becomes a neutral absorbing column.
 }
-\label{jump}
+\label{heiifig}
 \end{figure}
 
 
 
 \subsection{The Boundary Layer and Ionization State of the wind}
 
-\noindent\rule{16cm}{0.4pt}
+% fwoud
 
 % important points from Hoare and Drew paper
 % Zanstra method requires optically thick in He II Lyman continuum
@@ -1024,20 +1052,20 @@ of the wind.
 % they note that He II n=2 edge opacity would cause more stringent limits. relevant to our edges.
 % % 
 
-{\bf 
-\noindent key points here:
+% {\bf 
+% \noindent key points here:
 
-\begin{itemize}
-	\item we don't necessarily need a Boundary layer to ionize Helium II
-	\item a Boundary layer of 200,000K overionizes Carbon IV
-	\item we therefore favour lower boundary layer temperatures, as supported
-	by the upper limits of Hoare and Drew 1991.
-	\item we expect a boundary layer to matter more in lower accretion
-	rate systems.
-\end{itemize}
-}
+% \begin{itemize}
+% 	\item we don't necessarily need a Boundary layer to ionize Helium II
+% 	\item a Boundary layer of 200,000K overionizes Carbon IV
+% 	\item we therefore favour lower boundary layer temperatures, as supported
+% 	by the upper limits of Hoare and Drew 1991.
+% 	\item we expect a boundary layer to matter more in lower accretion
+% 	rate systems.
+% \end{itemize}
+% }
 
-\noindent\rule{16cm}{0.4pt}
+% \noindent\rule{16cm}{0.4pt}
 
 We find in all our models that He II line emission is significant, and that 
 in most cases He  III is the dominant Helium ion in the wind, making recombination
@@ -1047,8 +1075,18 @@ it is still important to investigate the effects of introducing
 one on the ionization state of the wind, and in particular
 the resultant line emission from \heiiuv, \heiiuv and \civ. 
 
-We introduce boundary layers with temperatures of 80,000K and 200,000K,
-commonly proposed values in the literature. We find that a boundary layer
+We introduce blackbody boundary layers with temperatures of 80,000K and 200,000K,
+commonly proposed values in the literature, and adopt a scale height according to
+equation~\ref{bl}. We find that the strength of the C\textsc{iv} line decreases
+with increasing boundary layer temperature, as shown in figure~\ref{jump}.
+We note that a model boundary layer could produce a softer
+spectrum for a given effective temperature \citep[e.g.][]{suleimanov2014}, 
+meaning that our ionization constraints would
+allow for a higher value of $T_{bl}$. It is also
+possible that a flatter temperature profile in the disk,
+as suggested by some eclipse mapping observations of NLs (References),
+would cause a softer disk spectrum and allow a boundary layer 
+with $T_{bl} = 200,000$K to exist without over-ionizing the wind.
 
 
 It is also instructive here to conduct a hypothetical 
@@ -1066,7 +1104,7 @@ and
 G (\lambda228, 1800 \AA) = 1.3\times 10^{-3} \frac{f(\lambda4686)}{f_*(1800\AA)}.\\
 \end{equation}
 
-Here f(line) is the line flux in erg~cm$^{-2}$ s$^{-1}$. 
+Here f(line) is the line flux in erg~cm$^{-2}$ s$^{-1}$. (I NEED TO DO THE CALCULATION!).
 
 % Possible figure: CIV line equivalent width or ionization fraction
 % as a function of boundary layer temperature?
@@ -1087,8 +1125,11 @@ Here f(line) is the line flux in erg~cm$^{-2}$ s$^{-1}$.
 \subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_uv_0.eps}}   
 }
 %%\includegraphics[width=0.5\textwidth]{figures/test.eps}
-\caption{The evolution of the Balmer jump and C~\textsc{iv} line with the kinematic properties
-of the wind. 
+\caption{The evolution of the Balmer jump and higher order Balmer lines (left) 
+and the \civ\ line profile (right)
+with the kinematic properties of the wind,
+computed for an incliantion of $80^\circ$. 
+the panels are organised in the same way as figure~\ref{halpha}.
 % The panels are ordered in the same way as figure~\ref{halpha}. In general, increasing densities
 % lead to a Balmer jump in emission, although as in the case of H$\alpha$ there is a transition
 % when the wind becomes a neutral absorbing column.
@@ -1140,8 +1181,6 @@ of the wind.
 %\end{itemize}
 
 
-\newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %          Comparison with real spectra
@@ -1165,7 +1204,7 @@ $\theta_{min}$ 	&	 $20.0^{\circ}$ \\
 $\theta_{max}$ 	&	 $65.0^{\circ}$ \\ 
 $\gamma$ 	&	 $1$ \\ 
 $v_{\infty}$ 	&	 $3v_{esc}$ \\ 
-$R_v$ 	        &	 $1\times10^{11}$cm \\ 
+$R_v$ 	        &	 $142.9 R_{WD}$ \\ 
 $\alpha$ 	&	 $4$ \\
 \end{tabular}
 \centering
@@ -1181,7 +1220,20 @@ are show in table~\ref{modelb}, and the synthetic spectrum
 is shown in figure~\ref{uvoptb}. An in and out of eclipse comparison 
 between the synthetic spectrum
 at an angle of $80^\circ$ and the high-inclination nova-like RW Tri 
-is also shown in figure~\ref{rwtricomp}.
+is also shown in figure~\ref{rwtricomp}. The inclination
+for RW Tri has been disputed, with claimed values of $75^\circ$ \citep{groot2004},
+$70.5^\circ$ \citep{smak1995}, $80^\circ$ \citep{longmore1981} and 
+$82^\circ$\citep{frankking1981}. A lower inclination
+would mean that our model would simply require lower densities 
+and smaller emission regions to produce the required continuum level
+and single peaked emission, so our conclusions from this comparison are
+not particular sensitive to the value chosen.
+We also emphasize that this is no sense a fit to the data. The model
+is designed to reproduce the general behaviour of Nova-likes
+and give an indication of the likely densities and kinematics 
+required in the wind, but we do not seek to provide robust parameter
+or precise parameters.
+%quotes a figure of , whereas  halevinhenden2008
 
 The similarity with the observed spectrum is striking. 
 Model B produces strong emission in all the Balmer lines, 
@@ -1190,7 +1242,7 @@ comparable to those in RW Tri.
 The line to continuum ratio increases during eclipse,
 as one expects if the emission is produced in a disk wind, 
 thereby mimicking the behaviour of SW Sex stars.
-The single-peaked \ha line is produced by our models with a 
+The single-peaked \ha\ line is produced by our models with a 
 very similar width to the observed spectrum, although it is perhaps slightly more
 `flat-topped' in the synthesized data.
 
@@ -1202,7 +1254,8 @@ line emission forms and the kinematics and densities required to
 modify the line profile is still an open question. 
 The major fallback of the next-generation model, however, lies
 in the ultraviolet. To get the required emission in the optical lines
-and recombination continuum the densities required are very high.
+and recombination continuum the densities required are very high 
+($n_e\sim10^{13}-10^{14}$ in the main emission region).
 This causes a significant collisionally excited contribution
 to the UV lines, meaning that the red wing of the 
 resonance species such as C\textsc{iv} no longer matches the
@@ -1251,7 +1304,6 @@ spectra from Model B.}
 
 % \noindent\rule{16cm}{0.4pt}
 
-\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %          Conclusions and Future Work
