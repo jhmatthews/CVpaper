@@ -62,6 +62,7 @@
 \def\la{Ly-$\alpha$}
 \def\ha{H$\alpha$}
 \def\hb{H$\beta$}
+\def\civfull{C~\textsc{iv}~$\lambda1550{\rm \AA}$}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -420,9 +421,9 @@ of ionization and spectral synthesis with the supernova code \textsc{Tardis.} \t
 \cite{kerzendorfsim}, and the spectral comparisons can be found therein.
 In addition to these code validation efforts, we have also conducted tests of
 the macro atom scheme in \py to verify that it does indeed solve for level populations correctly
-and produces the correct level emissivities. We have been able to show good agreement with 
-Case A and Case B calculations by \cite{seaton1959}, and have tested our level
-population solver against \textsc{Tardis.}
+and produces the expected level emissivities. Figure~\ref{tests} shows good agreement with 
+Case B, l-mixed calculations by \cite{seaton1959}, and level
+population calcaultions with \textsc{Tardis.}
 
 %% include figure here
 
@@ -436,6 +437,24 @@ population solver against \textsc{Tardis.}
 % collisions between radiatively forbidden transitions, the factor of $<2$ agreement is 
 % encouraging. 
 
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{figures/fig_caseb_tardis.eps}
+\caption{
+{\sl Top Panel:} Balmer decrements from \py compared with analytic calculations
+by Seaton (1959), showing good agreement when calculating level emissivities in Hydrogen
+in the Case B limit.
+(see Osterbrock 1989 for a discussion of this commonly used approximation).
+{\sl Bottom Panel:}  a comparison of Helium I level populations (the most complex ion we currently 
+treat as a macro-atom) between \py~and \tar~models. Considering the 
+two codes use different atomic data and \textsc{Tardis,} unlike \textsc{Python,} currently has 
+a complete treatment of collisions between radiatively forbidden transitions, the factor of 
+$<2$ agreement is encouraging. 
+}
+\label{tests}
+\end{figure}
+\nocite{osterbrock}
+\nocite{seaton1959}
 
 % \noindent\rule{16cm}{0.4pt}
 
@@ -525,7 +544,7 @@ simulating UV resonance line profiles, such as those presented by LK02 and SV93.
 \includegraphics[width=0.45\textwidth]{figures/acc_law.eps}
 \caption{
 The velocity law in our model for various values of
-the acceleration exponent.
+the acceleration exponent, $\alpha$.
 }
 \label{acc_law}
 \end{figure}
@@ -720,13 +739,14 @@ by the macro-atom scheme.
 \begin{figure} %fullpage
 \includegraphics[width=\textwidth]{figures/fig5_uv_opt.eps}
 \caption{
-UV (left) and Optical synthetic spectra for model B computed at
-sightlines of 10,27.5, 45, 62.5 and 80 degrees.	
+UV (left) and Optical synthetic spectra for model A, our benchmark model,
+computed at sightlines of 10, 27.5, 45, 62.5 and 80 degrees.	
 The inset plots show zoomed-in line profiles for 
 \heiiuv and \ha. Double-peaked line emission can be seen in 
-\heiiuv, \heiiopt, \ha and some He I lines, but the 
+\heiiuv, \heiiopt, \ha\ and some He I lines, but the 
 line emission is not always sufficient to overcome the absorption
-cores from the stellar atmosphere models.
+cores from the stellar atmosphere models. The model
+also produces a prominent \heiioptnew\ line at high inclinations,
 }
 \label{spec}
 \end{figure} %fullpage\
@@ -783,7 +803,11 @@ we expect to see in a large fraction of Nova-likes.
 \begin{figure} 
 \includegraphics[width=0.45\textwidth]{figures/fig6_opt_cont.eps}
 \caption{Synthetic optical spectra computed for 
-sightlines of 22.5, 25, 62.5 and 80 degrees.}
+sightlines of 22.5, 25, 62.5 and 80 degrees. In these plots
+the flux is divided by a polynomial fit to the 
+underlying continuum redward of the Balmer edge, so that 
+line-to-continuum ratios and the true depth of the
+Balmer jump can be shown.}
 \label{spec_continuum}
 \end{figure} 
 
@@ -814,7 +838,15 @@ to fill in the Balmer jump in this specific model}
 
 \begin{figure} %fullpage
 \includegraphics[width=\textwidth]{figures/fig5.eps}
-\caption{Various properties of the wind.}
+\caption{
+The Physical Properties of the wind. Near
+the disk plane the wind is dense, with low poloidal velocities.
+As the wind accelerates it becomes less dense
+and more highly ionized. The dominant Helium ion
+is almost always He III, apart from in a small
+portion of the wind at the base, which is partially shielded
+from the inner disk.
+}
 \label{wind}
 \end{figure} %fullpage
 
@@ -1067,6 +1099,25 @@ The panels are organised in the same way as figure~\ref{halpha}.
 
 % \noindent\rule{16cm}{0.4pt}
 
+\begin{figure} %fullpage
+\mbox{
+\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_balmer_0.eps}}
+\quad
+\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_uv_0.eps}}   
+}
+%%\includegraphics[width=0.5\textwidth]{figures/test.eps}
+\caption{The evolution of the Balmer jump and higher order Balmer lines (left) 
+and the \civ\ line profile (right)
+with the kinematic properties of the wind,
+computed for an incliantion of $80^\circ$. 
+the panels are organised in the same way as figure~\ref{halpha}.
+% The panels are ordered in the same way as figure~\ref{halpha}. In general, increasing densities
+% lead to a Balmer jump in emission, although as in the case of H$\alpha$ there is a transition
+% when the wind becomes a neutral absorbing column.
+}
+\label{jump}
+\end{figure}
+
 We find in all our models that He II line emission is significant, and that 
 in most cases He  III is the dominant Helium ion in the wind, making recombination
 to He II an important process. This occurs without the presence of a boundary 
@@ -1087,6 +1138,18 @@ possible that a flatter temperature profile in the disk,
 as suggested by some eclipse mapping observations of NLs (References),
 would cause a softer disk spectrum and allow a boundary layer 
 with $T_{bl} = 200,000$K to exist without over-ionizing the wind.
+We note that there is an element of inconsistency with 
+requiring flatter disk temperature profiles in order to permit
+a hotter boundary layer,, as the theoretical argument 
+for the existence and likely temperature of a boundary layer has 
+mostly been put together assuming a Shakura-Sunyaev disk.  
+Radio emission has been seen in CVs, possibly implying the 
+existence of a radio jet \cite[see e.g.][]{kordingDNjet2008,kording2011}.
+A jet could extract some of the energy which is supposedly dissipated in the 
+boundary layer, causing $L_{bl} < L_{acc}/2$, although
+observations suggest the jet power would only be on the order
+of $10\%$ of the accretion power.	
+
 
 
 It is also instructive here to conduct a hypothetical 
@@ -1118,27 +1181,25 @@ Here f(line) is the line flux in erg~cm$^{-2}$ s$^{-1}$. (I NEED TO DO THE CALCU
 % \item Helium I lines
 % \end{itemize}
 
-\begin{figure} %fullpage
+
+
+
+\begin{figure} 
 \mbox{
-\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_balmer_0.eps}}
-\quad
-\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_uv_0.eps}}   
+\subfigure{\includegraphics[width=0.5\textwidth]{figures/fig_EWt.eps}}
+
 }
 %%\includegraphics[width=0.5\textwidth]{figures/test.eps}
-\caption{The evolution of the Balmer jump and higher order Balmer lines (left) 
-and the \civ\ line profile (right)
-with the kinematic properties of the wind,
-computed for an incliantion of $80^\circ$. 
-the panels are organised in the same way as figure~\ref{halpha}.
+\caption{
+Equivalent widths of the \civfull\ and \heiiuv\ lines
+as a function of boundary layer temperature. The models used
+are identical to the benchmark model in geometry and kinematics.
 % The panels are ordered in the same way as figure~\ref{halpha}. In general, increasing densities
 % lead to a Balmer jump in emission, although as in the case of H$\alpha$ there is a transition
 % when the wind becomes a neutral absorbing column.
 }
-\label{jump}
+\label{bl_grid}
 \end{figure}
-
-
-
 
 
 % \noindent\rule{16cm}{0.4pt}
@@ -1268,12 +1329,13 @@ observed profiles.
 \includegraphics[width=\textwidth]{figures/fig14_uv_opt.eps}
 \caption{
 UV (left) and Optical synthetic spectra for model B computed at
-sightlines of 10,27.5, 45, 62.5 and 80 degrees.	
+sightlines of 10, 27.5, 45, 62.5 and 80 degrees.	
 The inset plots show zoomed-in line profiles for 
 \heiiuv \ and \ha. The \ha line 
 is single peaked, but higher order lines in the Balmer series
 are double-peaked, albeit with narrower profiles.
-Strong \heiiopt emission can be seen
+Strong \heiiopt emission can be seen, as well a trend
+of a deeper Balemr jump with decreasing inclination.
 }
 \label{uvoptb}
 \end{figure} %fullpage
@@ -1326,7 +1388,7 @@ kinematics and geometry of the wind. These include:
 \begin{itemize}
 	\item The `filling-in' of the Balmer jump \citep{elitzur1983} by recombination 
 	continuum emission from a disk wind
-	\item Single peaked line emission in H alpha produced by 
+	\item Single peaked line emission in \ha\ produced by 
 	the introduction of a poloidal velocity gradient \citep{MC96}
 	\item A Balmer decrement consistent with optically thick emission \citep{elitzur1983}.
 \end{itemize}
