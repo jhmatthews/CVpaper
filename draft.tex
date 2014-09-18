@@ -240,7 +240,8 @@ but also more recent work by Idan et al. 2010).
 RW Sex (Top; Beuermann et al. 1992),
 IX Vel (Middle; Beuermann \& Thomas 1990)
 and RW Tri in eclipse (Bottom; Groot et al. 2004).
-The data have been digitized from the respective publications. 
+The data have been digitized from the respective publications and a few of the more
+prominent emission and absorption lines are marked. 
 These systems have inclinations of $30^\circ$, $60^\circ$ and $70^\circ$ 
 respectively.
 The trend of increasing Balmer line emission with inclination can be seen.
@@ -634,32 +635,6 @@ the acceleration exponent, $\alpha$.
 \end{figure}
 
 
-\begin{table}
-\centering
-\begin{tabular}{p{3cm}p{4cm}}
-Model A \\
-\hline Free Parameters 	&	 Value \\ 
-\hline \hline 
-$M_{WD}$ 	 &	 $0.8 M_{\odot}$ \\ 
-$R_{WD}$ 	 &	 $7\times10^{8}$cm\\ 
-$\dot{M}_{acc}$ 	 &	 $10^{-8}~M_{\odot}yr^{-1}$\\ 
-$\dot{M}_{wind}$  &	$10^{-9}~M_{\odot}yr^{-1}$å\\ 
-$r_{min}$ 	&	 $4 R_{WD}$\\ 
-$r_{max}$ 	&	 $12 R_{WD}$ \\ 
-$\theta_{min}$ 	&	 $20.0^{\circ}$ \\ 
-$\theta_{max}$ 	&	 $65.0^{\circ}$ \\ 
-$\gamma$ 	&	 $1$ \\ 
-$v_{\infty}$ 	&	 $3v_{esc}$ \\ 
-%%$R_v$ 	        &	 $7\times10^{10}$cm \\ 
-$R_v$ 	        &	 $100 R_{WD}$ \\ 
-$\alpha$ 	&	 $1.5$ \\
-\end{tabular}
-\centering
-\caption{
-Parameters used for the geometry and kinematics of the benchmark CV model.}
-\label{wind_param}
-\end{table}
-
 
 %The principle of mass conservation 
 The mass continuity equation implies that the velocity law also 
@@ -813,6 +788,35 @@ are marked with dashed vertical lines.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{table}
+\centering
+\begin{tabular}{p{3cm}p{4cm}}
+Model A \\
+\hline Free Parameters 	&	 Value \\ 
+\hline \hline 
+$M_{WD}$ 	 &	 $0.8 M_{\odot}$ \\ 
+$R_{WD}$ 	 &	 $7\times10^{8}$cm\\ 
+$\dot{M}_{acc}$ 	 &	 $10^{-8}~M_{\odot}yr^{-1}$\\ 
+$\dot{M}_{wind}$  &	$10^{-9}~M_{\odot}yr^{-1}$å\\ 
+$r_{min}$ 	&	 $4 R_{WD}$\\ 
+$r_{max}$ 	&	 $12 R_{WD}$ \\ 
+$\theta_{min}$ 	&	 $20.0^{\circ}$ \\ 
+$\theta_{max}$ 	&	 $65.0^{\circ}$ \\ 
+$\gamma$ 	&	 $1$ \\ 
+$v_{\infty}$ 	&	 $3v_{esc}$ \\ 
+%%$R_v$ 	        &	 $7\times10^{10}$cm \\ 
+$R_v$ 	        &	 $100 R_{WD}$ \\ 
+$\alpha$ 	&	 $1.5$ \\
+\end{tabular}
+\centering
+\caption{
+Parameters used for the geometry and kinematics of the benchmark CV model.}
+\label{wind_param}
+\end{table}
+
+
+
+
 \section{Results \& Analysis from a Benchmark Model}
 
 % The results in this section were obtained using the geometry described
@@ -830,7 +834,9 @@ a successful UV wind model as a starting point
 and examine its effect 
 when one utilises the better treatment of lines provided
 by the macro-atom scheme.
-
+The model parameters are shown in table 1. 
+they are identical to LK02, and were chosen both to reflect typical
+values for NLs and reproduce realistic UV line profiles.
 % The specific model 
 % parameters are summarised in table 1, and follow LK02. 
 % They are motivated by a need to agree with typical observed values 
@@ -1102,14 +1108,17 @@ spectral lines very high densities are required.
 \subfigure{\includegraphics[width=0.5\textwidth]{figures/3by3_grid_beta.eps}}   
 }
 \caption{
-Line profiles for \ha\ (right) and \hb\ (left) with varying kinematic 
+Line profiles for \ha\ (left) and \hb\ (right) with varying kinematic 
 properties, computed for an inclination of $80^\circ$.
-The benchmark model is shown in the top panel, and also in grey in each 
-subsequent plot for comparison. The parameter that has been altered from the benchmark model 
-is marked on each panel. For the left and middle right columns, models lower down
-are more slowly accelerating and have denser wind bases. The middle right column
-shows the variation with wider launch radii, and the right hand column shows 
-how a boundary layer of increasing temperature affects the spectrum.
+The benchmark model is shown in the top left panel, and the improved optical
+model described in section 6 is highlighted in bold. 
+The parameter that has been altered from the benchmark model 
+is marked in each column and row. 
+Models towards the bottom right
+are have more slowly accelerating winds and denser wind bases. 
+% The middle right column
+% shows the variation with wider launch radii, and the right hand column shows 
+% how a boundary layer of increasing temperature affects the spectrum.
 % How the H$\alpha$ and H$\beta$ lines in our model change with the kinematic properties
 % of the wind. The three separate panels show three different values of $\dot{M}_W$, 
 % while $\alpha$ and $R_v$ are all gradually increased from top to bottom and left to right respectively.
@@ -1133,7 +1142,12 @@ how a boundary layer of increasing temperature affects the spectrum.
 \label{balmerjump}
 
 The left panel of figure~\ref{jump} shows the evolution
-of the Balmer jump with our kinematic parameters. Higher density models
+of the Balmer jump with our kinematic parameters. 
+The `absorption' feature just redward of the Balmer jump
+is artificial. It is caused by line blanketing in the stellar atmospheres,
+which is not filled in by line emission from the wind
+due to the use of a 20-level Hydrogen atom.
+The higher density models
 produce sufficient recombination continuum emission to fill 
 in the Balmer jump. This offers a potential solution to a 
 longstanding problem when reconciling theoretical
@@ -1142,7 +1156,6 @@ models of NL spectra with observations, as originally suggested by
 that govern the density at the wind base also supports
 the idea that a transition region close to the disk plane is necessary
 to explain the emission features present \citep{kd1997}.
-
 % \noindent\rule{16cm}{0.4pt}
 
 % {\bf
@@ -1173,7 +1186,7 @@ to explain the emission features present \citep{kd1997}.
 
 \begin{figure} %fullpage
 \mbox{
-\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_1640_0.eps}}
+\subfigure{\includegraphics[width=0.5\textwidth]{figures/3by3_grid_1640.eps}}
 \quad
 \subfigure{\includegraphics[width=0.5\textwidth]{figures/3by3_grid_4686.eps}}   
 }
@@ -1220,7 +1233,7 @@ The panels are organised in the same way as figure~\ref{halpha}.
 \mbox{
 \subfigure{\includegraphics[width=0.5\textwidth]{figures/3by3_grid_balmer.eps}}
 \quad
-\subfigure{\includegraphics[width=0.5\textwidth]{figures/grid_uv_0.eps}}   
+\subfigure{\includegraphics[width=0.5\textwidth]{figures/3by3_grid_uv.eps}}   
 }
 %%\includegraphics[width=0.5\textwidth]{figures/test.eps}
 \caption{The evolution of the Balmer jump and higher order Balmer lines (left) 
@@ -1490,7 +1503,9 @@ of a deeper Balmer jump with decreasing inclination.
 \includegraphics[width=0.8\textwidth]{figures/fig13_eclipse.eps}
 \caption{{\sl Top Panel:} In and out of eclipse spectra of the high
 inclination NL RW Tri. {\sl Bottom Panel:} In and out of eclipse synthetic
-spectra from Model B.}
+spectra from Model B.
+The artificial `absorption' feature just redward of the Balmer jump
+is caused for the reasons described in section 5.2.}
 \label{rwtricomp}
 \end{figure} %fullpage
 
