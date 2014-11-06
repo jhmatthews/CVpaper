@@ -1,0 +1,40 @@
+This is a folder which contains data ripped from a few different plots for use with the 2014 CV paper, and also HST proposal.
+
+The data is ripped using Dexter. To run Dexter use this command on JM's mac:
+
+$ java -mx30000000 -jar Debuxter.jar file.fmt
+
+
+
+Script to make figure: plot_dex.py
+
+
+
+
+Three directories.
+
+rwtri
+-----------------------------
+Groot et al. paper on RW Tri
+
+out of eclipse data: rwtri_opt_noeclipse.dat
+in eclipse data: new_eclipse.dat
+image: groot.png
+
+
+
+rwsex
+-----------------------------
+Groot et al. paper on RW Tri
+
+data: data.dat, data2.dat
+image: beur1.png
+
+
+
+rwtri
+-----------------------------
+Groot et al. paper on RW Tri
+
+data: data11.dat
+image: beur11.png
