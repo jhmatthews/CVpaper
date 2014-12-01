@@ -102,7 +102,7 @@ We find that a standard disk wind model that is successful in
 reproducing the UV spectra of CVs does leave a noticeable imprint on
 the optical spectrum as well, particularly for systems viewed at high
 inclination. The strongest optical wind-formed recombinations lines are \ha\ and
-\heiiopt\, although the outflow also produces emission in the Ly-$\alpha$
+\heiiopt\ , although the outflow also produces emission in the Ly-$\alpha$
 and \heiiuv\ UV lines. However, all of the optical lines produced by
 this default wind model are double-peaked, and the effect of the wind
 on the Balmer jump is modest. We carry out a limited exploration of
@@ -307,7 +307,7 @@ photo-ionizing SEDs, including non-thermal and multi-component ones.
 \subsection{Ionization and Excitation: ``Simple Atoms''}
 
 Prior to SDL05, the relative ionization fractions for all atomic
-species were estimated via a modified Saha equation (Mazzali \&
+species were estimated via the modified Saha equation (Mazzali \&
 Lucy 1993)  
 \begin{equation}
 \frac{n_{j+1} n_e}{n_j} = W [\xi + W(1-\xi)]
@@ -319,7 +319,7 @@ abundances computed at temperature $T_R$, but
 using actual partition functions obtained 
 from the dilute blackbody approximation.
 This is in accordance with the notation of Mihalas (1982).  
-%%JMTASK: in accordance with the notation of Mihalas (1982).  - check this! 
+%%JMTASK: in accordance with the notation of Mihalas (1982).  - check this!
 $W$ is an effective dilution factor, $\xi$ is the
 fraction of recombinations going directly to the ground state, and
 $T_R$ and $T_e$ are the radiation and electron temperature
@@ -362,7 +362,7 @@ for the level populations based on MC estimators. The macro-atom
 technique has already been used to model Wolf-Rayet star
 winds \citep{sim2004}, AGN disk winds \citep{simlong2008, tatum2012},
 supernovae \citep{kasen2006, kerzendorfsim} and YSOs (SDL05). A full 
-description of the can be found in L02 and L03. 
+description of the scheme can be found in L02 and L03. 
 
 Briefly, macro-atom NLTE level populations and ionization fractions
 are calculated by solving the statistical equilbrium equations between
@@ -544,7 +544,8 @@ figure~\ref{acc_law}).
 \includegraphics[width=0.45\textwidth]{figures/acc_law.eps}
 \caption{
 The adopted poloidal velocity law for various values of the
-acceleration exponent, $\alpha$.} 
+acceleration exponent, $\alpha$.
+}
 \label{acc_law}
 \end{figure}
 
@@ -646,6 +647,7 @@ are marked with dashed vertical lines.
 {\bf CK: this will need to be updated -- we want to show (just) the disk and
   WD spectra...}
 }
+%%JMTASK--CK: this will need to be updated -- we want to show (just) the disk and WD spectra...
 \label{sed}
 \end{figure}
 
@@ -734,9 +736,9 @@ the case, since the ionization state of the wind has not changed
 significantly from that computed in LK02 (see Section~\ref{BLA}). The
 left column of panels in Figure~\ref{spec} shows that this expectation
 is met: all of the strong metal resonance
-lines - notably N\textsc{v}~$\lambda 1240{\rm \AA}$,
+lines -- notably N\textsc{v}~$\lambda 1240{\rm \AA}$,
 Si\textsc{iv}~$\lambda 1400{\rm \AA}$ and C\textsc{iv}~$\lambda
-1550{\rm \AA}$ - are present and exhibit clear P-Cygni profiles
+1550{\rm \AA}$ -- are present and exhibit clear P-Cygni profiles
 at intermediate inclinations. In addition, however, we now also find
 that the wind produces significant Lyman-$\alpha$ and
 He~\textsc{ii}~$\lambda1640{\rm \AA}$ emission lines. 
