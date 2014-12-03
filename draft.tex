@@ -114,7 +114,7 @@ jump, although such models also tend to predict stronger-than-observed
 collisionally excited UV emission lines. Our main conclusion is that
 disk wind emission is likely to have a significant impact on the
 optical spectra of high-state CVs. 
-{\bf NOTE JM: This abstract is a few lines longer than I would like- 
+{\bf JM: This abstract is a few lines longer than I would like- 
 I think something punchier is required.}
 \end{abstract}
 
@@ -168,7 +168,7 @@ theoretical expectations for lines formed in accretion disks, which
 are predicted to be double-peaked \citep{smak1981, hornemarsh1986}. 
 {\em Low-state} CVs (dwarf novae in quiescence) can, in fact,
 exhibit such double-peaked lines \citep{marshhorne1990}. 
-{\bf NOTEJM: I've included a reference to a paper on IP Peg here
+{\bf JM: I've included a reference to a paper on IP Peg here
 which shows the transition from double peaked lines in 
 quiescence and a contrast to outburst spectra. I'm not sure
 of general trends in DNe. A lot seem to have weak emission cores
@@ -318,6 +318,7 @@ so that the code is now capable of dealing with arbritrary
 photo-ionizing SEDs, including non-thermal and multi-component ones. 
 
 \subsection{Ionization and Excitation: ``Simple Atoms''}
+\label{simpleatoms}
 
 Prior to SDL05, the relative ionization fractions for all atomic
 species were estimated via the modified Saha equation (Mazzali \&
@@ -477,19 +478,22 @@ for a particular test case. Agreement is excellent for both H and He.
 \centering
 \includegraphics[width=0.5\textwidth]{figures/fig_caseb_tardis.eps}
 \caption{
-{\sl Top Panel:} Balmer decrements calculated with \py compared with analytic calculations
-by Seaton (1959), showing good agreement when calculating level emissivities in Hydrogen
-in the Case B limit.
+{\sl Top Panel:} ``Case B'' Balmer decrements computed 
+with \textsc{Python} compared to analytic calculations
+by Seaton (1959). Both calculations are calculated at $T_e=10,000$K.
 (see Osterbrock 1989 for a discussion of this commonly used approximation).
 {\sl Bottom Panel:}  a comparison of Helium I level populations (the most complex ion we currently 
-treat as a macro-atom) between \py~and \tar~models. Considering the 
-two codes use different atomic data and \textsc{Tardis,} unlike \textsc{Python,} currently has 
-a complete treatment of collisions between radiatively forbidden transitions, the factor of 
+treat as a macro-atom) between \py~and \tar~models. 
+The calculation is conducted with physical parameters of $n_e=5.96\times10^4$~cm$^{-3}$,
+$T_e=30,600$K, $T_R=43,482$K and $W=9.65\times10^{-5}$. 
+Considering the two codes use different atomic data and \textsc{Tardis,} unlike \textsc{Python,} currently has a complete treatment of collisions between 
+radiatively forbidden transitions, the factor of 
 $<2$ agreement is encouraging. 
-{\bf NOTE CK: WHAT ARE THE PARTICULAR SETS OF PARAMETERS BEING ADOPTED HERE?}
 }
 \label{tests}
 \end{figure}
+
+
 \nocite{osterbrock}
 \nocite{seaton1959}
 
@@ -509,6 +513,7 @@ LK02 and H13, so below we only briefly recount the key aspects of the
 particular system and wind model used in the present study.
 
 \subsection{Wind Geometry and Kinematics}
+\label{kinematics}
 
 We adopt the kinematic disk wind model developed by Schlosman \&
 Vitello (1993; hereafter SV93). A schematic of this model is shown in
@@ -569,12 +574,13 @@ and $v_z$ is the vertical velocity component. We take $\phi(r_0)$ to be
 uniform across the wind-launching area of the disk and normalize it by
 matching its integral to the user-specified total mass-loss rate,
 $\dot{M}_{wind}$. 
-{\bf NOTE CK: I'm still not sure I understand the formula
+{\bf CK: I'm still not sure I understand the formula
   SV93 use to define $\phi$, and hence that this description is
   actually strictly correct.... Not sure what to do about that
   though...}
 
 \subsection{Sources and Sinks of Radiation}
+\label{radsources}
 
 The net photon sources in our CV model are the accretion disk, the
 WD and, in principle, a boundary layer with user-defined temperature
@@ -629,7 +635,7 @@ the BL luminosity to zero. However, we have confirmed that the addition of a
 BL with $L_{BL} = 0.5 L_{acc}$ and temperatures in the range $80{\rm
 kK} \leq T_{BL} \leq 200{\rm kK}$ would not change any of our main
 conclusions. 
-{\bf NOTE CK: Is this true? Do we want to say anything else, e.g. that we'll
+{\bf CK: Is this true? Do we want to say anything else, e.g. that we'll
 talk about this in a future paper? JM: This is true. Anything up to 200kK
 still has optical lines. The He II behaviour is not monotnic. CIV drops
 gradually and gets a little overionized- but this is a separate topic really.
@@ -652,13 +658,14 @@ inferior conjunction of the secondary (i.e. mid-eclipse for $i \simeq
 \centering
 \includegraphics[width=0.45\textwidth]{figures/sed_figure.eps}
 \caption{
-The spectral energy distribution (SED) of the blackbody accretion
-disk used in the ionization calculation (black line), 
-with two boundary layer blackbody spectra also plotted.
+The spectral energy distribution (SED) of the 
+White Dwarf (dashed line) and blackbody accretion
+disk used in the ionization calculation (black solid line).
 The positions of the Hydrogen and Helium ionization edges 
-are marked with dashed vertical lines.
+are marked with vertical lines.
 {\bf JM: do we want to show the stellar atmosphere spectrum here?
 we know it looks a bit crap around the He II edge, so perhaps not...
+ }
  }
 \label{sed}
 \end{figure}
@@ -679,7 +686,7 @@ Benchmark Model (Optimized for the UV Band) \\
 $M_{WD}$ 	 &	 $0.8 M_{\odot}$ \\ 
 $R_{WD}$ 	 &	 $7\times10^{8}$cm\\ 
 $T_{WD}$ 	 &	 $40,000$K\\
-$M_{2}$ 	 &	 $???? M_{\odot}$ \\ 
+$M_{2}$ 	 &	 $0.4 M_{\odot}$ \\ 
 $\dot{M}_{acc}$ 	 &	 $10^{-8}~M_{\odot}yr^{-1}$\\ 
 $\dot{M}_{wind}$  &	$10^{-9}~M_{\odot}yr^{-1}$å\\ 
 $r_{min}$ 	&	 $4 R_{WD}$\\ 
@@ -694,11 +701,13 @@ $\alpha$ 	&	 $1.5$ \\
 \end{tabular}
 \centering
 \caption{
-Parameters used for the geometry and kinematics of the benchmark CV model.}
+Parameters used for the geometry and kinematics of the benchmark CV model.
+{\bf JM: this needs some stuff adding, as is mentioned in certain places}}
 \label{wind_param}
 \end{table}
 
 \section{A Benchmark Disk Wind Model}
+\label{modela}
 
 Our main goal is to test whether the type of disk wind model that has
 been successful in explaining the UV spectra of CVs could also have 
@@ -711,24 +720,39 @@ Table~1. A key point is that the wind mass-loss rate in this model is
 set to 10$\%$ of the accretion rate through the disk.
 
 \subsection{Physical Structure and Ionization State}
+\label{modela_ionization}
+
+\begin{figure} %fullpage
+\includegraphics[width=\textwidth]{figures/fig5.eps}
+\caption{
+The physical properties of the wind- note the logarithmic scale. 
+Near the disk plane the wind is dense, with low poloidal velocities.
+As the wind accelerates it becomes less dense
+and more highly ionized. The dominant Helium ion
+is almost always He III, apart from in a small
+portion of the wind at the base, which is partially shielded
+from the inner disk.
+}
+\label{wind}
+\end{figure} %fullpage
 
 Figure~\ref{wind} shows the physical and ionization structure 
 of the benchmark disk wind model. There is an obvious drop-off in density
 and temperature with distance away from the disk, so any line
-formation process that scales as $n_e^2$ -- i.e. recombination and
-collisionally excited emission -- should be expected to operate
+formation process that scales as $n_e^2$ - i.e. recombination and
+collisionally excited emission - should be expected to operate
 primarily in the dense base of the outflow. Moreover, a comparison of
 the rotational and poloidal velocity fields shows that rotation
 dominates in the near-disk regime, while outflow dominates further out
 in the wind. 
 
 The ionization equation used in the ``simple atom'' approach used in
-LK02 (see Section~\ref{BLA}) should be a reasonable approximation to
+LK02 (see section~\ref{simpleatoms}) should be a reasonable approximation to
 the photoionization equilibrium in the benchmark wind model. Even
 though the macro-atom treatment of H and He does affect the 
 computation of the overall ionization equilibrium, we would expect the
 resulting ionization state of the wind to be quite similar to that
-found in LK02. The bottom panels in Figure~\ref{BL} confirm that this
+found in LK02. The bottom panels in figure~\ref{wind} confirm that this
 is the case. In particular, Helium is fully ionized
 throughout most of the outflow, except for a small region near the
 base of the wind, which is shielded from the photons produced by the
@@ -741,12 +765,13 @@ is usually the most prominent wind-formed feature in the UV spectra of
 low-inclination nova-like CVs.
 
 \subsection{Synthetic Spectra}
+\label{modela_spectrum}
 
 We begin by verifying that the benchmark model still produces UV
 spectra that resemble those observed in CVs. We do expect this to be
 the case, since the ionization state of the wind has not changed
-significantly from that computed in LK02 (see Section~\ref{BLA}). The
-left column of panels in Figure~\ref{spec} shows that this expectation
+significantly from that computed in LK02 (see section~\ref{modela_ionization}). 
+The left column of panels in figure~\ref{spec} shows that this expectation
 is met: all of the strong metal resonance
 lines - notably N\textsc{v}~$\lambda 1240{\rm \AA}$,
 Si\textsc{iv}~$\lambda 1400{\rm \AA}$ and C\textsc{iv}~$\lambda
@@ -780,7 +805,7 @@ outflow, which accounts for the double-peaked shape of the lines. In
 principle, lines formed in this region can still be single peaked,
 since the existence of a poloidal velocity {\em gradient} changes the
 local escape probabilities (MC96). However, as
-demonstrated explicitly in Section~\ref{BLA}, the line opacity in our
+demonstrated explicitly in section~\ref{modelb}, the line opacity in our
 benchmark model is not high enough for this radiative transfer effect
 to dominate the line shapes.
 
@@ -828,20 +853,6 @@ to fill in the Balmer jump in this specific model}
 
 
 
-\begin{figure} %fullpage
-\includegraphics[width=\textwidth]{figures/fig5.eps}
-\caption{
-The physical properties of the wind- note the logarithmic scale. 
-Near the disk plane the wind is dense, with low poloidal velocities.
-As the wind accelerates it becomes less dense
-and more highly ionized. The dominant Helium ion
-is almost always He III, apart from in a small
-portion of the wind at the base, which is partially shielded
-from the inner disk.
-}
-\label{wind}
-\end{figure} %fullpage
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -851,8 +862,9 @@ from the inner disk.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{The Dependence of Wind Features on Outflow Parameters}
+\label{modelb}
 
-The results of Section~\ref{BLA} show that wind models that reproduce
+The results of section~\ref{modela} show that wind models that reproduce
 the UV spectral features of CVs are likely to leave a clear imprint on
 the optical spectrum. It is therefore important to understand the
 sensitivity of optical (and UV) wind-formed features to the basic
@@ -877,7 +889,8 @@ sight. This can also significantly affect line profile shapes.
 The simplest way to simultaneously affect the density in the wind as
 well as the velocity gradients is by modifying the poloidal velocity
 law. We have therefore conducted a exploratory sensitivity study in
-which we focus on just two kinematic variables (Section~\ref{BLA}):
+which we focus on just two kinematic variables (section~\ref{kinematics}):
+
 \begin{itemize}
  	\item the acceleration length, $R_v$, which controls the
         distance over which the wind accelerates to $\frac{1}{2}v_{\infty}$;
@@ -891,8 +904,9 @@ However, this behaviour may be moderated by the effect of the increasing
 optical depth through this region.
 
 \subsection{Optical Wind Signatures}
+\label{modelb_opt}
 
-Figures~\ref{halpha} and~\ref{heii} show how the H$\alpha$ and 
+Figure~\ref{halpha} shows how the H$\alpha$ and 
 He~{\sc ii}~$\lambda 
 4686$ lines change with the kinematics of the wind for an inclination
 of $80^\circ$. The width and strength of He~{\sc ii} clearly depend on
@@ -942,7 +956,8 @@ feature a strong He~\textsc{ii}~4686\AA\ line (the Helium
 equivalent of Paschen~$\alpha$). This line is unfamiliar observationally,
 but only because it lies bluewards of the atmospheric cut-off, but
 also redwards of most ultraviolet spectra. 
-{\bf JM: should we reference something for this paper here}
+{\bf JM: we should we reference something here for the 3202 line. 
+I blieve CK found a paper which shows it in an IP? I'll try and find it.}
 
 \begin{figure} %fullpage
 \mbox{
@@ -954,34 +969,40 @@ also redwards of most ultraviolet spectra.
 Line profiles plotted in veliocity space 
 for \ha\ (left) and \heiiopt\ (right) with varying kinematic 
 properties, computed for an inclination of $80^\circ$.
-The benchmark model is shown in the top left panel, and the improved optical
-model described in section 6 is highlighted in bold. 
+The benchmark model and the improved optical
+model described in section 6 are labeled as A and B respectively. 
+The $x$-axis limits correspond to the Keplerian velocity at 
+$4R_{WD}$, the inner edge of the wind.
 The parameter that has been altered from the benchmark model 
 is marked in each column and row. Models towards the bottom right
-are have more slowly accelerating winds and denser wind bases. }
+are have more slowly accelerating winds and denser wind bases. 
+{\bf JM: Need to discuss the `single-peaked-ness' of line profiles
+in our telecon.}
+}
 \label{halpha}
 \end{figure} %fullpage
 
 \begin{figure} %fullpage
 \centering
-\includegraphics[width=0.8\textwidth]{figures/3by3_grid_balmer.eps}  
+\includegraphics[width=1.0\textwidth]{figures/3by3_grid_balmer.eps}  
 %%\includegraphics[width=0.5\textwidth]{figures/test.eps}
 \caption{
-Line profiles for \civ\ (left) and \heiiuv\  (right) with varying kinematic 
+The evolution of the Balmer jump with varying kinematic 
 properties, computed for an inclination of $80^\circ$. 
 The panels are organised in the same way as figure~\ref{halpha}.
 % The panels are ordered in the same way as figure~\ref{halpha}. In general, increasing densities
 % lead to a Balmer jump in emission, although as in the case of H$\alpha$ there is a transition
 % when the wind becomes a neutral absorbing column.
 }
-\label{uvlines}
+\label{jump}
 \end{figure} %fullpage
 
 \subsection{Ultraviolet Wind Signatures}
+\label{modelb_uv}
 
 The dependence of the ultraviolet C~{\sc iv} and He~{\sc ii} lines on
-the same kinematic wind parameters is illustrated in Figures~\ref{BLA}
-and~\ref{BLA}. As before, we focus on the predicted behaviour at $i =
+the same kinematic wind parameters is illustrated in figures~\ref{uvlines}
+and~\ref{uvlines}. As before, we focus on the predicted behaviour at $i =
 80^\circ$. In our benchmark model, the C~{\sc iv} emission
 line seen at high inclinations is almost entirely produced via
 resonance scattering. The angle-averaged flux integrated over the
@@ -997,7 +1018,12 @@ monotonic, however, because the escape probabilities from the
 line-forming region can be highly anisotropic.  
 {\bf CK: I *think* this is the basic reason, but (a) can you check
   this, James; (b) is it enough to just point this out?; (c) do we
-  understand why CIV is single-peaked but HeII, for example, is double-peaked?}
+  understand why CIV is single-peaked but HeII, for example, is double-peaked?
+  JM: There are still a few tests I want to do here- we can discuss in the telecon.
+  I believe He II v CIV shape is just due to CIV being produced in an extended region,
+  and generally scattered, whereas He II is produced close to the disk, and there's probably
+  also a line opacity effect.
+  I can check this.}
 
 The He~{\sc ii}~1640\AA recombination line is always double-peaked in
 our models, although the peak-to-peak separation decreases in the
@@ -1026,6 +1052,9 @@ is the same as for the C~{\sc iv} line.
 Line profiles for \civ\ (left) and \heiiuv\  (right) with varying kinematic 
 properties, computed for an inclination of $80^\circ$. 
 The panels are organised in the same way as figure~\ref{halpha}.
+{\bf JM: I need to adjust the smoothing here so for all plots I smooth
+in terms of Wavelength rather than bins. Linked to single-peaked discussion. 
+Note also CK may want a Lyman alpha plot, which I might put here}
 % The panels are ordered in the same way as figure~\ref{halpha}. In general, increasing densities
 % lead to a Balmer jump in emission, although as in the case of H$\alpha$ there is a transition
 % when the wind becomes a neutral absorbing column.
@@ -1064,17 +1093,17 @@ $\alpha$ 	&	 $4$ \\
 \caption{Wind geometry parameters used in the next-generation CV
   model. {\bf CK: I actually think we should probably have a single
     table with both sets of model pars}}
-\label{modelb}
+\label{modelb_table}
 \end{table}
 
-The benchmark model discussed in Section~\ref{BLA} was originally
+The benchmark model discussed in section~\ref{modela} was originally
 designed to reproduce the wind-formed lines seen in the UV spectra of
 high-state CVs. As we have seen, this model does produce significant
 amounts of optical emission. However, with only relatively minor
 changes to the kinematics of the benchmark model, it is possible to
 construct a model that more closely matches the observed {\em optical}
 spectra of CVs. Guided by the results of the previous section, we
-adopt the parameters listed in Table~\ref{BLA} for this purpose.
+adopt the parameters listed in table~\ref{modelb_table} for this purpose.
 
 Figure~\ref{uvoptb} shows the predicted UV and optical spectra for this
 optically optimized model for the full range of inclinations, and
@@ -1129,8 +1158,8 @@ the desired optical recombination emission, but also increases the
 role of collisional excitation in the formation of the UV resonance
 lines. This explains the pronounced increase in the emission component 
 of the C\textsc{iv} 1550\AA resonance line, for example, relative to
-what was seen in the benchmark model (compare Figures~\ref{BLA} and
-\ref{BLA}). The strength of this component in the revised model --
+what was seen in the benchmark model (compare figures~\ref{spec} and
+\ref{uvoptb}). The strength of this component in the revised model --
 especially at low and intermediate inclinations -- is probably
 somewhat too high to be consistent with UV observations of high-state
 CVs (REF).
@@ -1205,13 +1234,13 @@ densities and/or optical depths might
           observed CV spectra\citep{KLWB98};
 	\item produce the commonly observed single-peaked optical line
           profiles \citep{MC96}
-	\item generate a flat Balmer decrement consistent with
-          optically thick emission \citep{elitzur1983}. 
-{\bf CK: actually, I don't think this last point is ever discussed in
-  the paper. I'd suggest removing it here or mentioning it briefly
-  earlier. Will leave this to you, James.}
 \end{itemize}
 \smallskip
+
+{\bf JM: I originally also had a note about the flat Balmer decrement here.
+it's potentially interesting and could be included, but would need a discussion
+earlier in the text.}
+
 
 \noindent Based on our modelling, we can also make a number of basic,
 testable predictions for wind-formed signatures:

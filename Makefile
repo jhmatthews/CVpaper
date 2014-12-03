@@ -34,7 +34,7 @@ draft:
 
 
 	#open -a preview cvwinds_draft_mnras_jm_$(DATE).pdf cvwinds_draft_jm_$(DATE).pdf
-	open -a preview cvwinds_draft_jm_$(DATE).pdf
+	#open -a preview cvwinds_draft_jm_$(DATE).pdf
 #	cp draft_mnras.pdf ~/Dropbox/Python/CVpaper/
 #	cp draft.pdf ~/Dropbox/Python/CVpaper/draft_preprint.pdf
 # draft:
