@@ -121,9 +121,9 @@ ylim(0.1,40)
 # plot model
 scale = 2.718 / 0.036
 subplot(212)
-s = rd.read_spec_file("cv_alpha4_r4r12_mdot1e9_rv2e11_opt")
-plot( s.wavelength, smooth(s.spec[-3], window_len=10)*1e11*scale,  c=colour, linewidth=weight)
-plot( s.wavelength, smooth(s.spec[-2], window_len=10)*1e11*scale,  c=colour, linewidth=weight)
+s = rd.read_spec_file("cv_alpha4_r4r12_mdot1e9_rv1e11_opt")
+plot( s.wavelength, smooth(s.spec[-3], window_len=20)*1e11*scale,  c=colour, linewidth=weight)
+plot( s.wavelength, smooth(s.spec[-2], window_len=20)*1e11*scale,  c=colour, linewidth=weight)
 xlim(3700,6900)
 
 
