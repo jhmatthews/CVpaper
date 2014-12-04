@@ -682,33 +682,41 @@ we know it looks a bit crap around the He II edge, so perhaps not...
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
+
 \begin{table}
 \centering
-\begin{tabular}{p{3cm}p{4cm}}
-Benchmark Model (Optimized for the UV Band) \\
-\hline Free Parameters 	&	 Value \\ 
+\begin{tabular}{p{2cm}p{2cm}p{2cm}}
+Model Parameters \\
+\hline Parameter 	&	 Model A  & Model B \\ 
 \hline \hline 
-$M_{WD}$ 	 &	 $0.8 M_{\odot}$ \\ 
-$R_{WD}$ 	 &	 $7\times10^{8}$cm\\ 
-$T_{WD}$ 	 &	 $40,000$K\\
-$M_{2}$ 	 &	 $0.4 M_{\odot}$ \\ 
-$\dot{M}_{acc}$ 	 &	 $10^{-8}~M_{\odot}yr^{-1}$\\ 
-$\dot{M}_{wind}$  &	$10^{-9}~M_{\odot}yr^{-1}$å\\ 
-$r_{min}$ 	&	 $4 R_{WD}$\\ 
-$r_{max}$ 	&	 $12 R_{WD}$ \\ 
-$\theta_{min}$ 	&	 $20.0^{\circ}$ \\ 
-$\theta_{max}$ 	&	 $65.0^{\circ}$ \\ 
-$\gamma$ 	&	 $1$ \\ 
-$v_{\infty}$ 	&	 $3v_{esc}$ \\ 
+$M_{WD}$ 	 &	 $0.8 M_{\odot}$  &     \\ 
+$R_{WD}$ 	 &	 $7\times10^{8}$cm  & \\ 
+$T_{WD}$ 	 &	 $40,000$K        &  \\
+$M_{2}$ 	 &	 $0.6 M_{\odot}$  &   \\ 
+$\dot{M}_{acc}$ 	 &	 $10^{-8}~M_{\odot}yr^{-1}$  &\\ 
+$\dot{M}_{wind}$  &	$10^{-9}~M_{\odot}yr^{-1}$å  & \\ 
+$r_{min}$ 	&	 $4 R_{WD}$ &  \\ 
+$r_{max}$ 	&	 $12 R_{WD}$  &  \\ 
+$\theta_{min}$ 	&	 $20.0^{\circ}$  &  \\ 
+$\theta_{max}$ 	&	 $65.0^{\circ}$  &  \\ 
+$\gamma$ 	&	 $1$  &  \\ 
+$v_{\infty}$ 	&	 $3v_{esc}$  &  \\ 
 %%$R_v$ 	        &	 $7\times10^{10}$cm \\ 
-$R_v$ 	        &	 $100 R_{WD}$ \\ 
-$\alpha$ 	&	 $1.5$ \\
+$R_v$ 	        &	 $100 R_{WD}$  &  $142.9 R_{WD}$  \\ 
+$\alpha$ 	&	 $1.5$   &   $4$\\
 \end{tabular}
 \centering
 \caption{
-Parameters used for the geometry and kinematics of the benchmark CV model.
+Parameters used for the geometry and kinematics of the benchmark 
+CV model (Model A), which is optimized for the UV band, and a model
+which is optimized for the optical band and described in section 6 (Model B).
+For Model B, only parameters which are altered are given - otherwise the
+Model A parameter is used.
 {\bf JM: this needs some stuff adding, as is mentioned in certain places}}
 \label{wind_param}
+\label{modelb_table}
 \end{table}
 
 \section{A Benchmark Disk Wind Model}
@@ -1079,31 +1087,31 @@ Note also CK may want a Lyman alpha plot, which I might put here}
 
 \section{A Revised Model Optimized for Optical Wavelengths}
 
-\begin{table}
-\centering
-\begin{tabular}{p{3cm}p{4cm}}
-Model B\\
-\hline Free Parameters 	&	 Value \\ 
-\hline \hline 
-$M_{WD}$ 	 &	 $0.8 M_{\odot}$ \\ 
-$\dot{M}_{acc}$ 	 &	 $10^{-9}~M_{\odot}yr^{-1}$\\ 
-$\dot{M}_{wind}$  &	$10^{-8}~M_{\odot}yr^{-1}$\\ 
-$r_{min}$ 	&	 $4 R_{WD}$\\ 
-$r_{max}$ 	&	 $12 R_{WD}$ \\ 
-$\theta_{min}$ 	&	 $20.0^{\circ}$ \\ 
-$\theta_{max}$ 	&	 $65.0^{\circ}$ \\ 
-$\gamma$ 	&	 $1$ \\ 
-$v_{\infty}$ 	&	 $3v_{esc}$ \\ 
-$R_v$ 	        &	 $142.9 R_{WD}$ \\ 
-$\alpha$ 	&	 $4$ \\
-\end{tabular}
-\centering
-\caption{Wind geometry parameters used in the revised CV model, Model B,
-which is {\em optimized for the optical band}
-{\bf CK: I actually think we should probably have a single
-table with both sets of model pars}}
-\label{modelb_table}
-\end{table}
+% \begin{table}
+% \centering
+% \begin{tabular}{p{3cm}p{4cm}}
+% Model B\\
+% \hline Free Parameters 	&	 Value \\ 
+% \hline \hline 
+% $M_{WD}$ 	 &	 $0.8 M_{\odot}$ \\ 
+% $\dot{M}_{acc}$ 	 &	 $10^{-9}~M_{\odot}yr^{-1}$\\ 
+% $\dot{M}_{wind}$  &	$10^{-8}~M_{\odot}yr^{-1}$\\ 
+% $r_{min}$ 	&	 $4 R_{WD}$\\ 
+% $r_{max}$ 	&	 $12 R_{WD}$ \\ 
+% $\theta_{min}$ 	&	 $20.0^{\circ}$ \\ 
+% $\theta_{max}$ 	&	 $65.0^{\circ}$ \\ 
+% $\gamma$ 	&	 $1$ \\ 
+% $v_{\infty}$ 	&	 $3v_{esc}$ \\ 
+% $R_v$ 	        &	 $142.9 R_{WD}$ \\ 
+% $\alpha$ 	&	 $4$ \\
+% \end{tabular}
+% \centering
+% \caption{Wind geometry parameters used in the revised CV model, Model B,
+% which is {\em optimized for the optical band}
+% {\bf CK: I actually think we should probably have a single
+% table with both sets of model pars}}
+% \label{modelb_table}
+% \end{table}
 
 The benchmark model discussed in section~\ref{modela} was originally
 designed to reproduce the wind-formed lines seen in the UV spectra of
