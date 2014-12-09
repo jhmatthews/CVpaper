@@ -659,12 +659,6 @@ the BL luminosity to zero. However, we have confirmed that the addition of a
 BL with $L_{BL} = 0.5 L_{acc}$ and temperatures in the range $80{\rm
 kK} \leq T_{BL} \leq 200{\rm kK}$ would not change any of our main
 conclusions. 
-{\bf CK: Is this true? Do we want to say anything else, e.g. that we'll
-talk about this in a future paper? JM: This is true. Anything up to 200kK
-still has optical lines. The He II behaviour is not monotnic. CIV drops
-gradually and gets a little overionized- but this is a separate topic really.
-The issue of clumping and BL and their affect on ionization could be a 
-future paper.}  
 
 \subsubsection{Secondary Star}
 
@@ -695,13 +689,17 @@ we know it looks a bit crap around the He II edge, so perhaps not...
 \end{figure}
 
 
+
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %          RESULTS
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 
 
 \begin{table}
@@ -771,7 +769,7 @@ from the inner disk.
 Figure~\ref{wind} shows the physical and ionization structure 
 of the benchmark disk wind model. There is an obvious drop-off in density
 and temperature with distance away from the disk, so any line
-formation process that scales as $n_e^2$ - i.e. recombination and
+formation process that scales as $\rho^2$ - i.e. recombination and
 collisionally excited emission - should be expected to operate
 primarily in the dense base of the outflow. Moreover, a comparison of
 the rotational and poloidal velocity fields shows that rotation
@@ -842,7 +840,7 @@ which contrasts with (for example) the observed behaviour of IX Vel
 \citep{beuermann1990}.
 
 The emissivity of these recombination 
-features scales as $n_e^2$, meaning that they form almost entirely in the 
+features scales as $\rho^2$, meaning that they form almost entirely in the 
 dense base of the wind, just above the accretion disk. Here, the
 velocity field of the wind is still dominated by rotation, rather than
 outflow, which accounts for the double-peaked shape of the lines. In
@@ -1024,11 +1022,31 @@ He~\textsc{ii} recombination line at 3202\AA. This is the Helium
 equivalent of Paschen~$\beta$ and should be expected in all systems that
 feature a strong He~\textsc{ii}~4686\AA\ line (the Helium
 equivalent of Paschen~$\alpha$). Although it has been observed (REF),
-this line is somewhat unfamiliar observationally,
-but only because it lies bluewards of the atmospheric cut-off, but
+this line is somewhat unfamiliar observationally. 
+This is because it lies bluewards of the atmospheric cut-off, but
 also redwards of most ultraviolet spectra. 
 % {\bf JM: we should we reference something here for the 3202 line. 
 % I blieve CK found a paper which shows it in an IP? I'll try and find it.}
+
+In the UV, the model still produces all the observed lines, 
+and deep P-Cygni profiles are produced in the normal resonance lines,
+as discussed in section ??. However, the UV spectra also
+display what is perhaps the biggest problem with this revised model,
+namely the strength of resonance line emission 
+at low and intermediate inclinations.
+In order to generate strong optical wind signatures, we have adopted wind
+parameters that lead to very high densities at the base of the wind
+($n_e\sim10^{13}-10^{14}$ in the main emission region). This produces
+the desired optical recombination emission, but also increases the
+role of collisional excitation in the formation of the UV resonance
+lines. This explains the pronounced increase in the emission component 
+of the C\textsc{iv} 1550\AA\ resonance line, for example, relative to
+what was seen in the benchmark model (compare figures~\ref{spec} and
+\ref{uvoptb}). The strength of this component in the revised model 
+is probably somewhat too high to be consistent with UV observations 
+of high-state CVs (REF).
+
+\subsection{Continuum Shape and the Balmer Jump}
 
 The wind now also has a clear effect on the continuum shape,
 as shown by figure~\ref{modelb_escape}. The majority of the
@@ -1046,30 +1064,74 @@ This offers a potential solution to a long-standing problem in
 understanding the spectral energy distribution of CVs, as
 originally suggested by \cite{KLWB98}. 
 
-In the UV, the model still produces all the observed lines, 
-and deep P-Cygni profiles are produced in the normal resonance lines,
-as discussed in section ??. However, the UV spectra also
-display what is perhaps the biggest problem with this revised model,
-namely the strength of resonance line emission 
-at low and intermediate inclinations.
-In order to generate strong optical wind signatures, we have adopted wind
-parameters that lead to very high densities at the base of the wind
-($n_e\sim10^{13}-10^{14}$ in the main emission region). This produces
-the desired optical recombination emission, but also increases the
-role of collisional excitation in the formation of the UV resonance
-lines. This explains the pronounced increase in the emission component 
-of the C\textsc{iv} 1550\AA resonance line, for example, relative to
-what was seen in the benchmark model (compare figures~\ref{spec} and
-\ref{uvoptb}). The strength of this component in the revised model 
-is probably somewhat too high to be consistent with UV observations 
-of high-state CVs (REF).
+It has been noted by \cite{ladous1989, ladous1989b}
+that the Balmer jump in high-state CVs would naturally weaken at
+high inclinations due to limb darkening effects. 
+Although we include a simple limb darkening law which affects 
+the {\em total flux} seen at each incliantion, we cannot
+include it as an effect on the {\em opacities} in our model.
+As a result, the efficiency of filling in the Balmer jump
+should really be judged at low and medium inclinations, 
+where, although prominent, the recombination continuum does
+not overcome the disk atmosphere absorption. 
+In addition, this effect 
+could mean that any model which successfully fills in the 
+jump at low inclinations could lead to a Balmer jump 
+in emission at high inclinations.
+To understand this phenomenon, a fully self-consistent
+radiative transfer calculation of both the disk atmosphere
+and connected wind is required.
 
+
+\subsection{Line Profile Shapes: Producing Single-Peaked Emission}
+
+% Although \ha\ is single-peaked in our model, the majority of the
+% lines are double-peaked, particularly  
+Figure~\ref{halpha} shows how the H$\alpha$ and 
+% He~{\sc ii}~$\lambda 4686$ 
+line changes with the kinematics of the wind 
+for an inclination of $80^\circ$. The width and strength of He~{\sc ii} 
+clearly depend on both $R_v$ and $\alpha$, but the overall line profile 
+shape is always double-peaked. This contrasts with the behaviour of 
+H$\alpha$, which becomes single-peaked in our densest models. The transition from
+double-peaked to single-peaked occurs when the line becomes optically
+thick. This reproduces the behaviour predicted by \cite{MC96}, who
+showed that the poloidal velocity gradient in the wind can modify the
+shape of optically thick emission lines even in the near-disk regime,
+where the poloidal velocity itself is much smaller than the rotational
+velocity. This has the effect of suppressing the line wings and
+can therefore lead to the production of a single-peaked line profile
+shape.
+
+
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{figures/mc.eps}
+\caption{
+\ha\ line profiles, normalised to 1, plotted in veliocity space 
+for three models with varying kinematic 
+properties, computed at an inclination of $80^\circ$.
+The benchmark model and the improved optical
+model described in section 6 are labeled as A and B respectively,
+and a third model (X) which has an increased acceleration length of 
+$R_V = 283.8~R_{WD}$, and $\alpha=4$ is also shown. 
+The $x$-axis limits correspond to the Keplerian velocity at 
+$4R_{WD}$, the inner edge of the wind.
+We observe a transition from double to singl-peaked lines
+as the emission region becomes more optically thick.
+% The parameter that has been altered from the benchmark model 
+% is marked in each column and row. Models towards the bottom right
+% are have more slowly accelerating winds and denser wind bases. 
+% {\bf JM: Need to discuss the `single-peaked-ness' of line profiles
+% in our telecon.}
+}
+\label{halpha}
+\end{figure} %fullpage
 
 
 \subsection{Comparison to RW Tri}
 
 \begin{figure} %fullpage
-\includegraphics[width=0.8\textwidth]{figures/fig13_eclipse.eps}
+\includegraphics[width=0.9\textwidth]{figures/fig13_eclipse.eps}
 \caption{{\sl Top Panel:} In and out of eclipse spectra of the high
 inclination NL RW Tri. {\sl Bottom Panel:} In and out of eclipse synthetic
 spectra from Model B.
@@ -1109,17 +1171,19 @@ has also been seen in other NLs, including members of the SW~Sex class
 % {\bf CK: I'm pretty sure that we know this about UX Uma, e.g. from
 %   eclipse mapping studies, and there ought to be mid-eclipse spectra
 %   of some additional system}
-The revised model also produes a single-peaked \ha\ line, in line with
-the observational data.
+% The revised model also produes a single-peaked \ha\ line, in line with
+% the observational data.
 
 There are also interesting differences between the revised
-model and the RW Tri data set. For example, H$\alpha$ is the only line
-that is single-peaked in the model, in contrast to what is seen in the
-observations. (However, the relatively low resolution of the RW Tri
-spectra makes this comparison difficult.) Moreover, the model exhibits
+model and the RW Tri data set. For example, the model exhibits
 considerably stronger He~{\sc ii} features than the observations,
 which suggests that the overall ionization state of the model is
 somewhat too high. 
+As discussed in section 5.3, H$\alpha$ is the only line
+that is single-peaked in the model. This is
+in contrast to what is seen in the observations,
+although the relatively low resolution of the RW Tri
+spectra makes this comparison difficult.
 
 
 \newpage
@@ -1144,8 +1208,8 @@ somewhat too high.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{The Dependence of Wind Features on Outflow Parameters}
- Here we could discuss single-peaked emission and trends with parameters.
+% \section{The Dependence of Wind Features on Outflow Parameters}
+%  Here we could discuss single-peaked emission and trends with parameters.
 % \label{modelb}
 
 % The results of section~\ref{modela} show that wind models that reproduce
@@ -1262,28 +1326,6 @@ somewhat too high.
 % {\bf JM: we should we reference something here for the 3202 line. 
 % I blieve CK found a paper which shows it in an IP? I'll try and find it.}
 
-% \begin{figure} %fullpage
-% \mbox{
-% \subfigure{\includegraphics[width=0.5\textwidth]{figures/3by3_grid_alpha.eps}}
-% \quad
-% \subfigure{\includegraphics[width=0.5\textwidth]{figures/3by3_grid_4686.eps}}   
-% }
-% \caption{
-% Line profiles plotted in veliocity space 
-% for \ha\ (left) and \heiiopt\ (right) with varying kinematic 
-% properties, computed for an inclination of $80^\circ$.
-% The benchmark model and the improved optical
-% model described in section 6 are labeled as A and B respectively. 
-% The $x$-axis limits correspond to the Keplerian velocity at 
-% $4R_{WD}$, the inner edge of the wind.
-% The parameter that has been altered from the benchmark model 
-% is marked in each column and row. Models towards the bottom right
-% are have more slowly accelerating winds and denser wind bases. 
-% {\bf JM: Need to discuss the `single-peaked-ness' of line profiles
-% in our telecon.}
-% }
-% \label{halpha}
-% \end{figure} %fullpage
 
 % \begin{figure} %fullpage
 % \centering
@@ -1399,26 +1441,39 @@ the case. In particular, the model wind produces H and He
 recombination lines, as well as a recombination continuum blueward of
 the Balmer edge. 
 
-We have also explored the dependence of the optical (and UV) wind
-signatures on some key kinematic wind parameters. Based on this, we
+We have also constructed a revised benchmark model which is designed
+to more closely match the optical spectra of high-state CVs. This
+optically optimized model produces all the prominent optical lines in
+and out of eclipse, and achieves reasonable verisimilitude with the
+observed optical spectra of RW Tri. However, this model also has
+significant shortcomings. In particular, it predicts
+stronger-than-observed He~{\sc ii} lines in the optical region and too
+much of a collisionally excited contribution to the UV resonance lines
+that  
+
+Based on this, we
 show that recombination emission from outflows with sufficiently high
 densities and/or optical depths might 
+
 \renewcommand{\labelitemi}{$\bullet$}
 \begin{itemize}
 	\item fill in the Balmer absorption edge in the spectrum of
           the accretion, thus accounting for absence of this edge in
-          observed CV spectra\citep{KLWB98};
+          observed CV spectra \citep{KLWB98};
 	\item produce the commonly observed single-peaked optical line
           profiles \citep{MC96}
 \end{itemize}
 \smallskip
 
-{\bf JM: I originally also had a note about the flat Balmer decrement here.
-it's potentially interesting and could be included, but would need a discussion
-earlier in the text.}
+Although we note that limb darkening effects on disk atmosphere opacities
+would affect the Balmer jump. We can also make a number of basic,
+testable predictions for wind-formed signatures:
 
+% {\bf JM: I originally also had a note about the flat Balmer decrement here.
+% it's potentially interesting and could be included, but would need a discussion
+% earlier in the text.}
 
-\noindent Based on our modelling, we can also make a number of basic,
+\noindent We can also make a number of basic,
 testable predictions for wind-formed signatures:
 \begin{itemize}
 	\item we expect the depth of the Balmer absorption edge in CV
@@ -1436,15 +1491,7 @@ testable predictions for wind-formed signatures:
 \end{itemize}
 
 \smallskip
-We have also constructed a revised benchmark model which is designed
-to more closely match the optical spectra of high-state CVs. This
-optically optimized model produces all the prominent optical lines in
-and out of eclipse, and achieves reasonable verisimilitude with the
-observed optical spectra of RW Tri. However, this model also has
-significant shortcomings. In particular, it predicts
-stronger-than-observed He~{\sc ii} lines in the optical region and too
-much of a collisionally excited contribution to the UV resonance lines
-that  
+
 
 Overall, our work demonstrates that {\sl disk winds matter}. They are
 not just responsible for creating the blue-shifted absorption and
@@ -1458,12 +1505,12 @@ where and how these spectra are actually formed. We believe it is high
 time for a renewed effort to understand the formation of spectra in
 accretion disks and associated outflows. 
 
-{\bf CK: I just realized that -- apart from the intro -- we never
-actually discuss the issue of P Cyg profiles in the optical
-lines. These have been observed -- e.g. in Halpha -- but I guess we
-never produce these? Do we know why? We probably should at least
-comment on this at some point in the text, and possibly even briefly
-in the conclusions.}
+% {\bf CK: I just realized that -- apart from the intro -- we never
+% actually discuss the issue of P Cyg profiles in the optical
+% lines. These have been observed -- e.g. in Halpha -- but I guess we
+% never produce these? Do we know why? We probably should at least
+% comment on this at some point in the text, and possibly even briefly
+% in the conclusions.}
 
 %% Balmer jump
 
@@ -1492,14 +1539,12 @@ in the conclusions.}
 
 
 \subsection*{Acknowledgements}
-The work of JHM, NH and CK is supported by the Science and Technology Facilities Council (STFC), 
-via studentships and a consolidated grant, respectively. We would like to thank Juan Hernandez Santisteban and Ivan Hubeny 
-for useful discussions. We acknowledge the use of the IRIDIS High Performance Computing Facility, 
+The work of JHM and CK is supported by the Science and Technology Facilities Council (STFC), 
+via studentships and a consolidated grant, respectively. We would like to thank Juan Hernandez Santisteban, Samuel Mangham and Ivan Hubeny for useful discussions. 
+We acknowledge the use of the IRIDIS High Performance Computing Facility, 
 and associated support services at the University of Southampton, in the completion of this work.
 
 
-\newpage
-\newpage
 \bibliography{mybib.bib}
 
 \end{document}
