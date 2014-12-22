@@ -768,7 +768,24 @@ from the inner disk.
 \end{figure} %fullpage
 
 Figure~\ref{wind} shows the physical and ionization structure 
-of the benchmark disk wind model. There is an obvious drop-off in density
+of the benchmark disk wind model. The ionization parameter shown in the bottom
+right panel is given by
+
+\begin{eqnarray}
+U&=&\frac{Q_H}{4\pi R^2 n_{H} c}\\ 
+  &=& \frac{4\pi}{n_H c}\int_{13.6{\rm{eV}}}^{\infty}\frac{{J_{\nu}d\nu}}{h\nu}
+\end{eqnarray}
+ 
+where $\rm{Q_H}$ is the number of hydrogen-ionizing photons emitted by
+the illuminating source per second, $R$ is the distance to the source,
+$\rm{n_H}$ is the local hydrogen number density and $c$ is the speed of
+light. $J_\nu$ is the MC estimator for the mean intensity in the cell. 
+The ionization parameter is a useful measure
+of the ionization state of a plasma, as it evaluates the ratio 
+of the integrated ionizing radiation field and the local Hydrogen density.
+
+
+There is an obvious drop-off in density
 and temperature with distance away from the disk, so any line
 formation process that scales as $\rho^2$ - i.e. recombination and
 collisionally excited emission - should be expected to operate
@@ -1462,10 +1479,10 @@ densities and/or optical depths might
 \renewcommand{\labelitemi}{$\bullet$}
 \begin{itemize}
 	\item fill in the Balmer absorption edge in the spectrum of
-          the accretion, thus accounting for absence of this edge in
+          the accretion, thus accounting for the absence of a strong edge in
           observed CV spectra \citep{KLWB98};
 	\item produce the commonly observed single-peaked optical line
-          profiles \citep{MC96}
+          profiles (MC96)
 \end{itemize}
 \smallskip
 

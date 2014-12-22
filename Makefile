@@ -31,9 +31,10 @@ draft:
 	dvips draft_mnras -o cvwinds_draft_mnras_jm_$(DATE).ps
 	ps2pdf cvwinds_draft_mnras_jm_$(DATE).ps
 	ps2pdf cvwinds_draft_jm_$(DATE).ps
+	cp cvwinds_draft_mnras_jm_$(DATE).pdf cvpaper_latest.pdf
 
 
-	open -a preview cvwinds_draft_mnras_jm_$(DATE).pdf 
+	open -a preview cvpaper_latest.pdf 
 	#open -a preview cvwinds_draft_jm_$(DATE).pdf
 #	cp draft_mnras.pdf ~/Dropbox/Python/CVpaper/
 #	cp draft.pdf ~/Dropbox/Python/CVpaper/draft_preprint.pdf

@@ -12,14 +12,18 @@ from pylab import *
 import os, sys
 from cobra_sub import smooth
 import read_output as rd
+import py_plot_util as util 
+
+util.parse_rcparams("../params.rc")
 rd.setpars()
 
 # some fontsizes for figure
 font1 = 16				# fontsize for x label
-font2 = 12				# fontsize for Y label
+font2 = 16				# fontsize for Y label
 font3 = 16				# fontsize for text on figures
 weight = 2			# lineweight
 
+from matplotlib.ticker import MultipleLocator, FormatStrFormatter
 
 
 # standard plot parameters for mnras
@@ -73,7 +77,7 @@ subplot(411)
 plot(x1,y1, c=colour ,linewidth=weight)
 semilogy()
 
-ylabel("Flux ($10^{-13}$~erg s$^{-1}$ cm$^{-3}$ \AA$^{-1}$)", fontsize = font2)
+ylabel("Flux\n($10^{-13}$~erg s$^{-1}$ cm$^{-2}$ \AA$^{-1}$)", fontsize = 12)
 text( 6000, 3.5,"RW Sex", fontsize = font3)
 
 lines = [5879,6680,
@@ -83,15 +87,27 @@ labels = [r"He~\textsc{i}",r"He~\textsc{i}",
           r"He~\textsc{ii}",r"He~\textsc{ii}",
           r"H$\alpha$",r"H$\beta$", r"H$\gamma$", r"H$\delta$"]
 
-vlines(lines,4.5,5, linewidth=2)
 
-i = 0
-for l in lines:
-	text(l+20, 5, labels[i])
-	i+=1
+gca().set_xticklabels([])
 
-ylim(1,6)
+# vlines(lines,4.5,5, linewidth=2)
+# i = 0
+# for l in lines:
+# 	text(l+20, 5, labels[i])
+# 	i+=1
+
+ylim(0.9,6.3)
+vlines([3646], 0.9,6.3, linestyle="--")
 xlim(3500,6900)
+
+majorFormatter = FormatStrFormatter('%d')
+majorLocator   = MultipleLocator(1)
+minorFormatter = FormatStrFormatter('%d')
+
+# ax.yaxis.set_major_locator(majorLocator)
+ax = gca()
+ax.yaxis.set_major_formatter(majorFormatter)
+ax.yaxis.set_major_locator(majorLocator)
 
 ##############
 # plot IX Vel
@@ -100,52 +116,104 @@ subplot(412)
 plot(x[(y > 0.92745)][20:-10],smooth(y[(y > 0.92745)][20:-10] , window_len=20), c=colour,linewidth=weight)
 
 plot( a[45:], b[45:], c=colour, linewidth=weight)
+
+gca().set_xticklabels([])
 xlim(3500,6900)
 ylim(0.7, 4.2)
+vlines([3646], 0.7, 4.2, linestyle="--")
 semilogy()
 
+majorFormatter = FormatStrFormatter('%d')
+majorLocator   = MultipleLocator(1)
+minorFormatter = FormatStrFormatter('%d')
+
+# ax.yaxis.set_major_locator(majorLocator)
+ax = gca()
+ax.yaxis.set_major_formatter(majorFormatter)
+ax.yaxis.set_major_locator(majorLocator)
+
 # text and labels
-ylabel("Relative Flux", fontsize = font2)
-text( 6000, 1.15, "IX Vel", fontsize =font3)
+ylabel("Relative Flux", fontsize = 12)
+text( 6000, 1.4, "IX Vel", fontsize =font3)
+
+vlines(lines,2.6,3, linewidth=2)
+i = 0
+for l in lines:
+	text(l+20, 3.1, labels[i])
+	i+=1
 
 labels = [r"He~\textsc{i}",r"He~\textsc{i}",r"He~\textsc{i}",r"He~\textsc{i}",
           r"He~\textsc{ii}",r"He~\textsc{ii}",r"He~\textsc{ii}",
           r"H$\alpha$",r"H$\beta$", r"H$\gamma$", r"H$\delta$"]
 
 
+
+
 ##############
 # plot RW Tri
 ##############
 
-subplot(413)
+subplot(212)
 plot( cc_no, smooth(dd_no, window_len=5)*1e-23*1e11,  c=colour, linewidth=weight)
 semilogy()
 xlim(3500,6900)
-ylim(1.2,7.2)
+ylim(0.2,6.98)
+
 
 # text and labels
-ylabel("Flux ($10^{-11}$~erg s$^{-1}$ cm$^{-3}$ \AA$^{-1}$)", fontsize = font2)
+#ylabel("Flux ($10^{-11}$~erg s$^{-1}$ cm$^{-3}$ \AA$^{-1}$)", fontsize = font2)
 
 
-text(6000,3,"RW Tri, out of eclipse", fontsize = font3)
+text(5800,4,"RW Tri, out of eclipse", fontsize = font3)
 subplots_adjust(wspace=0.0)
 
-subplot(414)
+ax = gca()
+
+#majorLocator   = MultipleLocator(10)
+majorFormatter = FormatStrFormatter('%.1f')
+# minorLocator   = MultipleLocator(1)
+minorFormatter = FormatStrFormatter('%.1f')
+
+# ax.yaxis.set_major_locator(majorLocator)
+#ax.yaxis.set_major_formatter(majorFormatter)
+# ax.yaxis.set_minor_locator(minorLocator)
+#ax.yaxis.set_minor_formatter(minorFormatter)
+
+#ylim(1.2,6.99)
+#ax.set_yticklabels(np.arange(2.0,7, 1.0), minor=False)
+
+#subplot(414)
 plot( cc, smooth(dd, window_len=5)*1e-23*1e11,  c=colour, linewidth=weight)
 xlabel("Wavelength (\AA)", fontsize = font1)
-text(6000,0.9,"RW Tri, in eclipse", fontsize = font3)
-ylim(0.2,1.2)
+ylabel("Flux ($10^{-11}$~erg s$^{-1}$ cm$^{-2}$ \AA$^{-1}$)", fontsize = 12, rotation="vertical")
+text(5800,0.7,"RW Tri, in eclipse", fontsize = font3)
+
 xlim(3500,6900)
-vlines([3646], 0.2, 1.2, linestyle="--")
+vlines([3646], 0.2, 6.98, linestyle="--")
+
 semilogy()
 
+ax = gca()
+
+majorLocator   = MultipleLocator(1)
+majorFormatter = FormatStrFormatter('%d')
+minorLocator   = MultipleLocator(0.1)
+minorFormatter = FormatStrFormatter('%d')
+
+ax.yaxis.set_major_locator(majorLocator)
+ax.yaxis.set_major_formatter(majorFormatter)
+#ax.yaxis.set_minor_locator(LogLocator(10.0, subs=[1.0]))
+#ax.yaxis.set_minor_formatter(minorFormatter)
+
+#ax.set_yticklabels(np.arange(0.3,1.1,0.1), minor=False)
+#ax.set_yticklabels(["","","","0.5","","","","",'1.0',""], minor=False)
+#ax.yaxis.set_minor_ticks(np.arange(0.1,1.1, 0.1))
 
 
 
 
-
-subplots_adjust(hspace=0.0, wspace=0.0)
-tight_layout(pad=0.1)
+subplots_adjust(hspace=0.0)
+#tight_layout(pad=0.2)
 
 # finally, save
 savefig("../../figures/fig1.eps", bbox_inches = "tight")
