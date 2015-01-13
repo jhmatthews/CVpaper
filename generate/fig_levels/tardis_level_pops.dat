@@ -1,0 +1,23 @@
+# Level populations from Python
+# Level data are in accordance with Topbase, see he_top_levels.txt
+# 
+# Column 1: Level, Column 2: Fractional Population
+# Cell Radiation field t_r 4.3482e+04 w 9.6511e-05
+# Cell Physical t_e 3.0600e+04 ne 5.9638e+04
+#
+# questions: jm8g08@soton.ac.uk
+1  4.9128e+01
+2  1.9303e-01
+3  7.8184e-02
+4  1.6473e-04
+5  4.9708e-05
+6  2.4110e-06
+7  3.5044e-06
+8  3.7805e-05
+9  3.0876e-07
+10  1.6579e-07
+11  2.9924e-05
+12  4.6172e-07
+13  7.5053e-07
+14  2.3879e-05
+15  2.1901e-07
