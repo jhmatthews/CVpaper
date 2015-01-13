@@ -112,15 +112,16 @@ on the Balmer jump is modest.
 We demonstrate that a higher-density outflow model 
 displays reasonable verisimilitude with the optical spectrum of RW Trianguli,
 producing all the observed lines. In addition, this model
-can produce both single-peaked \ha\ emission and a
-recombination continuum sufficient to fill in the Balmer jump,
+produces recombination continuum sufficient to fill in the Balmer jump,
 although it also predicts stronger-than-observed 
 collisionally excited UV emission lines. 
 Our revised model also significantly
 alters the spectral shape of the continuum and displays
 a strong inclination dependence in its emission properties. 
-We explicitly demonstrate that the radial velocity shear 
-is responsible for single-peaked emission in our models, as predicted.
+No single-peaked emission is seen, although we observe a 
+narrowing of the double-peaked emission lines from the base of the wind. 
+We suggest that a non-homogenous, `clumpy' wind may provide a possible
+solution.
 On the basis of these results, we suggest that winds can 
 modify, and perhaps even dominate, the line and continuum emission
 from accreting systems.
@@ -161,7 +162,7 @@ disks.
 
 It has been known for a long time that winds emanating from the
 accretion disk are important in shaping the ultraviolet (UV) spectra
-of high-state CVs (Heap 1978). The most spectacular evidence for such
+of high-state CVs \citep{heap1978, greensteinoke1982}. The most spectacular evidence for such
 outflows are the P-Cygni-like profiles seen in UV resonance lines such as
 \civfull\ (see e.g. Cordova \& Mason
 1982\nocite{cordova1982}). Considerable effort has been spent over the
@@ -194,7 +195,7 @@ exhibit such double-peaked lines \citep{marshhorne1990}.
 % of general trends in DNe. A lot seem to have weak emission cores
 % embedded in absorption.}
 
-Murray \& Chiang (1996, 1997; hereafter MC96, MC97)\nocite{MC96, MC97} 
+Murray \& Chiang (1996, 1997; hereafter referred to collectively as MC96)\nocite{MC96, MC97} 
 have shown that the presence of disk winds may
 offer a natural explanation for the single-peaked optical emission lines in
 high-state CVs, since they can strongly affect the radiative transfer
@@ -207,9 +208,7 @@ extended region, such as a disk wind (see figure~\ref{novalikes}).
 %%(Honeycutt, Schlegel, \& Kaitchuck 1986; Dhillon \& Rutten 1995). 
 Further evidence for a wind contribution to the optical lines comes
 from isolated observations of P-Cygni-like line profiles even in optical
-lines, such as \ha\ and He \textsc{i} $\lambda5876$ \citep{RN98, kafka2004}.
-{\bf JM: need to mention this later as pointed out by CK- both in discussion
-and conclusion sections.}
+lines, such as \ha\ and He \textsc{i} $\lambda5876$ \citep{patterson1996, RN98, kafka2004}.
 
 Could disk winds also have an impact on the UV/optical {\em continuum}
 of high-state CVs? This continuum is usually thought to be dominated
@@ -251,13 +250,14 @@ and RW Tri in and out of eclipse (bottom two panels; Groot et al. 2004).
 The data have been digitized from the respective publications and a few of the more
 prominent emission and absorption lines are marked. 
 These systems have inclinations of $30^\circ$, $60^\circ$ and $70^\circ$ 
-respectively.
+respectively. 
 The trend of increasing Balmer line emission with inclination can be seen.
 In RW Tri strong single-peaked emission in the Balmer lines is seen even
 in eclipse, indicating that the lines may be formed in a spatially
 extensive disk wind, and there is even a suggestion 
 of a (potentially wind-formed) recombination continuum in the eclipsed
-spectrum.}
+spectrum. We have attempted to show each spectrum over a similar dynamic range.
+}
 \label{novalikes}
 \end{figure}
 
@@ -298,7 +298,7 @@ findings.
 
 \section{\sc{python}: A Monte Carlo Ionization and Radiative Transfer Code}
 
-\py is a Monte Carlo (MC) ionization and radiative transfer code which
+\py is a Monte Carlo  ionization and radiative transfer code which
 uses the Sobolev approximation to treat line transfer. It has already
 been described extensively in LK02, SDL05 and H13, so here we provide
 only a brief summary of its operation, focusing particularly on new
@@ -309,7 +309,7 @@ aspects of our implementation of macro-atoms into the code.
 \py operates in two distinct stages. First, the ionization state,
 level populations and temperature structure are calculated. This is
 done iteratively, by 
-propagating several populations of MC energy quanta (`photons')
+propagating several populations of Monte Carlo energy quanta (`photons')
 through a model wind. The geometric and kinemetic properties of the
 outflow are specified on a pre-defined spatial grid. In each of these
 iterations (``ionization cycles''), the code records estimators that 
@@ -394,7 +394,7 @@ statistical equilibrium accurately by quantising matter into
 packets (r- and k- packets, respectively). His macro-atom scheme
 allows for all possible transition paths from a given level and
 provides a full non-local thermodynamic equilibrium (NLTE) solution
-for the level populations based on MC estimators. The macro-atom
+for the level populations based on Monte Carlo estimators. The macro-atom
 technique has already been used to model Wolf-Rayet star
 winds \citep{sim2004}, AGN disk winds \citep{simlong2008, tatum2012},
 supernovae \citep{kasen2006, kerzendorfsim} and YSOs (SDL05). A full 
@@ -412,7 +412,7 @@ where $u$ and $l$ denote the upper and lower levels, $C$ represents the
 collisional rate coefficients and $A$ and $B$ represent the Einstein
 coefficients. The quantity $\beta_{lu}$ is the probability that a
 given line photon will escape the Sobolev region. Finally, $J$ is the
-MC estimator for the mean intensity in the line, as recorded during
+Monte Carlo estimator for the mean intensity in the line, as recorded during
 the photon propagation. The corresponding excitation rate is then 
 \begin{equation}
 {\cal R}_{lu} = \beta_{lu} B_{lu} n_l J_{lu} + C_{lu} n_l n_e,
@@ -584,7 +584,9 @@ figure~\ref{acc_law}).
 \includegraphics[width=0.45\textwidth]{figures/acc_law.eps}
 \caption{
 The adopted poloidal velocity law for various values of the
-acceleration exponent, $\alpha$.} 
+acceleration exponent, $\alpha$.
+{\bf JM: KSL has suggested we ditch this}
+} 
 \label{acc_law}
 \end{figure}
 
@@ -631,7 +633,7 @@ thick and thus adopt the temperature profile of a standard
 be treated either as a blackbody with the corresponding effective
 temperature or as a stellar atmosphere model with the appropriate
 surface gravity and effective temperature. Here, we use blackbodies 
-during the ionization cycles and to compute our MC
+during the ionization cycles and to compute our Monte Carlo
 estimators. However, during the spectral synthesis stage of the 
 simulation we use stellar atmosphere models. This produces more
 realistic model spectra and allows us to test if recombination
@@ -682,9 +684,7 @@ White Dwarf (dashed line) and blackbody accretion
 disk used in the ionization calculation (black solid line).
 The positions of the Hydrogen and Helium ionization edges 
 are marked with vertical lines.
-{\bf JM: do we want to show the stellar atmosphere spectrum here?
-we know it looks a bit crap around the He II edge, so perhaps not...
- }
+{\bf JM: KSL has suggested we ditch this}
  }
 \label{sed}
 \end{figure}
@@ -779,7 +779,7 @@ U&=&\frac{Q_H}{4\pi R^2 n_{H} c}\\
 where $\rm{Q_H}$ is the number of hydrogen-ionizing photons emitted by
 the illuminating source per second, $R$ is the distance to the source,
 $\rm{n_H}$ is the local hydrogen number density and $c$ is the speed of
-light. $J_\nu$ is the MC estimator for the mean intensity in the cell. 
+light. $J_\nu$ is the Monte Carlo estimator for the mean intensity in the cell. 
 The ionization parameter is a useful measure
 of the ionization state of a plasma, as it evaluates the ratio 
 of the integrated ionizing radiation field and the local Hydrogen density.
@@ -848,7 +848,7 @@ the benchmark model, and these do exhibit some emission lines
 associated with H and He. 
 We see a general trend from absorption lines to emission lines 
 with increasing inclination, as one might expect from our wind
-geometry. This trend is consistent with observations, as can be seen
+geometry. This trend is consistent with observations, as can be  seen
 in Figure~1. However, it is clear that this particular model
 does not produce all the lines seen in observations of high-state CVs.
 The higher order Balmer series lines too weak
@@ -857,6 +857,21 @@ fails to produce any emission at intermediate inclinations,
 which contrasts with (for example) the observed behaviour of IX Vel
 \citep{beuermann1990}.
 
+Our models do not exhibit P-Cygni profiles in the optical lines.
+This is perhaps not surprising. LK02 and SV93 originally designed such models
+to reproduce the UV line profiles. Thus, most of the wind
+has an ionization parameter of $\log U \sim 2$ (see figure 6).
+This means Hydrogen and Helium are fully ionized throughout 
+much of the wind and is successful in producing recombination features.
+However, it leads to absorbing columns in \ha\ of $N_H\sim ??$ - far too
+low to produce noticeable blue shifted absorption. 
+While we suspect that the winds that exhibit such profiles must 
+lie in a different ionization regime, requiring 
+significantly different disk SEDs or mass-loss rates to a 
+`standard' high-state CV. However, we note it is difficult for this
+idea to exist within a line-driven wind framework.
+
+
 The emissivity of these recombination 
 features scales as $\rho^2$, meaning that they form almost entirely in the 
 dense base of the wind, just above the accretion disk. Here, the
@@ -864,9 +879,10 @@ velocity field of the wind is still dominated by rotation, rather than
 outflow, which accounts for the double-peaked shape of the lines. In
 principle, lines formed in this region can still be single peaked,
 since the existence of a poloidal velocity {\em gradient} changes the
-local escape probabilities (MC96, MC97). However, as
-demonstrated explicitly in section~\ref{modelb}, the line opacity in our
-benchmark model is not high enough for this radiative transfer effect
+local escape probabilities (MC96). However, as
+discussed further in section~\ref{modelb}, the 
+radial velocity shear in our
+models is not high enough for this radiative transfer effect
 to dominate the line shapes.
 
 The Balmer jump is in absorption at all inclinations for our benchmark
@@ -1049,7 +1065,7 @@ also redwards of most ultraviolet spectra.
 
 In the UV, the model still produces all the observed lines, 
 and deep P-Cygni profiles are produced in the normal resonance lines,
-as discussed in section ??. However, the UV spectra also
+as discussed in section 4.2. However, the UV spectra also
 display what is perhaps the biggest problem with this revised model,
 namely the strength of resonance line emission 
 at low and intermediate inclinations.
@@ -1105,24 +1121,83 @@ and connected wind is required.
 
 \subsection{Line Profile Shapes: Producing Single-Peaked Emission}
 
-% Although \ha\ is single-peaked in our model, the majority of the
-% lines are double-peaked, particularly  
 Figure~\ref{halpha} shows how the H$\alpha$
-% He~{\sc ii}~$\lambda 4686$ 
 line changes with the kinematics of the wind
 for an inclination of $80^\circ$. 
-% The width and strength of He~{\sc ii} 
-% clearly depend on both $R_v$ and $\alpha$, but the overall line profile 
-% shape is always double-peaked. This contrasts with the behaviour of 
-The line becomes single-peaked in our densest models. 
-The transition from double-peaked to single-peaked occurs when the 
-line becomes optically thick. This reproduces the behaviour predicted by MC96, who
-showed that the poloidal velocity gradient in the wind can modify the
-shape of optically thick emission lines even in the near-disk regime,
-where the poloidal velocity itself is much smaller than the rotational
-velocity. This has the effect of suppressing the line wings and
-can therefore lead to the production of a single-peaked line profile
-shape.
+The line narrows as the models move towards denser,
+more slowly accelerating winds. 
+This is due
+the base of the wind becoming optically thick such 
+that line emission cannot escape. This means
+what is effectively a photosphere for the line moves 
+to a greater vertical distance from the disk plane,
+where rotational velocities drop off as $1/r$. 
+The narrowing of the line is {\em not} due to the radial velocity shear
+mechanism proposed by MC96.
+The main criterion for this mechanism is
+
+\begin{equation}
+\frac{dv_p}{dr} > \frac{dv_\phi}{ds}\,
+\end{equation}
+
+where $v_p$ is the poloidal velocity and $v_\phi$
+is the Keplerian velocity.
+This criterion is simply not satisfied in the emission region of our models. 
+
+There are two possible ways in which the model
+could be altered to better reproduce single-peaked
+lines as a result of radial velocity shear. First,
+one could adopt a more equatorial wind geometry. 
+This would increase the velocity gradient in the radial 
+direction. However, CV winds are known to be moderately collimated.
+This is demonstrated by the fact that blue-shifted resonance line 
+absorption is seen in low inclination systems such as RW Sex \citep{greensteinoke1982},
+but not in eclipsing systems \citep{cordovamason1985}.
+Furthermore, the main reason for adopting this type of 
+wind geometry is that it already successfully models the 
+P-Cygni resonance lines seen in the UV (LK02, Noebauer et al. 2010),
+We note that equatorial winds are expected in AGN and X-ray binaries 
+\citep{ponti2012}, and that these winds may be more likely
+to exhibit the required kinematics.
+Second, one could adopt velocity laws with higher 
+velocity gradients in the line emission region. 
+However, this poses problems for a smooth biconical wind. 
+We have already demonstrated that high densities are required 
+to produce significant emission. In a smooth model, which
+satisfies the mass continuity condition (see section 3.1), 
+it is therefore difficult to reconcile 
+these high densities with the high velocity gradients required.
+
+We suggest that clumping
+in CV winds provides a possible solution.
+Non-homogeneity could allow higher density pockets 
+of emission to exist with radial velocity shear still being high.
+Line-driven winds are expected to be unstable (REFS),
+and a number of implementations have been used in the stellar wind
+community (REFS). We therefore hope that further investigation of
+clumped winds could help solve the current `mystery' of single-peaked 
+line emission in high inclination systems.
+
+
+
+% Although \ha\ is single-peaked in our model, the majority of the
+% lines are double-peaked, particularly  
+% Figure~\ref{halpha} shows how the H$\alpha$
+% % He~{\sc ii}~$\lambda 4686$ 
+% line changes with the kinematics of the wind
+% for an inclination of $80^\circ$. 
+% % The width and strength of He~{\sc ii} 
+% % clearly depend on both $R_v$ and $\alpha$, but the overall line profile 
+% % shape is always double-peaked. This contrasts with the behaviour of 
+% The line becomes single-peaked in our densest models. 
+% The transition from double-peaked to single-peaked occurs when the 
+% line becomes optically thick. This reproduces the behaviour predicted by fsingle-pe96, who
+% showed that the poloidal velocity gradient in the wind can modify the
+% shape of optically thick emission lines even in the near-disk regime,
+% where the poloidal velocity itself is much smaller than the rotational
+% velocity. This has the effect of suppressing the line wings and
+% can therefore lead to the production of a single-peaked line profile
+% shape.
 
 
 \begin{figure}
@@ -1137,8 +1212,9 @@ and a third model (X) which has an increased acceleration length of
 $R_V = 283.8~R_{WD}$, and $\alpha=4$ is also shown. 
 The $x$-axis limits correspond to the Keplerian velocity at 
 $4R_{WD}$, the inner edge of the wind.
-We observe a transition from double to single-peaked lines
-as the emission region becomes more optically thick.
+We observe a narrowing of the lines
+but this is not due to the radial velocity shear mechanism (see section 5.3
+for a discussion).
 % The parameter that has been altered from the benchmark model 
 % is marked in each column and row. Models towards the bottom right
 % are have more slowly accelerating winds and denser wind bases. 
@@ -1200,11 +1276,10 @@ model and the RW Tri data set. For example, the model exhibits
 considerably stronger He~{\sc ii} features than the observations,
 which suggests that the overall ionization state of the model is
 somewhat too high. 
-As discussed in section 5.3, H$\alpha$ is the only line
-that is single-peaked in the model. This is
-in contrast to what is seen in the observations,
-although the relatively low resolution of the RW Tri
-spectra makes this comparison difficult.
+As discussed in section 5.3, the optical lines are
+narrow. This is in contrast to what is generally seen in observations
+of NLs, although the relatively low resolution of the RW Tri
+spectra makes a specific comparison difficult.
 
 
 \newpage
@@ -1460,7 +1535,11 @@ the UV spectra of high-state CVs would also have a significant effect
 on the optical spectra of these systems. We find that this is indeed
 the case. In particular, the model wind produces H and He
 recombination lines, as well as a recombination continuum blueward of
-the Balmer edge. 
+the Balmer edge. We do not produce P-Cygni profiles
+in the optical H and He lines, 
+which are seen in a small fraction of CV optical spectra.
+Possible reasons for this are briefly discussed in section 
+4.2.
 
 We have also constructed a revised benchmark model which is designed
 to more closely match the optical spectra of high-state CVs. This
@@ -1472,23 +1551,28 @@ stronger-than-observed He~{\sc ii} lines in the optical region and too
 much of a collisionally excited contribution to the UV resonance lines
 that  
 
-Based on this, we
-show that recombination emission from outflows with sufficiently high
-densities and/or optical depths might 
+Based on this, we show that recombination emission 
+from outflows with sufficiently high densities and/or optical depths might 
 
 \renewcommand{\labelitemi}{$\bullet$}
 \begin{itemize}
 	\item fill in the Balmer absorption edge in the spectrum of
           the accretion, thus accounting for the absence of a strong edge in
           observed CV spectra \citep{KLWB98};
-	\item produce the commonly observed single-peaked optical line
-          profiles (MC96)
+	\item produce the optical lines observed in CVs.
 \end{itemize}
 \smallskip
 
 Although we note that limb darkening effects on disk atmosphere opacities
-would affect the Balmer jump. We can also make a number of basic,
-testable predictions for wind-formed signatures:
+would affect the Balmer jump (see section 5.2). In section 5.3, we demonstrate that
+although single-peaked emission can be formed in our densest models, 
+it is not due to the radial velocity shear mechanism proposed by MC96.
+The emission in our models which produce single-peaked lines comes from
+approximately $10^{11}$~cm above the disk plane, which is not supported
+by eclipse-mapping observations (REFS). We suggest
+that non-homogenous, 
+`clumpy' line-driven winds may offer a potential solution.
+
 
 % {\bf JM: I originally also had a note about the flat Balmer decrement here.
 % it's potentially interesting and could be included, but would need a discussion
