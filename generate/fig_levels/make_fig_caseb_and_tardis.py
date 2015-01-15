@@ -157,7 +157,7 @@ figure()
 
 subplot(211)
 
-scatter(n_array, matom_emiss / hbeta,  label = '\\textsc{Python}', s=100, edgecolors='k', facecolors='none')
+scatter(n_array, matom_emiss / hbeta,  label = '\\textsc{Python}', s=150, edgecolors='k', facecolors='none')
 scatter(n_array[2:10], seaton, label = 'Seaton (1959)',s=40, color='k')
 xlabel( "$n$", fontsize=20)
 ylabel( r"Balmer decrement ($F_n$ / $F_{\beta}$)" , fontsize=20)
@@ -170,7 +170,7 @@ legend()
 
 # relative to ground state in this example
 subplot(212)
-scatter(n[:nlevs_tardis], np.log10(levpops[:nlevs_tardis]/levpops[0]), label = '\\textsc{Python}', s = 100, facecolors="none", c="k")
+scatter(n[:nlevs_tardis], np.log10(levpops[:nlevs_tardis]/levpops[0]), label = '\\textsc{Python}', s = 150, facecolors="none", c="k")
 scatter(n[:nlevs_tardis], np.log10(tardis_levs/tardis_levs[0]), label = '\\textsc{Tardis}', s=40, c="k")
 xlabel("Helium level, $i$", fontsize=20)
 ylabel("$\log (n_i / n_0)$", fontsize=20)

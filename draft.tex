@@ -243,14 +243,21 @@ Balmer absorption edge and flatten the UV spectrum.
 \begin{figure}	%fullpage
 \centering
 \includegraphics[width=0.8\textwidth]{figures/fig1.eps}
-\caption{Optical spectra of three nova-like variables: 
+% \caption{Optical spectra of three nova-like variables: 
+% RW Sex (top; Beuermann et al. 1992),
+% IX Vel (top middle; Beuermann \& Thomas 1990) 
+% and RW Tri in and out of eclipse (bottom two panels; Groot et al. 2004).
+% The data have been digitized from the respective publications and a few of the more
+% prominent emission and absorption lines are marked. 
+\caption{
+Optical spectra of three nova-like variables: 
 RW Sex (top; Beuermann et al. 1992),
-IX Vel (top middle; Beuermann \& Thomas 1990) 
+IX Vel (top middle; A. Pala \& B. Gaensicke, private communication) 
 and RW Tri in and out of eclipse (bottom two panels; Groot et al. 2004).
-The data have been digitized from the respective publications and a few of the more
-prominent emission and absorption lines are marked. 
-These systems have inclinations of $30^\circ$, $60^\circ$ and $70^\circ$ 
-respectively. 
+The data for RW Sex and RW Tri were digitized from the respective publications,
+and the IX Vel spectrum was obtained using XShooter on the VLT on the night of ??.
+These systems have approximate inclinations of $30^\circ$, $60^\circ$ and $70^\circ$ 
+(see section 5.4) respectively. 
 The trend of increasing Balmer line emission with inclination can be seen.
 In RW Tri strong single-peaked emission in the Balmer lines is seen even
 in eclipse, indicating that the lines may be formed in a spatially
@@ -572,12 +579,12 @@ correspond to fast acceleration close to the disk (see
 figure~\ref{acc_law}). 
 
 
-\begin{figure}
+\begin{figure} 
 \centering
 \includegraphics[width=0.5\textwidth]{figures/fig2_cartoon.eps}
 \caption{Cartoon illustrating the geometry and kinematics of the benchmark CV wind model.}
 \label{cartoon}
-\end{figure}
+\end{figure} 
 
 \begin{figure}
 \centering
@@ -710,6 +717,8 @@ $M_{WD}$ 	 &	 $0.8 M_{\odot}$  &     \\
 $R_{WD}$ 	 &	 $7\times10^{8}$cm  & \\ 
 $T_{WD}$ 	 &	 $40,000$K        &  \\
 $M_{2}$ 	 &	 $0.6 M_{\odot}$  &   \\ 
+$q$ 	 &	 $0.75 M_{\odot}$  &   \\ 
+$P_{orb}$ 	 &	 $5.57$~hr  &   \\ 
 $\dot{M}_{acc}$ 	 &	 $10^{-8}~M_{\odot}yr^{-1}$  &\\ 
 $\dot{M}_{wind}$  &	$10^{-9}~M_{\odot}yr^{-1}$å  & \\ 
 $r_{min}$ 	&	 $4 R_{WD}$ &  \\ 
@@ -725,10 +734,10 @@ $\alpha$ 	&	 $1.5$   &   $4$\\
 \centering
 \caption{
 Parameters used for the geometry and kinematics of the benchmark 
-CV model (Model A), which is optimized for the UV band, and a model
-which is optimized for the optical band and described in section 6 (Model B).
-For Model B, only parameters which are altered are given - otherwise the
-Model A parameter is used.
+CV model (model A), which is optimized for the UV band, and a model
+which is optimized for the optical band and described in section 5 (model B).
+For model B, only parameters which are altered are given - otherwise the
+model A parameter is used.
 {\bf JM: this needs some stuff adding, as is mentioned in certain places}}
 \label{wind_param}
 \label{modelb_table}
@@ -743,7 +752,7 @@ significant impact on the optical continuum and emission line spectra
 of these systems. In order to set a benchmark, we therefore begin by
 investigating one of the fiducial CV wind models that was used by SV93
 and LK02 to simulate the UV spectrum of a typical high-state
-system. The specific parameters for this model (Model A) are listed in
+system. The specific parameters for this model (model A) are listed in
 Table~1. A key point is that the wind mass-loss rate in this model is
 set to 10$\%$ of the accretion rate through the disk.
 
@@ -884,7 +893,7 @@ emergent spectra with weak or absent Balmer absorption edges.
 
 \begin{figure} 
 \includegraphics[width=0.45\textwidth]{figures/modela_opt_cont.eps}
-\caption{Synthetic optical spectra computed for 
+\caption{Synthetic optical spectra from model A computed for 
 sightlines of 10, 27.5, 45, 62.5 and 80 degrees. In these plots
 the flux is divided by a polynomial fit to the 
 underlying continuum redward of the Balmer edge, so that 
@@ -897,7 +906,9 @@ Balmer jump can be shown.}
 \includegraphics[width=0.5\textwidth]{figures/modela_escaping.eps}
 \caption{Total packet-binned spectra across all viewing angles. 
 The thick black line shows the total 
-integrated escaping spectrum, while green and red lines show the contributions from photons that originate in the disk and wind respectively. 
+integrated escaping spectrum, 
+while the green line shows disk photons which escape without being reprocessed by
+the wind. The red line show the contributions from reprocessed photons. 
 Recombination continuum emission blueward of the Balmer 
 edge is already prominent relative to other wind continuum processes, but is not sufficient
 to fill in the Balmer jump in this specific model}
@@ -923,7 +934,7 @@ high-state CVs. As we have seen, this model does produce significant
 amounts of optical emission. However, with only relatively minor
 changes to the kinematics of the benchmark model, it is possible to
 construct a model that more closely matches the observed optical
-spectra of CVs (imaginatively dubbed `Model B'). 
+spectra of CVs. 
 
 Specifically, we aim to assess a whether a revised model can:
 
@@ -995,7 +1006,7 @@ of a deeper Balmer jump with decreasing inclination.
 \begin{figure} 
 \includegraphics[width=0.45\textwidth]{figures/modelb_opt_cont.eps}
 \caption{
-Synthetic optical spectra computed for 
+Synthetic optical spectra from model B computed for 
 sightlines of 10, 27.5, 45, 62.5 and 80 degrees. In these plots
 the flux is divided by a polynomial fit to the 
 underlying continuum redward of the Balmer edge, so that 
@@ -1009,10 +1020,13 @@ Balmer jump can be shown.
 \includegraphics[width=0.5\textwidth]{figures/modelb_escaping.eps}
 \caption{Total packet-binned spectra across all viewing angles. 
 The thick black line shows the total 
-integrated escaping spectrum, while green and red lines show the contributions from photons that originate in the disk and wind respectively. 
-Recombination continuum emission blueward of the Balmer 
-edge is already prominent relative to other wind continuum processes, but is not sufficient
-to fill in the Balmer jump in this specific model}
+integrated escaping spectrum, 
+while the green line shows disk photons which escape without being reprocessed by
+the wind. The red line show the contributions from reprocessed 
+photons. 
+In this denser model the reprocessed contribution is significant compared
+to the escaping disk spectrum. The Balmer continuum emission is prominent, and
+we can see a clear effect on the overall spectral shape from the wind.}
 \label{modelb_escape}
 \end{figure} 
 
@@ -1151,7 +1165,7 @@ absorption is seen in low inclination systems such as RW Sex \citep{greensteinok
 but not in eclipsing systems \citep{cordovamason1985}.
 Furthermore, the main reason for adopting this type of 
 wind geometry is that it already successfully models the 
-P-Cygni resonance lines seen in the UV (LK02, Noebauer et al. 2010),
+P-Cygni resonance lines seen in the UV (LK02; Noebauer et al. 2010),
 Equatorial winds are expected in AGN and X-ray binaries 
 \citep{weymann1991, ponti2012}, so these winds may be more likely
 to possess the required kinematics.
@@ -1207,7 +1221,7 @@ for a discussion).
 \includegraphics[width=0.9\textwidth]{figures/fig13_eclipse.eps}
 \caption{{\sl Top Panel:} In and out of eclipse spectra of the high
 inclination NL RW Tri. {\sl Bottom Panel:} In and out of eclipse synthetic
-spectra from Model B.
+spectra from model B.
 The artificial `absorption' feature just redward of the Balmer jump
 is caused for the reasons described in section 5.2.}
 \label{rwtricomp}

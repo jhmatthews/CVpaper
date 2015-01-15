@@ -60,7 +60,7 @@ plt.plot(0.0,0.0,'o',color='w',ms=20.0)
 
 
 ''' This is for the radiating sources'''
-ax.annotate(r'$\rm{White~Dwarf}$', xy=(-0.5,0.6),xytext=(-20,7),fontsize=lsize,arrowprops=dict(arrowstyle="->"),)
+ax.annotate(r'$\rm{White~Dwarf}$', xy=(-0.5,0.6),xytext=(-17,8),fontsize=lsize,arrowprops=dict(arrowstyle="->"),)
 ax.annotate(r'$\rm{Accretion~Disk}$', xy=(-5.0,0.1),xytext=(-26,5.5),fontsize=lsize,arrowprops=dict(arrowstyle="->"),)
 plt.text(-35,5,r'$\rm{Biconical~wind}$',fontsize=lsize,rotation=-37.0)
 
