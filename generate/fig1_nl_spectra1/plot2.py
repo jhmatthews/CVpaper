@@ -3,7 +3,7 @@ import numpy as np
 from pylab import *
 import os, sys
 from cobra_sub import smooth
-import read_output as rd
+import py_read_output as rd
 rd.setpars()
 
 def gauss(sigma, x0, x):
@@ -121,9 +121,12 @@ ylim(0.1,40)
 # plot model
 scale = 2.718 / 0.036
 subplot(212)
-s = rd.read_spec_file("cv_alpha4_r4r12_mdot1e9_rv1e11_opt")
-plot( s.wavelength, smooth(s.spec[-3], window_len=5)*1e11*scale,  c=colour, linewidth=weight)
-plot( s.wavelength, smooth(s.spec[-2], window_len=5)*1e11*scale,  c=colour, linewidth=weight)
+s = rd.read_spectrum("cv_alpha4_r4r12_mdot1e9_rv1e11_opt")
+s2 = rd.read_spectrum("../../latest_outputs/cv_alpha4_r4r12_mdot1e9_rv1e11_opt")
+plot( s["Lambda"], smooth(s["A80P0.50"], window_len=5)*1e11*scale,  c=colour, linewidth=weight)
+plot( s["Lambda"], smooth(s["A80P0.00"], window_len=5)*1e11*scale,  c=colour, linewidth=weight)
+plot( s2["Lambda"], smooth(s2["A80P0.50"], window_len=5)*1e11*scale,  c='r', linewidth=weight)
+plot( s2["Lambda"], smooth(s2["A80P0.00"], window_len=5)*1e11*scale,  c='r', linewidth=weight)
 xlim(3700,6900)
 
 

@@ -69,7 +69,7 @@
 # Var	 Use.standard.care.factors(1=yes)        	1
 # Var	 Photon.sampling.approach(0=T,1=(f1,f2),2=cv,3=yso,4=user_defined,5=cloudy_test,6=wide,7=AGN,8=logarithmic)	2
 # 
-# Freq.        Lambda  Created  Emitted   CenSrc  Disk     Wind     HitSurf Scattered A10P0.50 A28P0.50 A45P0.50 A62P0.50 A80P0.50 A80P0.00 A70P1.00
+Freq.        Lambda  Created  Emitted   CenSrc  Disk     Wind     HitSurf Scattered A10P0.50 A28P0.50 A45P0.50 A62P0.50 A80P0.50 A80P0.00 A70P1.00
 4.314129e+14 6949.085  1.51e-13 1.51e-13 1.13e-15 5.21e-14 9.75e-14  8.5e-14        0 2.39e-13 2.03e-13 1.85e-13 1.15e-13 1.06e-13 1.77e-14 7.31e-14
 4.314697e+14 6948.170  1.43e-13 1.43e-13        0 4.19e-14 1.01e-13 6.57e-14        0 2.59e-13 1.92e-13 1.37e-13 1.19e-13 1.12e-13    1e-14 6.97e-14
 4.315265e+14 6947.256  1.56e-13 1.56e-13        0 4.76e-14 1.09e-13  5.1e-14        0 3.34e-13 2.35e-13 1.69e-13 1.34e-13 1.19e-13 1.46e-14 7.19e-14
