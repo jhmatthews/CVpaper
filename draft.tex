@@ -832,19 +832,6 @@ low-inclination nova-like CVs.
 \subsection{Synthetic Spectra}
 \label{modela_spectrum}
 
-We begin by verifying that the benchmark model still produces UV
-spectra that resemble those observed in CVs. We do expect this to be
-the case, since the ionization state of the wind has not changed
-significantly from that computed by LK02 (see section~\ref{modela_ionization}). 
-The left column of panels in Fig.~\ref{spec} shows that this expectation
-is met: all of the strong metal resonance
-lines - notably N\textsc{v}~$\lambda1240$,
-Si\textsc{iv}~$\lambda1400$ and C\textsc{iv}~$\lambda1550$ - 
-are present and exhibit clear P-Cygni profiles
-at intermediate inclinations. In addition, however, we now also find
-that the wind produces significant Lyman-$\alpha$ and
-He~\textsc{ii}~$\lambda1640$ emission lines. 
-
 \begin{figure} %fullpage
 \includegraphics[width=0.9\textwidth]{figures/modela_uv_opt.eps}
 \caption{
@@ -859,6 +846,19 @@ also produces a prominent \heiioptnew\ line at high inclinations.
 }
 \label{spec}
 \end{figure} %fullpage\
+
+We begin by verifying that the benchmark model still produces UV
+spectra that resemble those observed in CVs. We do expect this to be
+the case, since the ionization state of the wind has not changed
+significantly from that computed by LK02 (see section~\ref{modela_ionization}). 
+The left column of panels in Fig.~\ref{spec} shows that this expectation
+is met: all of the strong metal resonance
+lines - notably N\textsc{v}~$\lambda1240$,
+Si\textsc{iv}~$\lambda1400$ and C\textsc{iv}~$\lambda1550$ - 
+are present and exhibit clear P-Cygni profiles
+at intermediate inclinations. In addition, however, we now also find
+that the wind produces significant Lyman-$\alpha$ and
+He~\textsc{ii}~$\lambda1640$ emission lines. 
 
 Fig.~\ref{spec} (right-hand panel) and Fig.~\ref{spec_continuum}
 show the corresponding optical spectra produced for
@@ -959,8 +959,7 @@ reasonable outflow parameters.
 The emission measure of a plasma is directly proportional to its density.
 The simplest way to simultaneously affect the density in the wind (for fixed mass loss rate)
 as well as the velocity gradients is by modifying the poloidal velocity
-law. We have therefore conducted a exploratory sensitivity study in
-which we focus on just two kinematic variables (section~\ref{kinematics}):
+law. To do this, we focus on just two kinematic variables (section~\ref{kinematics}):
 
 \begin{itemize}
          \item the acceleration length, $R_v$, which controls the
@@ -993,34 +992,6 @@ of a deeper Balmer jump with decreasing inclination.
 }
 \label{uvoptb}
 \end{figure} %fullpage
-
-
-\begin{figure} 
-\includegraphics[width=0.45\textwidth]{figures/modelb_opt_cont.eps}
-\caption{
-Synthetic optical spectra from model B computed for 
-sightlines of 10, 27.5, 45, 62.5 and 80 degrees. In these plots
-the flux is divided by a polynomial fit to the 
-underlying continuum redward of the Balmer edge, so that 
-line-to-continuum ratios and the true depth of the
-Balmer jump can be shown.
-}
-\label{continuumb}
-\end{figure} 
-
-\begin{figure} 
-\includegraphics[width=0.45\textwidth]{figures/modelb_escaping.eps}
-\caption{Total packet-binned spectra across all viewing angles. 
-The thick black line shows the total 
-integrated escaping spectrum, 
-while the green line shows disk photons which escape without being reprocessed by
-the wind. The red line show the contributions from reprocessed 
-photons. 
-In this denser model the reprocessed contribution is significant compared
-to the escaping disk spectrum. The Balmer continuum emission is prominent, and
-the wind has a clear effect on the overall spectral shape.}
-\label{modelb_escape}
-\end{figure} 
 
 Fig.~\ref{uvoptb} shows the predicted UV and optical spectra for this
 optically optimized model for the full range of inclinations. 
@@ -1128,8 +1099,66 @@ To understand this phenomenon, a fully self-consistent
 radiative transfer calculation of both the disk atmosphere
 and connected wind is required.
 
+\begin{figure} 
+\includegraphics[width=0.45\textwidth]{figures/modelb_opt_cont.eps}
+\caption{
+Synthetic optical spectra from model B computed for 
+sightlines of 10, 27.5, 45, 62.5 and 80 degrees. In these plots
+the flux is divided by a polynomial fit to the 
+underlying continuum redward of the Balmer edge, so that 
+line-to-continuum ratios and the true depth of the
+Balmer jump can be shown.
+}
+\label{continuumb}
+\end{figure} 
+
+\begin{figure} 
+\includegraphics[width=0.45\textwidth]{figures/modelb_escaping.eps}
+\caption{Total packet-binned spectra across all viewing angles. 
+The thick black line shows the total 
+integrated escaping spectrum, 
+while the green line shows disk photons which escape without being reprocessed by
+the wind. The red line show the contributions from reprocessed 
+photons. 
+In this denser model the reprocessed contribution is significant compared
+to the escaping disk spectrum. The Balmer continuum emission is prominent, and
+the wind has a clear effect on the overall spectral shape.}
+\label{modelb_escape}
+\end{figure} 
+
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{figures/mc.eps}
+\caption{
+\ha\ line profiles, normalised to 1, plotted in velocity space 
+for three models with varying kinematic 
+properties, computed at an inclination of $80^\circ$.
+The benchmark model and the improved optical
+model described in section 6 are labeled as A and B respectively,
+and a third model (X) which has an increased acceleration length of 
+$R_v = 283.8~R_{WD}$, and $\alpha=4$ is also shown. 
+The $x$-axis limits correspond to the Keplerian velocity at 
+$4R_{WD}$, the inner edge of the wind.
+We observe a narrowing of the lines, and a single-peaked line in model X.
+This is not due to radial velocity shear (see section 5.3).
+}
+\label{halpha}
+\end{figure} %fullpage
+
+
+
 
 \subsection{Line Profile Shapes: Producing Single-Peaked Emission}
+
+\begin{figure} %fullpage
+\includegraphics[width=0.9\textwidth]{figures/fig13_eclipse.eps}
+\caption{{\sl Top Panel:} In and out of eclipse spectra of the high
+inclination NL RW Tri. {\sl Bottom Panel:} In and out of eclipse synthetic
+spectra from model B.
+The artificial `absorption' feature just redward of the Balmer jump
+is caused for the reasons described in section 5.2.}
+\label{rwtricomp}
+\end{figure} %fullpage
+
 
 Fig.~\ref{halpha} shows how the H$\alpha$ profile changes with the kinematics of the wind for 
 an inclination of $80^\circ$. The main prediction is that dense, slowly accelerating 
@@ -1158,36 +1187,10 @@ implying a significant vertical extent for the line-forming
 region. This type of model should therefore not be ruled out {\em a priori}. 
 
 
-\begin{figure}
-\includegraphics[width=0.5\textwidth]{figures/mc.eps}
-\caption{
-\ha\ line profiles, normalised to 1, plotted in velocity space 
-for three models with varying kinematic 
-properties, computed at an inclination of $80^\circ$.
-The benchmark model and the improved optical
-model described in section 6 are labeled as A and B respectively,
-and a third model (X) which has an increased acceleration length of 
-$R_v = 283.8~R_{WD}$, and $\alpha=4$ is also shown. 
-The $x$-axis limits correspond to the Keplerian velocity at 
-$4R_{WD}$, the inner edge of the wind.
-We observe a narrowing of the lines, and a single-peaked line in model X.
-This is not due to radial velocity shear (see section 5.3).
-}
-\label{halpha}
-\end{figure} %fullpage
 
 
 \subsection{Comparison to RW Tri}
 
-\begin{figure} %fullpage
-\includegraphics[width=0.9\textwidth]{figures/fig13_eclipse.eps}
-\caption{{\sl Top Panel:} In and out of eclipse spectra of the high
-inclination NL RW Tri. {\sl Bottom Panel:} In and out of eclipse synthetic
-spectra from model B.
-The artificial `absorption' feature just redward of the Balmer jump
-is caused for the reasons described in section 5.2.}
-\label{rwtricomp}
-\end{figure} %fullpage
 
 Fig.~\ref{rwtricomp} shows a qualitative comparison of the predicted
 out-of-eclipse and mid-eclipse spectra against observations of the
