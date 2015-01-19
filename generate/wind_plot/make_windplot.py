@@ -97,10 +97,10 @@ def masked_to_lin(masked_array, nplasmas, NPLASMA):
 
 
 
-fname = "specs/cv_alpha15_r4r12_mdot1e9_rv7e10_uv"
+fname = "../../latest_outputs/cv_alpha15_r4r12_mdot1e9_rv7e10_uv"
 
 
-#run_py_wind("78a", fname)
+run_py_wind("", fname)
 rd.setpars()
 
 

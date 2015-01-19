@@ -27,7 +27,7 @@ for i in range(len(alphas)):
 
 
 
-	fname = "specs/cv_alpha%i_r4r12_mdot1e9_rv%s_opt" % (alphas[i], RV[i])
+	fname = "../../latest_outputs/cv_alpha%i_r4r12_mdot1e9_rv%s_opt" % (alphas[i], RV[i])
 
 	s = rd.read_spectrum(fname)
 
@@ -37,12 +37,12 @@ for i in range(len(alphas)):
 	ff = norm.make_f(a, s["Lambda"])
 	f = s["A80P0.50"]-ff
 
-	fmax = np.max(util.smooth(f[select],window_len=5))
+	fmax = np.max(util.smooth(f[select],window_len=8))
 	f = f / fmax
 
 	XTOPLOT = C* 1e-7 *(s["Lambda"] - 6563) / 6563
 
-	plot(XTOPLOT, util.smooth(f,window_len=5), c=colours[i], label=labels[i], linewidth=2)
+	plot(XTOPLOT, util.smooth(f,window_len=8), c=colours[i], label=labels[i], linewidth=2)
 
 
 legend()

@@ -43,12 +43,12 @@ for i in range(nspec):
 	a = get_continuum(s["Lambda"], s[s.colnames[9+i]], lines)
 
 	if mode == 'a':
-		plot(s["Lambda"], smooth(s[s.colnames[9+i]] /make_f(a, s["Lambda"]) ), c="k")
+		plot(s["Lambda"], smooth(s[s.colnames[9+i]] /make_f(a, s["Lambda"]), window_len=5  ), c="k")
 
 	elif mode == "b":
-		plot(s["Lambda"], smooth(s[s.colnames[9+i]] /make_f(a, s["Lambda"]) ), c="#d3d3d3", label="A")
+		plot(s["Lambda"], smooth(s[s.colnames[9+i]] /make_f(a, s["Lambda"]), window_len=5 ), c="#d3d3d3", label="A")
 		a = get_continuum(s2["Lambda"], s2[s2.colnames[9+i]], lines)
-		plot(s2["Lambda"], smooth(s2[s2.colnames[9+i]] /make_f(a, s2["Lambda"]) ), c="k", label="B")
+		plot(s2["Lambda"], smooth(s2[s2.colnames[9+i]] /make_f(a, s2["Lambda"]), window_len=5), c="k", label="B")
 	
 
 	if i == 2: ylabel("Flux/Continuum", fontsize=20)
@@ -63,6 +63,18 @@ for i in range(nspec):
 	print i
 	#if grids[i] < 8: ax.set_xticklabels([])
 	if i<4:ax.set_xticklabels([])
+
+	vlines([3646],0.4,1.95, linestyle="--")
+
+	if mode == "b":
+		vlines([5696],0.4,1.95, linestyle="--")
+
+	if i == 3:
+		text(3656, 1.6, "Balmer edge")
+		if mode == "b":
+			text(5706,0.6, r"He~\textsc{ii}, $n=5$ edge")
+
+
 
 
 #ax is name of original plot so change this to whatever your plot is called, 
@@ -86,14 +98,15 @@ for i in range(nspec):
 lines = [3202,4686,6563]
 subplot(515)
 vlines(lines,0.5,0.65, linewidth=2)
-labels = [r"He~\textsc{ii}~$\lambda3202$", r"He~\textsc{ii}~$\lambda4686$", r"H$\alpha$"]
+#labels = [r"He~\textsc{ii}~$\lambda3202$", r"He~\textsc{ii}~$\lambda4686$", r"H$\alpha$"]
+labels = [r"He~\textsc{ii}", r"He~\textsc{ii}", r"H$\alpha$"]
 i = 0
 for l in lines:
 	text(l+20, 0.5, labels[i])
 	i+=1
 
-vlines([3646],0.4,1.95, linestyle="--")
-text(3656, 1.6, "Balmer edge")
+#vlines([3646],0.4,1.95, linestyle="--")
+#text(3656, 1.6, "Balmer edge")
 
 #subplot(111)
 xlabel("Wavelength (\AA)", fontsize=20)

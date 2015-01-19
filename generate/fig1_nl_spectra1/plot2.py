@@ -121,19 +121,18 @@ ylim(0.1,40)
 # plot model
 scale = 2.718 / 0.036
 subplot(212)
-s = rd.read_spectrum("cv_alpha4_r4r12_mdot1e9_rv1e11_opt")
-s2 = rd.read_spectrum("../../latest_outputs/cv_alpha4_r4r12_mdot1e9_rv1e11_opt")
+s = rd.read_spectrum("../../latest_outputs/cv_alpha4_r4r12_mdot1e9_rv1e11_opt")
 
-scale2 = scale / 1.7627659414
+
 plot( s["Lambda"], smooth(s["A80P0.50"], window_len=5)*1e11*scale,  c=colour, linewidth=weight)
 plot( s["Lambda"], smooth(s["A80P0.00"], window_len=5)*1e11*scale,  c=colour, linewidth=weight)
-plot( s2["Lambda"], smooth(s2["A80P0.50"], window_len=5)*1e11*scale2,  c='r', linewidth=weight)
-plot( s2["Lambda"], smooth(s2["A80P0.00"], window_len=5)*1e11*scale2,  c='r', linewidth=weight)
+# plot( s2["Lambda"], smooth(s2["A80P0.50"], window_len=5)*1e11*scale2,  c='r', linewidth=weight)
+# plot( s2["Lambda"], smooth(s2["A80P0.00"], window_len=5)*1e11*scale2,  c='r', linewidth=weight)
 xlim(3700,6900)
 
-print np.mean(s2["A80P0.50"]) / np.mean(s["A80P0.50"])
-print np.mean(s2["A80P0.50"]) / np.mean(s["A80P0.50"]) * 5
-print np.mean(s2["A80P0.50"]) / np.mean(s["A80P0.50"]) * 4
+# print np.mean(s2["A80P0.50"]) / np.mean(s["A80P0.50"])
+# print np.mean(s2["A80P0.50"]) / np.mean(s["A80P0.50"]) * 5
+# print np.mean(s2["A80P0.50"]) / np.mean(s["A80P0.50"]) * 4
 
 
 # text and labels
