@@ -119,7 +119,7 @@ No single-peaked emission is seen, although we observe a
 narrowing of the double-peaked emission lines from the base of the wind.
 We show that denser models can produce a single-peaked \ha\ line.
 The single-peaked line profile is due to the line emission originating from 
-$\sim10^11$~cm above the disk plane where rotational velocities are small, 
+$\sim10^{11}$~cm above the disk plane where rotational velocities are small, 
 and is not due to the radial velocity shear mechanism that
 has previously been proposed. 
 On the basis of our results, we suggest that winds can 
@@ -409,7 +409,7 @@ provides a full non-local thermodynamic equilibrium (NLTE) solution
 for the level populations based on Monte Carlo estimators. The macro-atom
 technique has already been used to model Wolf-Rayet star
 winds \citep{sim2004}, AGN disk winds \citep{simlong2008, tatum2012},
-supernovae \citep{kromersim, kerzendorfsim} and YSOs (SDL05). A full 
+supernovae \citep{kromersim2009, kerzendorfsim} and YSOs (SDL05). A full 
 description of the approach can be found in L02 and L03. 
 
 Briefly, macro-atom NLTE level populations and ionization fractions
@@ -462,7 +462,7 @@ to level $l$. This treatment means that radiative and collisional
 rates to and from all levels are considered when calculating both the
 ionization state and the level populations, although we neglect 
 ionization directly to excited levels of the upper ion. The
-Van Regemorter (1962) approximation is used for collisional
+\cite{vanregemorter} approximation is used for collisional
 transitions, and thus we assume that collisions between radiatively
 forbidden transitions are not important in determining level
 populations. This is a reasonable approximation in the regimes
@@ -624,12 +624,11 @@ calculated from the mass continuity equation, yielding
 \label{density}
 \end{equation}
 Here, 
-$v_z$ is the vertical velocity component and $\phi(r_0)$ 
-is the local mass-loss rate per unit area at $r_0$, 
-%in the direction of a streamline (as defined by SV93), 
+$v_z$ is the vertical velocity component and, following SV93,
+$\phi(r_0)$ is the local mass-loss rate per unit area at $r_0$, 
 such that 
 \begin{equation}
-\phi(r_0) \propto \dot{M}_{wind} R_0^\lambda \cos [\theta(r_0)].
+\phi(r_0) \propto \dot{M}_{wind} r_0^\lambda \cos [\theta(r_0)].
 \label{density}
 \end{equation}
 We adopt $\lambda = 0$ and normalize $\phi(r_0)$ by 
@@ -996,7 +995,7 @@ regions near the wind base - i.e. winds with larger $R_{v}$ and/or
 larger $\alpha$ - will produce stronger optical emission signatures. 
 However, this behaviour may be moderated by the effect of the increasing
 optical depth through this region, which can also affect the line profile shapes. 
-In addition, modifyin $R_v$ in particular also tends to increase the emission volume.
+In addition, modifying $R_v$ also increases the emission {\em volume}.
 Having briefly explored a variety of models with different kinematics,
 we adopt the parameters listed in table~\ref{modelb_table}
 for our revised model (model B), which is optimized for the optical waveband. 
@@ -1034,12 +1033,9 @@ He~\textsc{ii} recombination line at 3202\AA. This is the He
 equivalent of Paschen~$\beta$ and should be expected in all systems that
 feature a strong He~\textsc{ii}~$\lambda4686$ line (the He
 equivalent of Paschen~$\alpha$). 
-%%Although it has been observed (REF),
 This line is somewhat unfamiliar observationally, because it 
 lies bluewards of the atmospheric cut-off, but
 also redwards of most ultraviolet spectra. 
-% {\bf JM: we should we reference something here for the 3202 line. 
-% I blieve CK found a paper which shows it in an IP? I'll try and find it.}
 
 Our models do not exhibit P-Cygni profiles in the optical lines.
 This is perhaps not surprising. LK02 and SV93 originally designed such models
@@ -1056,8 +1052,9 @@ P-Cygni profiles in UV resonance lines and optical H and He lines exist simultan
 Ionization stratification could manifest as a clumpy flow, in which ionization changes
 due to small scale density fluctuations, or a stratification in density
 and ionizing radiation field over larger scales.
-Theory of line-driven winds expects them to be unsteady (REFs)
-and modelling of CV winds also predicts density inhomogeneities (REF).
+Theory of line-driven winds expects them to be unsteady \citep{macgregor1979,owockirybicki1984,owockirybicki1985},
+simulations of CV disk winds also predict density inhomogeneities 
+\citep{proga1998,pkdh2002}.
 Tentative evidence for clumping being directly related to P-Cygni optical lines
 comes from the fact that \cite{prinja2000}
 found dwarf nova BZ Cam's outflow to be unsteady and highly mass-loaded in outburst,
@@ -1157,7 +1154,7 @@ the wind has a clear effect on the overall spectral shape.}
 \begin{figure}
 \includegraphics[width=0.5\textwidth]{figures/mc.eps}
 \caption{
-\ha\ line profiles, normalised to 1, plotted in velocity space 
+\ha\ line profiles, normalized to 1, plotted in velocity space 
 for three models with varying kinematic 
 properties, computed at an inclination of $80^\circ$.
 The benchmark model and the improved optical
