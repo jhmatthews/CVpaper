@@ -18,13 +18,8 @@
 \usepackage{subfigure}
 \usepackage{amsmath}
 \usepackage{amssymb}
-%\usepackage{aastex}
-%\usepackage{epsfig}
-%\usepackage[dvips]{color}
-%\usepackage{aabib}
 
 
-%\marginparwidth = 25pt
 \citestyle{aa}
 \addtolength{\topmargin}{-.5in}
 %% This command added as margins are wrong in mn2e, it appears. 
@@ -90,12 +85,7 @@ Many high-state non-magnetic cataclysmic variables (CVs) exhibit
 blue-shifted absorption or P-Cygni profiles associated with ultraviolet
 (UV) resonance lines, such as C~{\sc iv}~$\lambda1550$. These features
 imply the existence of powerful accretion disk winds in
-CVs.
-% and considerable effort has gone into modelling UV line formation
-% in such outflows. By contrast, much less attention has been paid to
-% the potential impact of these disk winds on the {\em optical} spectra
-% of CVs. 
-Here, we use an improved version of our Monte Carlo ionization
+CVs. Here, we use an improved version of our Monte Carlo ionization
 and radiative transfer code to investigate whether disk wind models that
 produce realistic UV line profiles are also likely to generate
 observationally significant recombination line and continuum emission
@@ -110,32 +100,19 @@ this default wind model are double-peaked, and the effect of the wind
 on the Balmer jump is modest. We demonstrate that a higher-density outflow model 
 displays reasonable verisimilitude with the optical spectrum of RW Trianguli,
 producing all the observed lines. This model
-produces recombination continuum sufficient to fill in the Balmer jump,
-but it also predicts stronger-than-observed 
-collisionally excited UV emission lines. 
+produces a recombination continuum that is strong enough to fill in the Balmer jump,
+but it also predicts stronger-than-observed collisionally excited UV emission lines. 
 The wind in our revised model also alters the spectral shape of the continuum, 
 and displays a strong inclination dependence in its emission properties. 
 No single-peaked emission is seen, although we observe a 
 narrowing of the double-peaked emission lines from the base of the wind.
-We show that denser models can produce a single-peaked \ha\ line.
-The single-peaked line profile is due to the line emission originating from 
+We show that even denser models can produce a single-peaked \ha\ line.
+In this model, the single-peaked line profile is due to the line emission originating from 
 $\sim10^{11}$~cm above the disk plane where rotational velocities are small, 
 and is not due to the radial velocity shear mechanism that
-has previously been proposed. 
-On the basis of our results, we suggest that winds can 
+has previously been proposed. On the basis of our results, we suggest that winds can 
 modify, and perhaps even dominate, the line and continuum emission
 from CVs.
-% We carry out a limited exploration of
-% the disk wind parameter space, focusing on those parameters that affect the
-% density near the base of the wind. This shows that higher-density
-% outflows can produce both single-peaked emission lines and a
-% recombination continuum sufficient to fill in the Balmer
-% jump, although such models also tend to predict stronger-than-observed 
-% collisionally excited UV emission lines. Our main conclusion is that
-% disk wind emission is likely to have a significant impact on the
-% optical spectra of high-state CVs. 
-% {\bf JM: This abstract is a few lines longer than I would like- 
-% I think something punchier is required.}
 \end{abstract}
 
 \maketitle
@@ -187,23 +164,12 @@ cases, and particularly in the SW~Sex subclass of NLs
 \citep{HSK86,DR95}, these lines are single-peaked. This is contrary to
 theoretical expectations for lines formed in accretion disks, which
 are predicted to be double-peaked \citep{smak1981, hornemarsh1986}. 
-{\em Low-state} CVs (dwarf novae in quiescence) can, in fact,
+{\em Low-state} CVs (dwarf novae in quiescence) do, in fact,
 exhibit such double-peaked lines \citep{marshhorne1990}. 
-% {\bf JM: I've included a reference to a paper on IP Peg here
-% which shows the transition from double peaked lines in 
-% quiescence and a contrast to outburst spectra. I'm not sure
-% of general trends in DNe. A lot seem to have weak emission cores
-% embedded in absorption.}\
 
 \begin{figure}	%fullpage
 \centering
 \includegraphics[width=0.8\textwidth]{figures/fig1.eps}
-% \caption{Optical spectra of three nova-like variables: 
-% RW Sex (top; Beuermann et al. 1992),
-% IX Vel (top middle; Beuermann \& Thomas 1990) 
-% and RW Tri in and out of eclipse (bottom two panels; Groot et al. 2004).
-% The data have been digitized from the respective publications and a few of the more
-% prominent emission and absorption lines are marked. 
 \caption{
 Optical spectra of three nova-like variables: 
 RW Sex (top; Beuermann et al. 1992),
@@ -272,7 +238,6 @@ is that recombination continuum emission from the base of the
 disk wind might fill in the disk's
 Balmer absorption edge and flatten the UV spectrum. 
 
-%% CITATIONS FROM CAPTION
 \nocite{groot2004}
 \nocite{beuermann1990}
 \nocite{beuermann1992}
@@ -291,7 +256,7 @@ With this upgrade, the code is able to deal correctly with processes involving
 excited levels, such as the recombination emission produced by CV
 winds. 
 
-The remainder of this paper is organized as follows. In Section~2 we
+The remainder of this paper is organized as follows. In Section~2, we
 briefly describe the code and and the newly implemented macro-atom
 approach. In Section~3, we describe the kinematics and geometry of our
 disk wind model. 
@@ -340,7 +305,7 @@ energy packets through the wind and computing the emergent spectra at
 a number of user-specified viewing angles.  
 
 \py\ is designed to operate in a number of different
-regimes, both in terms of the scale of the system, and in terms of the
+regimes, both in terms of the scale of the system and in terms of the
 characteristics of the underlying radiation field.
 It was originally developed by LK02 in order to model the UV spectra
 of CVs with a simple biconical disk wind model. SDL05
@@ -429,7 +394,7 @@ J_{est} = \frac{c}{4 \pi \nu_0 V} \sum_{photons} w \frac{1 - e^{-\tau_s}}{\tau_s
 \end{equation}
 Here $w$ is the photon weight (in luminosity units), $\nu_0$
 is the line frequency, $dv/ds$ is the velocity gradient and
-$\tau_s$ is the Sobolev optical depth experienced by the photon in resonance.
+$\tau_s$ is the Sobolev optical depth.
 The sum is over all photons that come into resonance with the line.
 The corresponding de-excitation rate is then 
 \begin{equation}
@@ -481,7 +446,7 @@ need to include these species in our models, but they can be treated
 with our (much faster) simple-atom approach. We have therefore
 implemented a hybrid ionization and excitation scheme into \py. Any
 atomic species can now be treated either in our simple-atom
-approximation or with the full macro-atom machinery. For our CV
+approximation or with the full macro-atom machinery. In our CV
 models, we treat H and He as macro-atoms and all metals as
 simple-atoms.  
 
@@ -589,8 +554,9 @@ velocity law exponent $\alpha$ controls how quickly the wind
 accelerates. Larger values of $\alpha$ cause the main region of 
 acceleration to occur close to $R_v$, whereas smaller values
 correspond to fast acceleration close to the disk (see
-Fig.~\ref{acc_law}). The rotational velocity $v_\phi$ is originally 
-Keplerian and is assumed to conserve its specific angular momentum
+Fig.~\ref{acc_law}). The rotational velocity $v_\phi$ is 
+Keplerian at the base of the streamline 
+and we assume conservation of specific angular momentum,
 such that
 \begin{equation}
 v_\phi r = v_{k} r_0,
@@ -626,7 +592,7 @@ calculated from the mass continuity equation, yielding
 Here, 
 $v_z$ is the vertical velocity component and, following SV93,
 $\phi(r_0)$ is the local mass-loss rate per unit area at $r_0$, 
-such that 
+defined as
 \begin{equation}
 \phi(r_0) \propto \dot{M}_{wind} r_0^\lambda \cos [\theta(r_0)].
 \label{density}
@@ -634,10 +600,7 @@ such that
 We adopt $\lambda = 0$ and normalize $\phi(r_0)$ by 
 matching its integral over both sides of the disk
 to the user-specified total mass-loss rate, $\dot{M}_{wind}$. 
-% {\bf CK: I'm still not sure I understand the formula
-%   SV93 use to define $\phi$, and hence that this description is
-%   actually strictly correct.... Not sure what to do about that
-%   though...}
+
 
 \subsection{Sources and Sinks of Radiation}
 \label{radsources}
@@ -675,7 +638,7 @@ always in absorption in these models. Our synthetic stellar atmosphere
 spectra are calculated with
 \textsc{Synspec}\footnote{http://nova.astro.umd.edu/Synspec43/synspec.html}
 from either Kurucz \citep{kurucz1991} atmospheres (for $T_{eff} \leq
-50,000$~K) or from \textsc{TLUSTY} models \citep{tlusty} (for $T_{eff} > 50,000$~K). 
+50,000$~K) or from \textsc{TLUSTY} \citep{tlusty} models (for $T_{eff} > 50,000$~K). 
 
 \subsubsection{White Dwarf}
 
@@ -691,7 +654,7 @@ It is possible to include radiation from a boundary layer (BL) between
 the disk and the WD. In \py, the BL is described as
 a blackbody with a user-specified effective temperature and
 luminosity. In the models presented here, we have followed LK02 in setting
-the BL luminosity to zero. However, we have confirmed that the addition of a
+the BL luminosity to zero. However, we have confirmed that the addition of an isotropic
 BL with $L_{BL} = 0.5 L_{acc}$ and temperatures in the range $80~{\rm
 kK} \leq T_{BL} \leq 200~{\rm kK}$ would not change any of our main
 conclusions. 
@@ -705,31 +668,16 @@ shape and relative size are defined by setting the mass ratio of the system,
 $q = M_2/M_{WD}$. The inclusion of the donor star as an occulting body
 allows us to model eclipses of the disk and the wind. For this
 purpose, we assume a circular orbit with a semi-major axis $a$ and 
-specify orbital phase such that $\Phi_{orb} = 0$ as the
+specify orbital phase such that $\Phi_{orb} = 0$ is the
 inferior conjunction of the secondary (i.e. mid-eclipse for $i \simeq
 90^o$).
-
-% \begin{figure}
-% \centering
-% \includegraphics[width=0.45\textwidth]{figures/sed_figure.eps}
-% \caption{
-% The spectral energy distribution (SED) of the 
-% White Dwarf (dashed line) and blackbody accretion
-% disk used in the ionization calculation (black solid line).
-% The positions of the H and He ionization edges 
-% are marked with vertical lines.
-% {\bf JM: KSL has suggested we ditch this}
-%  }
-% \label{sed}
-% \end{figure}
-
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%          RESULTS
+%          BENCHMARK MODEL
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -737,6 +685,7 @@ inferior conjunction of the secondary (i.e. mid-eclipse for $i \simeq
 \begin{table}
 \centering
 \begin{tabular}{p{2cm}p{2cm}p{2cm}}
+%%\multicolumn{2}{|l|}{Model Parameters}  \\
 Model Parameters \\
 \hline Parameter 	&	 Model A  & Model B \\ 
 \hline \hline 
@@ -752,7 +701,7 @@ $\dot{M}_{acc}$ 	 &	 $10^{-8}~M_{\odot}yr^{-1}$  &\\
 $\dot{M}_{wind}$  &	$10^{-9}~M_{\odot}yr^{-1}$å  & \\ 
 $r_{min}$ 	&	 $4~R_{WD}$ &  \\ 
 $r_{max}$ 	&	 $12~R_{WD}$  &  \\ 
-$r_{disk} (max)$ 	&	 $34~R_{WD}$  &  \\ 
+$r_{disk}$(max) 	&	 $34.3~R_{WD}$  &  \\ 
 $\theta_{min}$ 	&	 $20.0^{\circ}$  &  \\ 
 $\theta_{max}$ 	&	 $65.0^{\circ}$  &  \\ 
 $\gamma$ 	&	 $1$  &  \\ 
@@ -799,7 +748,7 @@ set to 10$\%$ of the accretion rate through the disk.
 \begin{figure} %fullpage
 \includegraphics[width=\textwidth]{figures/fig5.eps}
 \caption{
-The physical properties of the wind- note the logarithmic scale. 
+The physical properties of the wind -- note the logarithmic scale. 
 Near the disk plane the wind is dense, with low poloidal velocities.
 As the wind accelerates it becomes less dense
 and more highly ionized. The dominant He ion
@@ -818,16 +767,16 @@ right panel is given by
 U = \frac{4\pi}{n_H c}\int_{13.6{\rm{eV}}}^{\infty}\frac{{J_{\nu}d\nu}}{h\nu},
 \end{equation}
  
-\noindent where $\rm{n_H}$ is the local number density of H and $\nu$ denotes photon 
+\noindent where $\rm{n_H}$ is the local number density of H, and $\nu$ denotes photon 
 frequency. The ionization parameter is a useful measure of the ionization state of a plasma, 
-as it evaluates the ratio of the number density of ionizing photons and the local 
+as it evaluates the ratio of the number density of ionizing photons to the local 
 H density.
 
 
 There is an obvious drop-off in density
 and temperature with distance away from the disk, so any line
-formation process that scales as $\rho^2$ - i.e. recombination and
-collisionally excited emission - should be expected to operate
+formation process that scales as $\rho^2$ -- i.e. recombination and
+collisionally excited emission -- should be expected to operate
 primarily in the dense base of the outflow. Moreover, a comparison of
 the rotational and poloidal velocity fields shows that rotation
 dominates in the near-disk regime, while outflow dominates further out
@@ -875,11 +824,11 @@ the case, since the ionization state of the wind has not changed
 significantly from that computed by LK02 (see section~\ref{modela_ionization}). 
 The left column of panels in Fig.~\ref{spec} shows that this expectation
 is met: all of the strong metal resonance
-lines - notably N\textsc{v}~$\lambda1240$,
-Si\textsc{iv}~$\lambda1400$ and C\textsc{iv}~$\lambda1550$ - 
+lines -- notably N\textsc{v}~$\lambda1240$,
+Si\textsc{iv}~$\lambda1400$ and C\textsc{iv}~$\lambda1550$ -- 
 are present and exhibit clear P-Cygni profiles
 at intermediate inclinations. In addition, however, we now also find
-that the wind produces significant Lyman-$\alpha$ and
+that the wind produces significant Ly$\alpha$ and
 He~\textsc{ii}~$\lambda1640$ emission lines. 
 
 Fig.~\ref{spec} (right-hand panel) and Fig.~\ref{spec_continuum}
@@ -889,11 +838,12 @@ associated with H and He. We see a general trend from absorption lines to emissi
 with increasing inclination, as one might expect from our wind
 geometry. This trend is consistent with observations, as can be seen
 in Fig.~1. However, it is clear that this particular model
-does not produce all the lines seen in observations of high-state CVs.
+does not produce all of the lines seen in observations of high-state CVs.
 The higher-order Balmer series lines are too weak
 to overcome the intrinsic absorption from the disk atmosphere, and the wind 
-fails to produce any observable emission at intermediate inclinations, 
-which contrasts with (for example) the observed behaviour of V3885 Sgr \citep{hartley2005}
+fails to produce any observable emission at low and intermediate inclinations.
+This contrasts with the fact that emission lines are seen 
+in the optical spectra of (for example) V3885 Sgr \citep{hartley2005}
 and IX Vel \citep[][see also Fig.~1]{beuermann1990}.
 
 The emissivity of these recombination 
@@ -937,7 +887,8 @@ Balmer jump can be shown.}
 
 \begin{figure} 
 \includegraphics[width=0.45\textwidth]{figures/modela_escaping.eps}
-\caption{Total packet-binned spectra across all viewing angles. 
+\caption{Total packet-binned spectra across all viewing angles, in units
+of monochromatic luminosity.
 The thick black line shows the total 
 integrated escaping spectrum, 
 while the green line shows disk photons which escape without being reprocessed by
@@ -979,9 +930,9 @@ reasonable outflow parameters.
 \end{itemize} 
 
 The emission measure of a plasma is directly proportional to its density.
-The simplest way to simultaneously affect the density in the wind (for fixed mass loss rate)
-as well as the velocity gradients is by modifying the poloidal velocity
-law. To do this, we focus on just two kinematic variables (section~\ref{kinematics}):
+The simplest way to simultaneously affect the density in the wind (for fixed mass loss rate),
+as well as the velocity gradients, is by modifying the poloidal velocity
+law. Therefore, we focus on just two kinematic variables (section~\ref{kinematics}):
 
 \begin{itemize}
          \item the acceleration length, $R_v$, which controls the
@@ -991,14 +942,14 @@ law. To do this, we focus on just two kinematic variables (section~\ref{kinemati
 \end{itemize} 
 
 The general behaviour we might expect is that outflows with denser
-regions near the wind base - i.e. winds with larger $R_{v}$ and/or
-larger $\alpha$ - will produce stronger optical emission signatures. 
+regions near the wind base -- i.e. winds with larger $R_{v}$ and/or
+larger $\alpha$ -- will produce stronger optical emission signatures. 
 However, this behaviour may be moderated by the effect of the increasing
 optical depth through this region, which can also affect the line profile shapes. 
 In addition, modifying $R_v$ also increases the emission {\em volume}.
-Having briefly explored a variety of models with different kinematics,
+Based on a preliminary exploration of models with different kinematics,
 we adopt the parameters listed in table~\ref{modelb_table}
-for our revised model (model B), which is optimized for the optical waveband. 
+for our `optically optimized' model (model B). 
 
 
 \subsection{Synthetic Spectra}
@@ -1017,19 +968,18 @@ of a deeper Balmer jump with decreasing inclination.
 \label{uvoptb}
 \end{figure} %fullpage
 
-Fig.~\ref{uvoptb} shows the UV and optical spectra for this
+Fig.~\ref{uvoptb} shows the UV and optical spectra for the
 optically optimized model for the full range of inclinations. 
 As expected, the trend from absorption to emission 
-in the optical is again present, but in this improved model we produce emission
+in the optical is again present, but in this revised model we produce emission
 lines in the entire Balmer series at high inclinations, as well as the observed lines 
 in He~\textsc{ii} and He~\textsc{i}. This can be seen more clearly in the 
-continuum-divided spectrum in Fig.~\ref{continuumb}.
-%with the lines marked (NOTE, mark these). 
+continuum-normalized spectrum in Fig.~\ref{continuumb}.
 
 Two other features are worth noting in the optical
-spectrum. First, the collisionally excited Ca~{\sc ii} emission line at 3934\AA\ 
+spectrum. First, the collisionally excited Ca~{\sc ii} emission line at 3934~\AA\ 
 becomes quite prominent in our densest models. Second, our model predicts a detectable
-He~\textsc{ii} recombination line at 3202\AA. This is the He
+He~\textsc{ii} recombination line at 3202~\AA. This is the He
 equivalent of Paschen~$\beta$ and should be expected in all systems that
 feature a strong He~\textsc{ii}~$\lambda4686$ line (the He
 equivalent of Paschen~$\alpha$). 
@@ -1045,25 +995,27 @@ This means H and He are fully ionized throughout
 much of the wind and are successful in producing recombination features.
 However, the line opacity throughout the wind is too
 low to produce noticeable blue shifted absorption. 
-We suspect that the winds that exhibit such profiles must 
+We suspect that the systems that exhibit such profiles must 
 possess a higher degree of ionization stratification, although the lack 
 of contemporary observations means it is not known for certain if the 
 P-Cygni profiles in UV resonance lines and optical H and He lines exist simultaneously.
-Ionization stratification could manifest as a clumpy flow, in which ionization changes
-due to small scale density fluctuations, or a stratification in density
+Ionization stratification could be caused by a clumpy flow, in which the ionization state 
+changes due to small scale density fluctuations, or a stratification in density
 and ionizing radiation field over larger scales.
-Theory of line-driven winds expects them to be unsteady \citep{macgregor1979,owockirybicki1984,owockirybicki1985},
-simulations of CV disk winds also predict density inhomogeneities 
+Invoking clumpiness in these outflows is not an unreasonable
+hypothesis. Theories of line-driven winds predict an unstable flow
+\citep{macgregor1979,owockirybicki1984,owockirybicki1985}, and
+simulations of CV disk winds also produce density inhomogeneities 
 \citep{proga1998,pkdh2002}.
 Tentative evidence for clumping being directly related to P-Cygni optical lines
 comes from the fact that \cite{prinja2000}
-found dwarf nova BZ Cam's outflow to be unsteady and highly mass-loaded in outburst,
-by observing the UV resonance lines.
-This system has exhibited P-Cygni profiles in He~\textsc{i}~$\lambda5876$
+found the dwarf nova BZ Cam's outflow to be unsteady and highly mass-loaded in outburst,
+based on observations of the UV resonance lines.
+This system has also exhibited P-Cygni profiles in He~\textsc{i}~$\lambda5876$
 and \ha\ when in a high-state \citep{patterson1996,RN98}. 
-We also note that the degree of ionization and density variation and 
+The degree of ionization and density variation and 
 subsequent line opacities may be affected by our model parameters
-and the specific parameterisation adopted.
+and the specific parameterisation we have adopted.
 
 In the UV, the model still produces all the observed lines, 
 and deep P-Cygni profiles are produced in the normal resonance lines,
@@ -1087,9 +1039,9 @@ of high-state CVs (see e.g. Long et al. 1991, 1994; Noebauer et al. 2010).
 \subsection{Continuum Shape and the Balmer Jump}
 
 The wind now also has a clear effect on the continuum shape,
-as shown by Fig.~\ref{modelb_escape}. The majority of the
+as shown by Fig.~\ref{modelb_escape}. In fact, the majority of the
 escaping spectrum has been reprocessed in some way by the wind,
-either by electron scattering (the wind is now moderately Thompson-thick),
+either by electron scattering (the wind is now moderately Thomson-thick),
 or by bound-free processes. This is demonstrated by the flatter spectral shape
 and the slight He photoabsorption edge present in the optical spectrum 
 (marked in Fig.~\ref{continuumb}). This reprocessing is also
@@ -1101,7 +1053,7 @@ at high inclinations.\footnote{Note that the apparent absorption feature
 just redward of the Balmer jump in these models is artificial. It is
 caused by residual line blanketing in the stellar atmospheres, which
 our models cannot fill in since they employ a 20-level H atom.}
-This suggests that Balmer continuum emission from a wind can be important 
+This might suggest that Balmer continuum emission from a wind can be important 
 in shaping the Balmer jump region, as
 originally suggested by Knigge et al.
 (1998b; see also Hassall et al. 1985)\nocite{KLWB98,hassall}. 
@@ -1110,7 +1062,7 @@ It should be acknowledged, however,
 that the Balmer jump in high-state CVs would naturally weaken at
 high inclinations due to limb darkening effects \citep{ladous1989, ladous1989b}. 
 Although we include a simple limb darkening law which affects 
-the seen at each inclination, we do not
+the emergent flux at each inclination, we do not
 include it as a {\em frequency dependent} opacity in our model.
 As a result, the efficiency of filling in the Balmer jump
 should really be judged at low and medium inclinations, 
@@ -1120,7 +1072,7 @@ In addition, this effect
 could mean that any model which successfully fills in the 
 jump at low inclinations could lead to a Balmer jump 
 in emission at high inclinations.
-To understand this phenomenon, a fully self-consistent
+In any case, to properly understand this phenomenon, a fully self-consistent
 radiative transfer calculation of both the disk atmosphere
 and connected wind is required.
 
@@ -1139,7 +1091,8 @@ Balmer jump can be shown.
 
 \begin{figure} 
 \includegraphics[width=0.45\textwidth]{figures/modelb_escaping.eps}
-\caption{Total packet-binned spectra across all viewing angles. 
+\caption{Total packet-binned spectra across all viewing angles, in units
+of monochromatic luminosity. 
 The thick black line shows the total 
 integrated escaping spectrum, 
 while the green line shows disk photons which escape without being reprocessed by
@@ -1196,11 +1149,11 @@ thick in the continuum, such that the line emission from the base of the wind
 cannot escape to the observer. In such models, the `line photosphere'
 (the $\tau \simeq 1$ surface of the line-forming region) moves outwards, towards larger 
 vertical and cylindrical distances. This reduces the predicted line widths, since the 
-rotational velocities - which normally provide the main line broadening mechanism at 
-high inclination - drop off as $1/r$. This is not to say that the MC96 
+rotational velocities -- which normally provide the main line broadening mechanism at 
+high inclination -- drop off as $1/r$. This is not to say that the MC96 
 mechanism could not be at work in CV winds. For example, it would be worth investigating
 alternative prescriptions for the wind velocity field, as well as the possibility that the 
-outflows may be clumped. A nonhomogenous flow 
+outflows may be clumped. An inhomogeneous flow 
 (which has been predicted in CVs; see section 5.2)
 might allow large radial velocity shears to exist while still 
 maintaining the high densities needed to produce the required level of emission.
@@ -1216,33 +1169,28 @@ Groot et al. 2004; see also section 5.4),
 implying a significant vertical extent for the line-forming 
 region. This type of model should therefore not be ruled out {\em a priori}, 
 but this specific model was not adopted as our optically optimized model
-due to an unrealistically high continuum level in eclipse. 
-
+due to its unrealistically high continuum level in eclipse. 
 
 
 
 \subsection{Comparison to RW Tri}
 
-
-Fig.~\ref{rwtricomp} shows a qualitative comparison of the predicted
+Fig.~\ref{rwtricomp} shows a comparison of the predicted
 out-of-eclipse and mid-eclipse spectra against observations of the
 high-inclination nova-like RW~Tri. The inclination of RW Tri is
 somewhat uncertain, with estimates including $70.5^\circ$
 \citep{smak1995}, $75^\circ$ \citep{groot2004}, $80^\circ$
 \citep{longmore1981} and $82^\circ$\citep{frankking1981}. Here, we
 adopt $i = 80^\circ$, but our qualitative conclusions are not
-particularly sensitive to this choice. We emphasize that this
-model is in no sense a fit to this - or any other - data set.
+particularly sensitive to this choice. 
+We follow LK02 is setting the value of $r_{disk}$ (the maximum radius of the accretion disk)
+to $34.3~R_{WD}$. When compared to the semi-major axis of RW Tri,
+this value is perhaps lower than one might 
+typically expect for NLs \citep{harropallinwarner1996}. 
+However, it is consistent
+with values inferred by \cite{rutten1992}.
+We emphasize that this model is in no sense a fit to this -- or any other -- data set.
 
-% {\bf CK: strictly speaking, we should be talking about q=M2/M1 and disk
-%   radius here as well I think, since those parameters affect the
-%   amount and nature of any uneclipsed light just as much (sort of) as
-%   the inclination. We should probably quote M2, q and R2/a in the
-%   table, and we may want to say that we've adopted a q that is in line
-%   with the observed eclipse width of RW Tri. (In Roche geometry,the
-%   eclipse width -- the half-width at half out-of-eclipse intensity,
-%   say -- depends solely on q and i). See e.g. Horne's paper or various
-%   Dhillon et al. papers.}
 
 The similarity between the synthetic and observed spectra is
 striking. In particular, the revised model produces strong emission in
@@ -1251,12 +1199,9 @@ those seen in RW Tri. Moreover, the line-to-continuum contrast
 increases during eclipse, as expected for emission produced in a disk
 wind. This trend is in line with the observations of RW~Tri, and it
 has also been seen in other NLs, including members of the SW~Sex class
-\citep{neustroev2011}.
-% {\bf CK: I'm pretty sure that we know this about UX Uma, e.g. from
-%   eclipse mapping studies, and there ought to be mid-eclipse spectra
-%   of some additional system}
-% The revised model also produes a single-peaked \ha\ line, in line with
-% the observational data.
+\citep{neustroev2011}. As noted in section 5.2, the majority
+of the escaping radiation has been reprocessed by the wind in some way
+(particularly the eclipsed light).
 
 However, there are also interesting differences between the revised
 model and the RW Tri data set. For example, the model exhibits
@@ -1268,16 +1213,13 @@ of NLs, although the relatively low resolution of the RW Tri
 spectrum makes a specific comparison difficult. In order to demonstrate
 the double-peaked nature of the narrower lines, we choose not to 
 smooth the synthesized data to the resolution of the RW Tri dataset.
-
-
-\newpage
-
+If the data was smoothed, the \ha\ line would appear single-peaked.
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%          Conclusions and Future Work
+%          CONCLUSIONS
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1302,68 +1244,33 @@ and out of eclipse, and achieves reasonable verisimilitude with the
 observed optical spectra of RW Tri. However, this model also has
 significant shortcomings. In particular, it predicts
 stronger-than-observed He~{\sc ii} lines in the optical region and too
-much of a collisionally excited contribution to the UV resonance lines
-that  
+much of a collisionally excited contribution to the UV resonance lines. 
 
-Based on this, we show that recombination emission 
-from outflows with sufficiently high densities and/or optical depths might 
-
-\renewcommand{\labelitemi}{$\bullet$}
-\begin{itemize}
-	\item fill in the Balmer absorption edge in the spectrum of
-          the accretion, thus accounting for the absence of a strong edge in
-          observed CV spectra;
-	\item produce the optical lines observed in CVs.
-\end{itemize}
-\smallskip
-
-We note that limb darkening effects on disk atmosphere opacities
-would affect the Balmer jump (see section 5.2). In section 5.3, we demonstrate that
+Based on this, we argue that recombination emission 
+from outflows with sufficiently high densities and/or optical depths 
+might produce the optical lines observed in CVs, and may also 
+fill in the Balmer absorption edge in the spectrum of the accretion disk, 
+thus accounting for the absence of a strong edge in observed CV spectra.
+In section 5.3, we demonstrate that
 although the double peaked lines narrow and 
 single-peaked emission can be formed in our densest models, 
-it is not due to the radial velocity shear mechanism proposed by MC96.
-We suggest that nonhomogenous, `clumpy' line-driven winds or a different
-wind parameterization may allow this mechanism to work.
+this is not due to the radial velocity shear mechanism proposed by MC96.
+We suggest that `clumpy' line-driven winds or a different
+wind parameterization may nevertheless allow this mechanism to work.
 We also note the possibility that, as in our denser models, 
-the single-peaked lines are formed well above the disk where 
+the single-peaked lines are formed well above the disk, where 
 rotational velocities are lower.
 
-
-% {\bf JM: I originally also had a note about the flat Balmer decrement here.
-% it's potentially interesting and could be included, but would need a discussion
-% earlier in the text.}
-
 It is not yet clear whether a wind model such as this can
-explain all of the observed optical features of high-state CVs-
-further effort is required both from the observational
-and modelling perspectives.
-However, we can make a couple of basic,
-testable predictions about the Balmer continuum emission
-from similar wind geometries:
-\begin{itemize}
-	\item we expect the depth of the Balmer absorption edge in CV
-          spectra to decrease with increasing inclination (with the
-          Balmer jump possibly switching to emission at the highest
-          inclinations, if the flux in the wind-formed recombination
-          continuum exceeds that of the foreshortened disk spectrum);
-	% \item we predict that a strong He~\textsc{ii}~$\lambda3202{\rm
- %          \AA}$ line should be prominent in all cases where
- %          He~\textsc{ii}~$\lambda1640{\rm \AA}$ \& \heiiopt\ are seen
- %          (but note that this prediction is not restricted to lines
- %          formed in disk winds);
-	\item we predict that the Balmer jump should be in emission
-          during mid-eclipse in high inclination systems.
-\end{itemize}
-
-\smallskip
-
-
-Overall, our work demonstrates that {\sl disk winds matter}. They are
+explain all of the observed optical features of high-state CVs --
+further effort is required on both the observational
+and modelling fronts.
+However, our work demonstrates that {\sl disk winds matter}. They are
 not just responsible for creating the blue-shifted absorption and
 P-Cygni profiles seen in the UV resonance lines of high-state CVs, but
 can also have a strong effect on the optical appearance of these
 systems. In fact, most of the optical features characteristic of CVs
-are likely to be affected - and possibly even dominated - by their disk
+are likely to be affected -- and possibly even dominated -- by their disk
 winds. Given that optical spectroscopy plays the central role in
 observational studies of CVs, it is critical to know 
 where and how these spectra are actually formed. We believe it is high
