@@ -10,7 +10,7 @@ texfile =  open(filename, "r")
 outfile = open(outfilename, "w")
 
 
-outfile.write("\documentclass[useAMS,usenatbib]{mn2e}\n")
+outfile.write("\documentclass[useAMS,usenatbib]{mn2e_x}\n")
 
 fig_env = False
 
