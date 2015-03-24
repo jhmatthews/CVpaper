@@ -64,22 +64,11 @@ diffs:
 	dvips diffs_mnras -o diffs_mnras_$(DATE).ps
 	ps2pdf diffs_$(DATE).ps
 	ps2pdf diffs_mnras_$(DATE).ps
-	#cp diffs_mnras_jm_$(DATE).pdf cvpaper_latest.pdf
+
+	cp diffs_mnras_$(DATE).pdf cvpaper_diff_latest.pdf
 	open -a preview diffs_mnras_$(DATE).pdf 
-	#open -a preview cvwinds_draft_jm_$(DATE).pdf
-#	cp draft_mnras.pdf ~/Dropbox/Python/CVpaper/
-#	cp draft.pdf ~/Dropbox/Python/CVpaper/draft_preprint.pdf
-# draft:
-# 	python scripts/mnras.py draft.tex draft_mnras.tex
-# 	pdflatex draft
-# 	bibtex draft
-# 	pdflatex draft
-# 	pdflatex draft
-# 	pdflatex draft_mnras
-# 	bibtex draft_mnras
-# 	pdflatex draft_mnras
-# 	pdflatex draft_mnras
-# 	open -a preview draft_mnras.pdf
+
+
 rates:
 	${PCMD} rates
 	bibtex rates
@@ -88,9 +77,9 @@ rates:
 
 	
 clean:	
-	/bin/rm -f *.aux *.log *.dvi
+	/bin/rm -f *.aux *.log *.dvi 
 
 cleandates:
-	/bin/rm -f *.dvi *.pdf *.ps
+	/bin/rm -f *.dvi cvwinds*.pdf diffs*.pdf *.ps *.log *.aux
 
 

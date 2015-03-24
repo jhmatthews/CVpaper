@@ -1,0 +1,79 @@
+Reviewer's Comments:
+
+This is an interesting paper that represent a follow-up of the authors’ previous studies of Monte Carlo models of CV disk winds, using their previously developed code PYTHON. The basic aim of the paper is to demonstrate that their parameterized approach works not only fro UV spectra of CVs (as demonstrated earlier), but also for optical spectra. 
+
+The paper is generally well written and worth publishing. I have nevertheless a number of relatively minor points that should be addressed before the paper is accepted. I list them more of less chronologically below. 
+
+
+
+
+- A general comment on Sec. 2.1: It is not specified what opacity sources were used when evaluating a balance of heating and cooling in the wind, thus determining its temperature structure. The subsequent text talks about H and He being treated in some detail in NLTE (as so-called macro-atoms), so presumably the lines and continuum of H and He were considered in energy balance. The text also talks (the end of 2.2) about a two-level approximation or lines, presumably metal ones, but it is not clear whether this approximation is used just to evaluate the source function for the radiation transfer, or also for energy balance. This point should be clarified. 
+
+JM: I have added some text to section 2.4, making clear that metals are included as opacity sources and in heating/cooling.  
+
+TODO: clarify point above.
+
+
+
+
+
+- Eq. (2): it is not clear what W means in this context. As used in the previous context, Eq.(1), it meant a fraction of recombination going directly to the ground state, while this interpretation does not apply for a modified Boltzmann distribution expressed by Eq. (2). 
+
+JM: W is defined in the previous paragraph as an effective dilution factor- the quantity eta represents the fraction of recombination going directly to the ground state. Thus the quantity W is appropriate in 
+eq 2- however, I agree this could be clarified and so have explciitly stated that eq (2) includes
+the dilution factor.
+
+
+
+- Eq.(4): strictly speaking, it applies for a spherically symmetric situation, while the present cad has rather a cylindrical symmetry. I do not require the authors to modify their approach (which is commonly used in many studies), but merely mention it as a possible source of uncertainties. 
+
+JM: I am not sure this is true. The angle dependent escape probability takes this into account. Any thoughts Stuart?
+
+
+
+- The text on collisional rates at the end of 2.3 is unclear and misleading. First, neglecting the collisions for dipole forbidden transitions (by using van Regemorter formula) is never a reasonable approximation. Second, since the applications presented in the paper seem to take into account only H and He in NLTE, one can then use better data available in the literature that van Regemorter formula. Moreover, since the authors specify that the levels for H I are characterized by the main quantum number, they implicitly assume that all l states within a given n are distributed according their statistical weights; that is also assuming implicitly that collisions between, for instance, the 2s and 2p states are dominant, even if the transition 2s - 2p is dipole forbidden, in a direct contradiction with the previous statement. 
+
+JM: I agree this is unclear in the paper. The real point here is as follows, which should be explained more clearly (TODO).
+
+In Hydrogen and Helium II, the energy difference between various l states within a given n is small, and thus we assume, as the author and the text of the paper states, that the populations are 'l-mixed'. I believe this approximation is reasonable when considering the dense 
+
+In Helium I this is not the case. However, these lines are formed in a regime where the level populations are determined primarily by bound-free, rather than bound-bound processes. 
+
+To convince myself, and the referee, that this is indeed the case I have conducted two additional tests. I placed an arbritrary strong transition between the 2s and 2p subshells of He I, and investigated effect on 
+a) the level populations and b) the emergent spectrum.   
+
+Nevertheless we plan to incorporate better data for the treatment of collisions for dipole forbidden transitions by using spline fits to collisional coefficients for each transition in the near future, but we do not feel this is necessary for the current publication. 
+
+
+
+
+
+
+- Sec 4.1, the values for the benchmark model: What is a justification for the adopted values of r_min and r_max? In particular, why r_min is chosen to be 4 R_WD? One might expect that this value might be much smaller, close to 1, since the disk is hottest at these regions. What would be the observable effect of changing these values? 
+
+JM: Why did LK02 choose those values? What is the qualitative effect of 
+
+
+
+
+
+- Figs. 9 and 10, caption: should mention that the gray line represent the model A (if this is indeed the case). 
+
+JM: Added text to captions of figures 9 and 10.
+
+
+
+
+- Generally, there are many free parameters of the model. The authors showed that changing just two of them, R_v and alpha, one can get better agreement a model (B) and observations of one particular CV system, RW Tri. However, the reader is left wondering what the effects of other free parameters might be. The authors may perhaps devote a short paragraph to a discussion of possible effects of other parameters, or possibly a relative unimportance thereof. 
+
+JM: This is a good point, and one we devoted a little thought too. 
+Are our conclusions degenerate with mass?
+
+
+
+
+
+
+- Since the authors mention that the wind clumping might be important, they could have easily modify their code to include it, at least at the simplest parameterized way as is customary in studies of stellar wind. This would add just one mode free parameter (the covering factor f) in an already large list of parameters. I do not require it in the presenter paper, but the authors may consider to include it in future studies.
+
+JM: Good idea- As it happens we have recently incorporated this exact approach into the code and are investigating it's effect. Thankyou for the suggestion. 

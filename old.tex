@@ -383,7 +383,7 @@ for more complex SEDs is described in H13.)
 
 Similarly, the relative excitation fractions within each ionization
 stage of a given species were estimated via a modified Boltzmann
-equation (incorporating the dilution factor, $W$),
+equation,
 \begin{equation}
 \frac{n_{jk}}{n_j} = \frac{W g_k}{z_j(T_R)} \exp(-E_k/kT_R),
 \end{equation}
@@ -488,10 +488,7 @@ implemented a hybrid ionization and excitation scheme into \py. Any
 atomic species can now be treated either in our simple-atom
 approximation or with the full macro-atom machinery. In our CV
 models, we treat H and He as macro-atoms and all metals as
-simple-atoms. Elements treated with either method
-are always present as sources of both bound-free opacity and line opacity, 
-and contribute to the heating and cooling balance 
-of the plasma.
+simple-atoms.  
 
 \subsection{Atomic Data}
 
@@ -1002,9 +999,8 @@ for our `optically optimized' model (model B).
 \begin{figure} %fullpage
 \includegraphics[width=0.9\textwidth]{figures/modelb_uv_opt.eps}
 \caption{
-UV (left) and Optical (right) synthetic spectra for model B computed at
-sightlines of 10, 27.5, 45, 62.5 and 80 degrees. 
-Model A is shown in grey for comparison.	
+UV (left) and Optical synthetic spectra for model B computed at
+sightlines of 10, 27.5, 45, 62.5 and 80 degrees.	
 The inset plots show zoomed-in line profiles for 
 \heiiuv\ and \ha. The Balmer and He
 are double-peaked, albeit with narrower profiles.
@@ -1126,9 +1122,8 @@ and connected wind is required.
 \includegraphics[width=0.45\textwidth]{figures/modelb_opt_cont.eps}
 \caption{
 Synthetic optical spectra from model B computed for 
-sightlines of 10, 27.5, 45, 62.5 and 80 degrees. 
-Model A is shown in grey for comparison.
-In these plots the flux is divided by a polynomial fit to the 
+sightlines of 10, 27.5, 45, 62.5 and 80 degrees. In these plots
+the flux is divided by a polynomial fit to the 
 underlying continuum redward of the Balmer edge, so that 
 line-to-continuum ratios and the true depth of the
 Balmer jump can be shown.
@@ -1327,12 +1322,9 @@ accretion disks and associated outflows.
 
 \subsection*{Acknowledgements}
 The work of JHM and CK is supported by the Science and Technology Facilities Council (STFC), 
-via studentships and a consolidated grant, respectively. 
-The work of NSH is supported by NASA under Astrophysics Theory Program grants NNX11AI96G  and NNX14AK44G.
-We would like to thank the anonymous referee for a helpful and constructive report, and 
-we are  grateful to A.F. Palah and B.T. Gaensicke for the IX Vel XSHOOTER dataset.
-We would also like to thank J.V. Hernandez Santisteban, S.W. Mangham and I. Hubeny for useful discussions. 
-We acknowledge the use of the IRIDIS High Performance Computing Facility, 
+via studentships and a consolidated grant, respectively. The work of NSH is supported by NASA under Astrophysics Theory Program grants NNX11AI96G  and NNX14AK44G.
+We are very grateful to A.F. Palah and B.T. Gaensicke for the IX Vel XSHOOTER dataset.
+We would also like to thank J.V. Hernandez Santisteban, S.W. Mangham and I. Hubeny for useful discussions. We acknowledge the use of the IRIDIS High Performance Computing Facility, 
 and associated support services at the University of Southampton, in the completion of this work.
 
 
