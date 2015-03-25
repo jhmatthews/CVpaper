@@ -9,9 +9,7 @@ The paper is generally well written and worth publishing. I have nevertheless a 
 
 - A general comment on Sec. 2.1: It is not specified what opacity sources were used when evaluating a balance of heating and cooling in the wind, thus determining its temperature structure. The subsequent text talks about H and He being treated in some detail in NLTE (as so-called macro-atoms), so presumably the lines and continuum of H and He were considered in energy balance. The text also talks (the end of 2.2) about a two-level approximation or lines, presumably metal ones, but it is not clear whether this approximation is used just to evaluate the source function for the radiation transfer, or also for energy balance. This point should be clarified. 
 
-JM: I have added some text to section 2.4, making clear that metals are included as opacity sources and in heating/cooling.  
-
-TODO: clarify point above.
+JM: I have added some text to section 2.4, making clear that metals are included as opacity sources and in heating/cooling. I have also added some text to sec 2.2 about the two-level atom framework.
 
 
 
@@ -25,9 +23,14 @@ the dilution factor.
 
 
 
+
+
+
 - Eq.(4): strictly speaking, it applies for a spherically symmetric situation, while the present cad has rather a cylindrical symmetry. I do not require the authors to modify their approach (which is commonly used in many studies), but merely mention it as a possible source of uncertainties. 
 
 JM: I am not sure this is true. The angle dependent escape probability takes this into account. Any thoughts Stuart?
+
+
 
 
 
@@ -49,9 +52,12 @@ Nevertheless we plan to incorporate better data for the treatment of collisions 
 
 
 
+
+
 - Sec 4.1, the values for the benchmark model: What is a justification for the adopted values of r_min and r_max? In particular, why r_min is chosen to be 4 R_WD? One might expect that this value might be much smaller, close to 1, since the disk is hottest at these regions. What would be the observable effect of changing these values? 
 
-JM: Why did LK02 choose those values? What is the qualitative effect of 
+JM: We adopt these values as we are directly comparing to LK02 and SV93. SV93 imposed this inner limit as in their models. This was based on a physically argument, as inside 4RWD the disk has temperatures > 40,000K, and might be expected to be too hot for line driving to occur (see e.g. ) 
+I have mentioned this in the text in section 2 and discuss the possible dependence further in section 5.
 
 
 

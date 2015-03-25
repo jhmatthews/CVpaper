@@ -382,8 +382,8 @@ improved, but more complex treatment of ionization that is appropriate
 for more complex SEDs is described in H13.) 
 
 Similarly, the relative excitation fractions within each ionization
-stage of a given species were estimated via a modified Boltzmann
-equation (incorporating the dilution factor, $W$),
+stage of a given species were estimated via a modified (dilute) Boltzmann
+equation,
 \begin{equation}
 \frac{n_{jk}}{n_j} = \frac{W g_k}{z_j(T_R)} \exp(-E_k/kT_R),
 \end{equation}
@@ -392,9 +392,11 @@ $E_k$ is the energy difference between level $k$ and the ground state,
 $g_k$ is the statistical weight of level $k$
 and $z_j(T_R)$ is the partition function of ionic stage $j$. 
 
-Finally, \py\ modelled all bound-bound processes as transitions
-within a simple two-level atom \cite[e.g.][]{mihalas}. This
-approach works reasonably well for resonance  
+Finally, \py\ originally modelled all bound-bound processes as transitions
+within a simple two-level atom \cite[e.g.][]{mihalas}. 
+This framework was used for the treatment of line transfer and also
+for the line heating and cooling calculations. 
+The approximation works reasonably well for resonance  
 lines, such as \civfull, in which the lower level is the ground state.  
 However, it is a poor approximation for many other
 transitions, particularly those where the upper level
@@ -468,10 +470,18 @@ rates to and from all levels are considered when calculating both the
 ionization state and the level populations, although we neglect 
 ionization directly to excited levels of the upper ion. The
 \cite{vanregemorter} approximation is used for collisional
-transitions, and thus we assume that collisions between radiatively
-forbidden transitions are not important in determining level
-populations. This is a reasonable approximation in the regimes
-considered here.
+transitions. This means that collisions between radiatively
+forbidden transitions are not taken into account when one 
+splits levels according to $l$ and $J$ quantum numbers, as well
+as principal quantum number, $n$ (as we have done with He~\textsc{i}; 
+see section~\ref{sec:data}).
+Although this is, in general, a poor approximation, 
+it is a second order effect in the physical regime where 
+recombination lines are formed. 
+This is because bound-free processes are 
+dominant in determining level populations and emissivities.
+We have verified that this is indeed the case in the He~\textsc{i}
+emission regions in our model.
 
 \subsection{Ionization and Excitation: A Hybrid Approach}
 
@@ -490,10 +500,10 @@ approximation or with the full macro-atom machinery. In our CV
 models, we treat H and He as macro-atoms and all metals as
 simple-atoms. Elements treated with either method
 are always present as sources of both bound-free opacity and line opacity, 
-and contribute to the heating and cooling balance 
-of the plasma.
+and contribute to the heating and cooling balance of the plasma.
 
 \subsection{Atomic Data}
+\label{sec:data}
 
 We generally use the same atomic data as H13, which is an updated
 version of that described by LK02. In addition, we follow SDL05 in
@@ -783,7 +793,9 @@ investigating one of the fiducial CV wind models that was used by SV93
 and LK02 to simulate the UV spectrum of a typical high-state
 system. The specific parameters for this model (model A) are listed in
 Table~1. A key point is that the wind mass-loss rate in this model is
-set to 10$\%$ of the accretion rate through the disk.
+set to 10$\%$ of the accretion rate through the disk. 
+The sensitivity to some of these parameters is discussed further in
+section 5. 
 
 \subsection{Physical Structure and Ionization State}
 \label{modela_ionization}
@@ -996,13 +1008,16 @@ Based on a preliminary exploration of models with different kinematics,
 we adopt the parameters listed in table~\ref{modelb_table}
 for our `optically optimized' model (model B). 
 
+%It is possible that other parameters, such as the launching radii and angles
+
+
 
 \subsection{Synthetic Spectra}
 
 \begin{figure} %fullpage
 \includegraphics[width=0.9\textwidth]{figures/modelb_uv_opt.eps}
 \caption{
-UV (left) and Optical (right) synthetic spectra for model B computed at
+UV (left) and optical (right) synthetic spectra for model B computed at
 sightlines of 10, 27.5, 45, 62.5 and 80 degrees. 
 Model A is shown in grey for comparison.	
 The inset plots show zoomed-in line profiles for 
