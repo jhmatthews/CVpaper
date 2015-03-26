@@ -395,7 +395,7 @@ and $z_j(T_R)$ is the partition function of ionic stage $j$.
 Finally, \py\ originally modelled all bound-bound processes as transitions
 within a simple two-level atom \cite[e.g.][]{mihalas}. 
 This framework was used for the treatment of line transfer and also
-for the line heating and cooling calculations. 
+for the line heating and cooling calculations (see LK02). 
 The approximation works reasonably well for resonance  
 lines, such as \civfull, in which the lower level is the ground state.  
 However, it is a poor approximation for many other
@@ -472,13 +472,11 @@ ionization directly to excited levels of the upper ion. The
 \cite{vanregemorter} approximation is used for collisional
 transitions. This means that collisions between radiatively
 forbidden transitions are not taken into account when one 
-splits levels according to $l$ and $J$ quantum numbers, as well
+splits levels according to $l$- and $s$-subshells, as well
 as principal quantum number, $n$ (as we have done with He~\textsc{i}; 
-see section~\ref{sec:data}).
-Although this is, in general, a poor approximation, 
-it is a second order effect in the physical regime where 
-recombination lines are formed. 
-This is because bound-free processes are 
+see section~\ref{sec:data}). Although this is, in general, 
+a poor approximation, it is a second order effect in the physical 
+regime where recombination lines are formed. This is because bound-free processes are 
 dominant in determining level populations and emissivities.
 We have verified that this is indeed the case in the He~\textsc{i}
 emission regions in our model.
@@ -793,9 +791,10 @@ investigating one of the fiducial CV wind models that was used by SV93
 and LK02 to simulate the UV spectrum of a typical high-state
 system. The specific parameters for this model (model A) are listed in
 Table~1. A key point is that the wind mass-loss rate in this model is
-set to 10$\%$ of the accretion rate through the disk. 
-The sensitivity to some of these parameters is discussed further in
-section 5. 
+set to 10$\%$ of the accretion rate through the disk. The inner edge of
+the wind ($r_{min}$) is set to $4~R_{WD}$ following SV93. 
+The sensitivity to some of these parameters is briefly discussed in
+section~5. 
 
 \subsection{Physical Structure and Ionization State}
 \label{modela_ionization}
@@ -1097,6 +1096,26 @@ is probably somewhat too high to be consistent with UV observations
 of high-state CVs (see e.g. Long et al. 1991, 1994; Noebauer et al. 2010).
 \nocite{long1991,long1994, noebauer}
 
+This model demonstrated that one can achieve a more
+realistic optical spectrum by altering just two kinematic parameters. 
+However, it may also be possible to achieve this with
+other free parameters such as $\dot{M}_{wind}$, the opening angles of the wind and the 
+inner and outer launch radii. For example, increasing the mass loss rate of the wind
+would increase the amount of wind emission, as well as lowering the ionization 
+parameter and increasing optical depth through the wind. 
+Wider launch radii and opening angles would lead to a larger emitting volume, but
+this would be moderated by the decrease in density for a fixed mass-loss rate. 
+We also note that the inner radius of $4~R_{WD}$ adopted by SV93 
+particularly affects the emergent spectrum seen at inclinations $<\theta_{min}$ as 
+the inner disk is uncovered. A wind which extends right up to the WD would therefore
+have more absorption in the resonance lines and a less pronounced Balmer absorption edge
+at low inclinations. We suggest that future work should incorporate a treatment of clumping
+and investigate the effect of these parameters in more detail. If a wind 
+really does produce the line and continuum emission seen in optical spectra of high-state CVs, then
+understanding the true mass loss rate and geometry of the outflow is clearly important.
+
+
+
 \subsection{Continuum Shape and the Balmer Jump}
 
 The wind now also has a clear effect on the continuum shape,
@@ -1275,6 +1294,20 @@ spectrum makes a specific comparison difficult. In order to demonstrate
 the double-peaked nature of the narrower lines, we choose not to 
 smooth the synthesized data to the resolution of the RW Tri dataset.
 If the data was smoothed, the \ha\ line would appear single-peaked.
+
+% \section{Sensitivity to Free Parameters}
+% \label{sec:free_params}
+
+% We have demonstrated that one can achieve a more
+% realistic optical spectrum with small changes to the wind prescription; 
+% specifically by altering just two kinematic parameters which increase the emission measure
+% of the wind plasma. However, it may also be possible to achieve this by altering 
+% other free parameters such as $\dot{M}_W$, the opening angles of the wind and the 
+% inner and outer launch radii. Increasing the mass loss rate of the wind or volume of 
+% the emitting area would 
+
+% We plan to explore the effect of these parameters 
+
 
 
 
