@@ -432,12 +432,13 @@ coefficient. $J_{est}$ is the Monte Carlo estimator for the mean intensity
 impinging on the Sobolev region, weighted by an angle-dependent escape probability, 
 given by \citep{sim2004}
 \begin{equation}
-J_{est} = \frac{c}{4 \pi \nu_0 V} \sum_{photons} w \frac{1 - e^{-\tau_s}}{\tau_s} \frac{1}{dv/ds}.
+J_{est} = \frac{c}{4 \pi \nu_0 V} \sum_{i} w_i \frac{1 - e^{-\tau_{s,i}}}{\tau_{s,i}} \frac{1}{(dv/ds)_i}.
 \end{equation}
 Here $w$ is the photon weight (in luminosity units), $\nu_0$
 is the line frequency, $dv/ds$ is the velocity gradient and
 $\tau_s$ is the Sobolev optical depth.
-The sum is over all photons that come into resonance with the line.
+The sum is over all photons that come into resonance with the line,
+and thus represents an integral over solid angle.
 The corresponding de-excitation rate is then 
 \begin{equation}
 {\cal R}_{ul} = \beta_{lu} A_{ul} n_u + B_{ul} n_u J_{est} +
@@ -496,8 +497,8 @@ implemented a hybrid ionization and excitation scheme into \py. Any
 atomic species can now be treated either in our simple-atom
 approximation or with the full macro-atom machinery. In our CV
 models, we treat H and He as macro-atoms and all metals as
-simple-atoms. Elements treated with either method
-are always present as sources of both bound-free opacity and line opacity, 
+simple-atoms. Species treated with either method
+are full taken into account as sources of both bound-free opacity and line opacity, 
 and contribute to the heating and cooling balance of the plasma.
 
 \subsection{Atomic Data}
@@ -880,8 +881,8 @@ the case, since the ionization state of the wind has not changed
 significantly from that computed by LK02 (see section~\ref{modela_ionization}). 
 The left column of panels in Fig.~\ref{spec} shows that this expectation
 is met: all of the strong metal resonance
-lines -- notably N\textsc{v}~$\lambda1240$,
-Si\textsc{iv}~$\lambda1400$ and C\textsc{iv}~$\lambda1550$ -- 
+lines -- notably N~\textsc{v}~$\lambda1240$,
+Si~\textsc{iv}~$\lambda1400$ and C~\textsc{iv}~$\lambda1550$ -- 
 are present and exhibit clear P-Cygni profiles
 at intermediate inclinations. In addition, however, we now also find
 that the wind produces significant Ly$\alpha$ and
@@ -1096,25 +1097,6 @@ is probably somewhat too high to be consistent with UV observations
 of high-state CVs (see e.g. Long et al. 1991, 1994; Noebauer et al. 2010).
 \nocite{long1991,long1994, noebauer}
 
-This model demonstrated that one can achieve a more
-realistic optical spectrum by altering just two kinematic parameters. 
-However, it may also be possible to achieve this with
-other free parameters such as $\dot{M}_{wind}$, the opening angles of the wind and the 
-inner and outer launch radii. For example, increasing the mass loss rate of the wind
-would increase the amount of wind emission, as well as lowering the ionization 
-parameter and increasing optical depth through the wind. 
-Wider launch radii and opening angles would lead to a larger emitting volume, but
-this would be moderated by the decrease in density for a fixed mass-loss rate. 
-We also note that the inner radius of $4~R_{WD}$ adopted by SV93 
-particularly affects the emergent spectrum seen at inclinations $<\theta_{min}$ as 
-the inner disk is uncovered. A wind which extends right up to the WD would therefore
-have more absorption in the resonance lines and a less pronounced Balmer absorption edge
-at low inclinations. We suggest that future work should incorporate a treatment of clumping
-and investigate the effect of these parameters in more detail. If a wind 
-really does produce the line and continuum emission seen in optical spectra of high-state CVs, then
-understanding the true mass loss rate and geometry of the outflow is clearly important.
-
-
 
 \subsection{Continuum Shape and the Balmer Jump}
 
@@ -1251,6 +1233,27 @@ implying a significant vertical extent for the line-forming
 region. This type of model should therefore not be ruled out {\em a priori}, 
 but this specific model was not adopted as our optically optimized model
 due to its unrealistically high continuum level in eclipse. 
+
+\subsection{Sensitivity to Parameters}
+
+This revised model demonstrates that one can achieve a more
+realistic optical spectrum by altering just two kinematic parameters. 
+However, it may also be possible to achieve this with
+other free parameters such as $\dot{M}_{wind}$, the opening angles of the wind and the 
+inner and outer launch radii. For example, increasing the mass loss rate of the wind
+would increase the amount of wind emission, as well as lowering the ionization 
+parameter and increasing optical depth through the wind. In general, we expect
+scattering and ionization changes to scale as $\rho$, whereas recombination
+emission scales as $\rho^2$. Wider launch radii and opening angles would lead 
+to a larger emitting volume, but this would be moderated by a decrease in density for a fixed mass-loss rate. 
+We also note that the inner radius of $4~R_{WD}$ adopted by SV93 
+particularly affects the emergent spectrum seen at inclinations $<\theta_{min}$ as 
+the inner disk is uncovered. A wind which extends right up to the WD would therefore
+have more absorption in the resonance lines and a less pronounced Balmer absorption edge
+at low inclinations. We suggest that future work should incorporate a treatment of clumping
+and investigate the effect of these parameters in more detail. If a wind 
+really does produce the line and continuum emission seen in optical spectra of high-state CVs, then
+understanding the true mass loss rate and geometry of the outflow is clearly important.
 
 
 \subsection{Comparison to RW Tri}
