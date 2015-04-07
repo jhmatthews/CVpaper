@@ -27,16 +27,6 @@ Second, since the applications presented in the paper seem to take into account 
 
 
 
-
-
-
-
-
-
-
-
-
-
 MY RESPONSE:
 
 We would like to thank the referee for a helpful and constructive report. We outline our responses below in the same order as the original report. Most points simply necessitated small changes to the text, although a few tests were conducted to verify some of the statements we make below- see supplementary_notes.pdf.
@@ -54,9 +44,9 @@ This approximation is reasonable when considering the dense regions of the wind 
 
 In He I this is not the case, as singlet and triplet lines are possible. However, these lines are formed in a regime where the level populations are determined primarily by bound-free, rather than bound-bound processes. 
 
-To convince us, and the referee, that this is indeed the case I have conducted some additional tests. We added an abritrarily strong transition between subshells which were not radiatively linked, in order
+To convince us, and the referee, that this is indeed the case we have conducted some additional tests. We added an abritrarily strong transition between subshells which were not radiatively linked, in order
 to simulate dominant collisions. This had a small effect on level populations, but the effect on emergent 
-emissivities is negligible, and the spectra appear identical. This is because in the emission regions the level populations are more or less distributed according to statistical weight due to bound-free processes dominating the level 	populations.
+emissivities is negligible, and the spectra appear identical. This is because in the emission regions the level populations are more or less distributed according to statistical weight due to bound-free processes dominating the level populations.
 
 We acknowledge the point about about data available in the literature- we plan to incorporate better data for the treatment of collisions for dipole forbidden transitions by using spline fits to collisional coefficients for each transition in the near future, but we do not feel this is necessary for the current publication. 
 
