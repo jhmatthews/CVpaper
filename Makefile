@@ -17,7 +17,7 @@ all:
 	${CMD} draft_mnras
 	${CMD} draft_mnras
 	dvips draft_mnras -o cvwinds_draft_mnras_jm.ps
-	
+	ps2pdf cvwinds_draft_mnras_jm.ps	
 clean:	
 	/bin/rm -f *.aux *.log *.dvi 
 
