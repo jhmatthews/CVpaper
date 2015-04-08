@@ -1,9 +1,5 @@
+\documentclass[useAMS,usenatbib]{mn2e_x}
 %%%% Various options for document class.
-%\documentclass[usenatbib, a4paper]{preprint}
-\documentclass[preprint, a4paper, 11pt]{aastex}
-%%\documentclass[twocolum]{revtex4}
-%%\documentclass{report}
-%%\documentclass[useAMS,usenatbib, onecolumn]{mn2ejm}
 
 %\usepackage{psfig,morefloats,url}
 %use preprint2 for 2 columns paper.
@@ -89,6 +85,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\maketitle
 \begin{abstract}
 % Many high-state non-magnetic cataclysmic variables (CVs) exhibit
 % blue-shifted absorption or P-Cygni profiles associated with ultraviolet
@@ -155,7 +152,6 @@ from CVs.
 {\sl (stars:)} novae, cataclysmic variables - accretion, accretion discs - stars: winds, outflows - line: profiles - radiative transfer - methods: numerical 
 \end{keywords}
 
-\maketitle
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -167,7 +163,7 @@ from CVs.
 \section{Introduction} 
 \label{sec:intro}
 
-\begin{figure}	%fullpage
+\begin{figure*}
 \centering
 \includegraphics[width=0.7\textwidth]{figures/fig1.eps}
 \caption{
@@ -188,7 +184,7 @@ of a (potentially wind-formed) recombination continuum in the eclipsed
 spectrum. We have attempted to show each spectrum over a similar dynamic range.
 }
 \label{novalikes}
-\end{figure}
+\end{figure*}
 
 Cataclysmic variables (CVs) are systems in which a white dwarf
 accretes matter from a donor star via Roche-lobe overflow. In
@@ -800,7 +796,7 @@ section~5.
 \subsection{Physical Structure and Ionization State}
 \label{modela_ionization}
 
-\begin{figure} %fullpage
+\begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/fig5.eps}
 \caption{
 The physical properties of the wind -- note the logarithmic scale. 
@@ -812,7 +808,7 @@ portion of the wind at the base, which is partially shielded
 from the inner disk.
 }
 \label{wind}
-\end{figure} %fullpage
+\end{figure*}
 
 Fig.~\ref{wind} shows the physical and ionization structure 
 of the benchmark disk wind model. The ionization parameter shown in the bottom
@@ -855,7 +851,7 @@ blue-shifted C\textsc{iv}~$\lambda1550$ absorption line that
 is usually the most prominent wind-formed feature in the UV spectra of
 low-inclination nova-like CVs.
 
-\begin{figure} %fullpage
+\begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/modela_uv_opt.eps}
 \caption{
 UV (left) and optical (right) synthetic spectra for model A, our benchmark model,
@@ -868,7 +864,7 @@ cores from the stellar atmosphere models. The model
 also produces a prominent \heiioptnew\ line at high inclinations.
 }
 \label{spec}
-\end{figure} %fullpage\
+\end{figure*}
 
 
 
@@ -1014,7 +1010,7 @@ for our `optically optimized' model (model B).
 
 \subsection{Synthetic Spectra}
 
-\begin{figure} %fullpage
+\begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/modelb_uv_opt.eps}
 \caption{
 UV (left) and optical (right) synthetic spectra for model B computed at
@@ -1027,7 +1023,7 @@ Strong \heiiopt\ emission can be seen, as well as a trend
 of a deeper Balmer jump with decreasing inclination.
 }
 \label{uvoptb}
-\end{figure} %fullpage
+\end{figure*}
 
 Fig.~\ref{uvoptb} shows the UV and optical spectra for the
 optically optimized model for the full range of inclinations. 
@@ -1190,7 +1186,7 @@ This is not due to radial velocity shear (see section 5.3).
 
 \subsection{Line Profile Shapes: Producing Single-Peaked Emission}
 
-\begin{figure} %fullpage
+\begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/fig13.eps}
 \caption{{\sl Top Panel:} In and out of eclipse spectra of the high
 inclination NL RW Tri. {\sl Bottom Panel:} In and out of eclipse synthetic
@@ -1198,7 +1194,7 @@ spectra from model B.
 The artificial `absorption' feature just redward of the Balmer jump
 is caused for the reasons described in section 5.2.}
 \label{rwtricomp}
-\end{figure} %fullpage
+\end{figure*}
 
 
 Fig.~\ref{halpha} shows how the H$\alpha$ profile changes with the kinematics of the wind for 
