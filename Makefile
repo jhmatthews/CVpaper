@@ -49,6 +49,15 @@ draft:
 # 	pdflatex draft_mnras
 # 	open -a preview draft_mnras.pdf
 
+arxiv: 
+	${CMD} draft_mnras_arxiv
+	bibtex draft_mnras_arxiv
+	${CMD} draft_mnras_arxiv
+	${CMD} draft_mnras_arxiv
+	dvips draft_mnras_arxiv -o draft_mnras_arxiv.ps
+	ps2pdf draft_mnras_arxiv.ps
+
+
 diffs:
 	latexdiff --flatten old.tex draft.tex > diffs.tex
 	python scripts/mnras.py diffs.tex diffs_mnras.tex
